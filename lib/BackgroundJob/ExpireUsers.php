@@ -27,6 +27,7 @@ use OC\Authentication\Token\IToken;
 use OC\Authentication\Token\Manager;
 use OC\BackgroundJob\TimedJob;
 use OCA\Guests\UserBackend;
+use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IGroupManager;
 use OCP\IUser;
@@ -45,6 +46,8 @@ class ExpireUsers extends TimedJob {
 	protected $userManager;
 	/** @var IGroupManager */
 	protected $groupManager;
+	/** @var ITimeFactory */
+	protected $timeFactory;
 
 	protected $userMaxLastLogin = 0;
 	protected $guestMaxLastLogin = 0;
@@ -52,10 +55,12 @@ class ExpireUsers extends TimedJob {
 
 	public function __construct(IConfig $config,
 								IUserManager $userManager,
-								IGroupManager $groupManager) {
+								IGroupManager $groupManager,
+								ITimeFactory $timeFactory) {
 		$this->config = $config;
 		$this->userManager = $userManager;
 		$this->groupManager = $groupManager;
+		$this->timeFactory = $timeFactory;
 
 		// Every day
 		$this->setInterval(1);//60 * 60 * 24);
@@ -104,6 +109,17 @@ class ExpireUsers extends TimedJob {
 			return false;
 		}
 
+		$createdAt = $this->getCreatedAt($user);
+		if ($createdAt === 0) {
+			// Set "now" as created at timestamp for the user.
+			$this->setCreatedAt($user, $this->timeFactory->getTime());
+			return false;
+		}
+
+		if ($maxLastLogin < $createdAt) {
+			return false;
+		}
+
 		if (empty($this->excludedGroups)) {
 			return true;
 		}
@@ -119,11 +135,29 @@ class ExpireUsers extends TimedJob {
 		$tokens = $authTokenManager->getTokenByUser($user->getUID());
 
 		foreach ($tokens as $token) {
-			if ($token->getLastActivity() > $maxLastActivity) {
+			if ($maxLastActivity < $token->getLastActivity()) {
 				return false;
 			}
 		}
 
 		return true;
+	}
+
+	protected function getCreatedAt(IUser $user): int {
+		return (int) $this->config->getUserValue(
+			$user->getUID(),
+			'user_retention',
+			'user_created_at',
+			0
+		);
+	}
+
+	protected function setCreatedAt(IUser $user, int $time): void {
+		$this->config->setUserValue(
+			$user->getUID(),
+			'user_retention',
+			'user_created_at',
+			$time
+		);
 	}
 }
