@@ -25,7 +25,7 @@
 		<h2>{{ t('user_retention', 'User retention') }}</h2>
 
 		<p class="settings-hint">
-			{{ t('user_retention', 'Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users. Please note that having the sync client running in the background does not refresh your last login time. So only explicit logins on the web interface prevent the users from being deleted.') }}
+			{{ t('user_retention', 'Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users.') }}
 		</p>
 
 		<div>

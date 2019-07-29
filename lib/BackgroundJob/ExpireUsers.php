@@ -22,6 +22,9 @@ declare(strict_types=1);
 
 namespace OCA\UserRetention\BackgroundJob;
 
+use OC\Authentication\Token\DefaultToken;
+use OC\Authentication\Token\IToken;
+use OC\Authentication\Token\Manager;
 use OC\BackgroundJob\TimedJob;
 use OCA\Guests\UserBackend;
 use OCP\IConfig;
@@ -97,11 +100,30 @@ class ExpireUsers extends TimedJob {
 			return false;
 		}
 
+		if (!$this->allAuthTokensInactive($user, $maxLastLogin)) {
+			return false;
+		}
+
 		if (empty($this->excludedGroups)) {
 			return true;
 		}
 
 		$userGroups = $this->groupManager->getUserGroupIds($user);
 		return empty(array_intersect($userGroups, $this->excludedGroups));
+	}
+
+	protected function allAuthTokensInactive(IUser $user, int $maxLastActivity): bool {
+		/** @var Manager $authTokenManager */
+		$authTokenManager = \OC::$server->query(Manager::class);
+		/** @var DefaultToken[] $tokens */
+		$tokens = $authTokenManager->getTokenByUser($user->getUID());
+
+		foreach ($tokens as $token) {
+			if ($token->getLastActivity() > $maxLastActivity) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 }
