@@ -62,17 +62,23 @@ appstore: dev-setup build-js-production
 	--exclude=/.github \
 	--exclude=/CONTRIBUTING.md \
 	--exclude=/issue_template.md \
+	--exclude=/js/**.js.map \
 	--exclude=/README.md \
+	--exclude=/.babel.js \
+	--exclude=/.drone.yml \
+	--exclude=/.eslintrc.js \
+	--exclude=/.gitattributes \
 	--exclude=/.gitignore \
 	--exclude=/.scrutinizer.yml \
 	--exclude=/.travis.yml \
-	--exclude=/.drone.yml \
-	--exclude=.l10nignore \
+	--exclude=/check-vuejs-builds.sh \
 	--exclude=/node_modules \
 	--exclude=/npm-debug.log \
 	--exclude=/package.json \
 	--exclude=/package-lock.json \
+	--exclude=/webpack.*.js \
 	--exclude=/Makefile \
+	--exclude=.l10nignore \
 	$(project_dir)/  $(sign_dir)/$(app_name)
 	@if [ -f $(cert_dir)/$(app_name).key ]; then \
 		echo "Signing app files…"; \
