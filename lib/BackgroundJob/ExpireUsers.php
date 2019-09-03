@@ -63,7 +63,7 @@ class ExpireUsers extends TimedJob {
 		$this->timeFactory = $timeFactory;
 
 		// Every day
-		$this->setInterval(1);//60 * 60 * 24);
+		$this->setInterval(60 * 60 * 24);
 	}
 
 	protected function run($argument): void {
