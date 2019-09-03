@@ -1,13 +1,23 @@
 app_name=user_retention
 
 project_dir=$(CURDIR)/../$(app_name)
-build_dir=$(CURDIR)/build
-source_dir=$(build_dir)/$(app_name)
+build_dir=$(CURDIR)/build/artifacts
+appstore_dir=$(build_dir)/appstore
+source_dir=$(build_dir)/source
 sign_dir=$(build_dir)/sign
+package_name=$(app_name)
+cert_dir=$(HOME)/.nextcloud/certificates
+version+=master
 
 all: dev-setup build-js-production
 
 dev-setup: clean clean-dev npm-init
+
+release: appstore create-tag
+
+create-tag:
+	git tag -a v$(version) -m "Tagging the $(version) release."
+	git push origin v$(version)
 
 npm-init:
 	npm install
@@ -40,8 +50,8 @@ clean:
 clean-dev:
 	rm -rf node_modules
 
-package: dev-setup build-js-production
-	mkdir -p $(source_dir)
+appstore: dev-setup build-js-production
+	mkdir -p $(sign_dir)
 	rsync -a \
 	--exclude=/build \
 	--exclude=/docs \
@@ -63,4 +73,17 @@ package: dev-setup build-js-production
 	--exclude=/package.json \
 	--exclude=/package-lock.json \
 	--exclude=/Makefile \
-	$(project_dir)/ $(source_dir)
+	$(project_dir)/  $(sign_dir)/$(app_name)
+	@if [ -f $(cert_dir)/$(app_name).key ]; then \
+		echo "Signing app files…"; \
+		php ../../occ integrity:sign-app \
+			--privateKey=$(cert_dir)/$(app_name).key\
+			--certificate=$(cert_dir)/$(app_name).crt\
+			--path=$(sign_dir)/$(app_name); \
+	fi
+	tar -czf $(build_dir)/$(app_name)-$(version).tar.gz \
+		-C $(sign_dir) $(app_name)
+	@if [ -f $(cert_dir)/$(app_name).key ]; then \
+		echo "Signing package…"; \
+		openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(build_dir)/$(app_name)-$(version).tar.gz | openssl base64; \
+	fi
