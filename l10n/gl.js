@@ -9,6 +9,6 @@ OC.L10N.register(
     "(0 to disable)" : "(0 para desactivar)",
     "Guest expiration:" : "Caducidade dos convidados:",
     "Exclude groups:" : "Excluír grupos:",
-    "Limit app usage to groups." : "Limitar o uso de aplicativos a grupos."
+    "Limit app usage to groups." : "Limitar o uso de aplicacións a grupos"
 },
 "nplurals=2; plural=(n != 1);");
