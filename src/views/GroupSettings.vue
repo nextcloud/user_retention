@@ -31,8 +31,11 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'User expiration:') }}</span>
-				<input id="user_days" v-model="userDays" type="number"
-					placeholder="180" @change="saveUserDays"> {{ t('user_retention', 'days') }}
+				<input id="user_days"
+					v-model="userDays"
+					type="number"
+					placeholder="180"
+					@change="saveUserDays"> {{ t('user_retention', 'days') }}
 				<em>{{ t('user_retention', '(0 to disable)') }}</em>
 			</label>
 		</div>
@@ -40,8 +43,11 @@
 		<div v-if="guestsAppInstalled">
 			<label>
 				<span>{{ t('user_retention', 'Guest expiration:') }}</span>
-				<input id="guest_days" v-model="guestDays" type="number"
-					placeholder="180" @change="saveGuestDays"> {{ t('user_retention', 'days') }}
+				<input id="guest_days"
+					v-model="guestDays"
+					type="number"
+					placeholder="180"
+					@change="saveGuestDays"> {{ t('user_retention', 'days') }}
 				<em>{{ t('user_retention', '(0 to disable)') }}</em>
 			</label>
 		</div>
@@ -49,7 +55,7 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
-				<multiselect v-model="excludedGroups"
+				<Multiselect v-model="excludedGroups"
 					class="exclude-groups-select"
 					:options="groups"
 					:placeholder="t('spreed', 'Limit app usage to groups.')"
@@ -73,7 +79,7 @@ import { Multiselect } from 'nextcloud-vue'
 import _ from 'lodash'
 
 export default {
-	name: 'AllowedGroups',
+	name: 'GroupSettings',
 
 	components: {
 		Multiselect
