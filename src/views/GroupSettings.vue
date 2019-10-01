@@ -75,8 +75,10 @@
 
 <script>
 import axios from 'nextcloud-axios'
-import { Multiselect } from 'nextcloud-vue'
-import _ from 'lodash'
+import debounce from 'debounce'
+import Multiselect from 'nextcloud-vue/dist/Components/Multiselect'
+import { generateOcsUrl } from 'nextcloud-router/dist/index'
+import { loadState } from 'nextcloud-initial-state'
 
 export default {
 	name: 'GroupSettings',
@@ -100,10 +102,10 @@ export default {
 	mounted() {
 		this.loading = true
 
-		this.userDays = OCP.InitialState.loadState('user_retention', 'user_days')
-		this.guestDays = OCP.InitialState.loadState('user_retention', 'guest_days')
-		this.excludedGroups = OCP.InitialState.loadState('user_retention', 'excluded_groups')
-		this.guestsAppInstalled = OCP.InitialState.loadState('user_retention', 'guests_app_installed')
+		this.userDays = loadState('user_retention', 'user_days')
+		this.guestDays = loadState('user_retention', 'guest_days')
+		this.excludedGroups = loadState('user_retention', 'excluded_groups')
+		this.guestsAppInstalled = loadState('user_retention', 'guests_app_installed')
 		this.groups = this.excludedGroups
 		this.loading = false
 
@@ -111,20 +113,19 @@ export default {
 	},
 
 	methods: {
-		searchGroup: _.debounce(function(query) {
+		searchGroup: debounce(async function(query) {
 			this.loadingGroups = true
-			axios.get(OC.linkToOCS(`cloud/groups?offset=0&search=${encodeURIComponent(query)}&limit=20`, 2))
-				.then(res => res.data.ocs)
-				.then(ocs => ocs.data.groups)
-				.then(groups => {
-					this.groups = _.sortedUniq(_.uniq(this.groups.concat(groups)))
+			try {
+				const res = await axios.get(generateOcsUrl('cloud', 2) + `groups?offset=0&search=${encodeURIComponent(query)}&limit=20`)
+				// remove duplicates and sort
+				this.groups = [...new Set(res.data.ocs.data.groups)].sort(function(a, b) {
+					return a.localeCompare(b)
 				})
-				.catch(err => {
-					console.error('could not search groups', err)
-				})
-				.then(() => {
-					this.loadingGroups = false
-				})
+			} catch (err) {
+				console.error('Could not fetch groups', err)
+			} finally {
+				this.loadingGroups = false
+			}
 		}, 500),
 
 		saveUserDays() {
