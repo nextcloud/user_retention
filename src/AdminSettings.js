@@ -24,9 +24,6 @@ import Vue from 'vue'
 import GroupSettings from './views/GroupSettings'
 
 Vue.prototype.t = t
-Vue.prototype.n = n
-Vue.prototype.OC = OC
-Vue.prototype.OCA = OCA
 Vue.prototype.OCP = OCP
 
 export default new Vue({
