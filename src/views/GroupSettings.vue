@@ -84,7 +84,7 @@ export default {
 	name: 'GroupSettings',
 
 	components: {
-		Multiselect
+		Multiselect,
 	},
 
 	data() {
@@ -95,7 +95,7 @@ export default {
 			groups: [],
 			excludedGroups: [],
 			userDays: 0,
-			guestDays: 0
+			guestDays: 0,
 		}
 	},
 
@@ -144,10 +144,10 @@ export default {
 				success: function() {
 					this.loading = false
 					this.loadingGroups = false
-				}.bind(this)
+				}.bind(this),
 			})
-		}
-	}
+		},
+	},
 }
 </script>
 

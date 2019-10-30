@@ -29,5 +29,5 @@ Vue.prototype.OCP = OCP
 export default new Vue({
 	el: '#user_retention',
 	name: 'AdminSettings',
-	render: h => h(GroupSettings)
+	render: h => h(GroupSettings),
 })
