@@ -8,6 +8,6 @@ OC.L10N.register(
     "(0 to disable)" : "(0 för att inaktivera)",
     "Guest expiration:" : "Gäst upphör:",
     "Exclude groups:" : "Uteslut grupper:",
-    "Limit app usage to groups." : "Begränsa app-användning till grupper."
+    "Limit app usage to groups." : "Begränsa appanvändning till grupper."
 },
 "nplurals=2; plural=(n != 1);");
