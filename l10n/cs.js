@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "User retention" : "Zadržování uživatele",
     "Deletes users that did not log in in the last days." : "Smaže uživatele, kteří se nepřihlásili v minulých dnech.",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Uživatelé jsou mazání když se ke svému účtu nepřihlásí do daného počtu dnů. Toto také smaže veškeré soubory dotčených uživatelů.",
     "User expiration:" : "Skončení platnosti uživatelského účtu:",
