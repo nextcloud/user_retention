@@ -18,7 +18,7 @@
     "nextcloud-initial-state": "0.0.3",
     "nextcloud-router": "0.0.9",
     "nextcloud-vue": "^0.12.7",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-fragment": "^1.5.1",
     "vuex": "^3.1.2"
   },
@@ -48,7 +48,7 @@
     "node-sass": "^4.13.0",
     "sass-loader": "^7.3.1",
     "vue-loader": "^15.7.2",
-    "vue-template-compiler": "^2.6.10",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
     "webpack-merge": "^4.2.2"
