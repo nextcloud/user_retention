@@ -17,7 +17,7 @@
     "nextcloud-axios": "^0.2.1",
     "nextcloud-initial-state": "0.0.3",
     "nextcloud-router": "0.0.9",
-    "nextcloud-vue": "^0.12.11",
+    "nextcloud-vue": "^0.13.0",
     "vue": "^2.6.11",
     "vue-fragment": "^1.5.1",
     "vuex": "^3.1.2"
