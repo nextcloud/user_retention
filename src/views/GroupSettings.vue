@@ -28,6 +28,10 @@
 			{{ t('user_retention', 'Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users.') }}
 		</p>
 
+		<p v-if="ldapBackendEnabled" class="settings-hint">
+			{{ t('user_retention', 'Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear.') }}
+		</p>
+
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'User expiration:') }}</span>
@@ -92,6 +96,7 @@ export default {
 			loading: false,
 			loadingGroups: false,
 			guestsAppInstalled: false,
+			ldapBackendEnabled: false,
 			groups: [],
 			excludedGroups: [],
 			userDays: 0,
@@ -106,6 +111,7 @@ export default {
 		this.guestDays = loadState('user_retention', 'guest_days')
 		this.excludedGroups = loadState('user_retention', 'excluded_groups')
 		this.guestsAppInstalled = loadState('user_retention', 'guests_app_installed')
+		this.ldapBackendEnabled = loadState('user_retention', 'ldap_backend_enabled')
 		this.groups = this.excludedGroups
 		this.loading = false
 
