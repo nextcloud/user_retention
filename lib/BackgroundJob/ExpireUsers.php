@@ -23,15 +23,17 @@ declare(strict_types=1);
 namespace OCA\UserRetention\BackgroundJob;
 
 use OC\Authentication\Token\DefaultToken;
-use OC\Authentication\Token\IToken;
 use OC\Authentication\Token\Manager;
 use OC\BackgroundJob\TimedJob;
 use OCA\Guests\UserBackend;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IGroupManager;
+use OCP\ILogger;
+use OCP\IServerContainer;
 use OCP\IUser;
 use OCP\IUserManager;
+use OCP\LDAP\IDeletionFlagSupport;
 
 /**
  * Class ExpireUsers
@@ -53,14 +55,21 @@ class ExpireUsers extends TimedJob {
 	protected $guestMaxLastLogin = 0;
 	protected $excludedGroups = [];
 
-	public function __construct(IConfig $config,
-								IUserManager $userManager,
-								IGroupManager $groupManager,
-								ITimeFactory $timeFactory) {
+	/** @var IServerContainer */
+	private $server;
+
+	public function __construct(
+		IConfig $config,
+		IUserManager $userManager,
+		IGroupManager $groupManager,
+		ITimeFactory $timeFactory,
+		IServerContainer $server
+	) {
 		$this->config = $config;
 		$this->userManager = $userManager;
 		$this->groupManager = $groupManager;
 		$this->timeFactory = $timeFactory;
+		$this->server = $server;
 
 		// Every day
 		$this->setInterval(60 * 60 * 24);
@@ -91,6 +100,9 @@ class ExpireUsers extends TimedJob {
 			}
 
 			if ($this->shouldExpireUser($user, $maxLastLogin)) {
+				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
+					return;
+				}
 				$user->delete();
 			}
 		});
@@ -159,5 +171,21 @@ class ExpireUsers extends TimedJob {
 			'user_created_at',
 			$time
 		);
+	}
+
+	protected function prepareLDAPUser(IUser $user): bool {
+		try {
+			$ldapProvider = $this->server->query('LDAPProvider');
+			if($ldapProvider instanceof IDeletionFlagSupport) {
+				$ldapProvider->flagRecord($user->getUID());
+			}
+		} catch (\Exception $e) {
+			$this->server->getLogger()->logException($e, [
+				'app' => 'user_retention',
+				'level' => ILogger::WARN,
+			]);
+			return false;
+		}
+		return true;
 	}
 }
