@@ -52,6 +52,7 @@ class Admin implements ISettings {
 		$this->initialStateService->provideInitialState('user_retention', 'guest_days', $guestDays);
 
 		$this->initialStateService->provideInitialState('user_retention', 'guests_app_installed', $this->appManager->isInstalled('guests'));
+		$this->initialStateService->provideInitialState('user_retention', 'ldap_backend_enabled', $this->appManager->isEnabledForUser('user_ldap'));
 
 		$excludedGroups = $this->config->getAppValue('user_retention', 'excluded_groups', '["admin"]');
 		$excludedGroups = json_decode($excludedGroups, true);
