@@ -5,7 +5,7 @@
 	<name>User retention</name>
 	<summary>Deletes users that did not log in in the last days.</summary>
 	<description>Deletes users that did not log in in the last days.</description>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 	<namespace>UserRetention</namespace>
