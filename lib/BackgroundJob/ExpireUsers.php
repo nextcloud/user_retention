@@ -113,18 +113,18 @@ class ExpireUsers extends TimedJob {
 			return false;
 		}
 
+		$createdAt = $this->getCreatedAt($user);
+		if ($createdAt === 0) {
+			// Set "now" as created at timestamp for the user.
+			$this->setCreatedAt($user, $this->timeFactory->getTime());
+			return false;
+		}
+
 		if ($maxLastLogin < $user->getLastLogin()) {
 			return false;
 		}
 
 		if (!$this->allAuthTokensInactive($user, $maxLastLogin)) {
-			return false;
-		}
-
-		$createdAt = $this->getCreatedAt($user);
-		if ($createdAt === 0) {
-			// Set "now" as created at timestamp for the user.
-			$this->setCreatedAt($user, $this->timeFactory->getTime());
 			return false;
 		}
 
