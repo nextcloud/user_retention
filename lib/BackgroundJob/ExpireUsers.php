@@ -93,7 +93,7 @@ class ExpireUsers extends TimedJob {
 		$excludedGroups = json_decode($excludedGroups, true);
 		$this->excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
 
-		$this->userManager->callForAllUsers(function(IUser $user) {
+		$this->userManager->callForSeenUsers(function(IUser $user) {
 			$maxLastLogin = $this->userMaxLastLogin;
 			if ($user->getBackend() instanceof UserBackend) {
 				$maxLastLogin = $this->guestMaxLastLogin;
@@ -117,6 +117,11 @@ class ExpireUsers extends TimedJob {
 		if ($createdAt === 0) {
 			// Set "now" as created at timestamp for the user.
 			$this->setCreatedAt($user, $this->timeFactory->getTime());
+			return false;
+		}
+
+		if ($user->getLastLogin() === 0) {
+			// no need for deletion when no user dir was initialized
 			return false;
 		}
 
