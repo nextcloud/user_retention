@@ -54,6 +54,8 @@ class ExpireUsers extends TimedJob {
 	protected $userMaxLastLogin = 0;
 	protected $guestMaxLastLogin = 0;
 	protected $excludedGroups = [];
+	/** @var bool*/
+	protected $keepUsersWithoutLogin = true;
 
 	/** @var IServerContainer */
 	private $server;
@@ -89,11 +91,13 @@ class ExpireUsers extends TimedJob {
 			$this->guestMaxLastLogin = $now->sub(new \DateInterval('P' . $guestDays . 'D'))->getTimestamp();
 		}
 
+		$this->keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
+
 		$excludedGroups = $this->config->getAppValue('user_retention', 'excluded_groups', '["admin"]');
 		$excludedGroups = json_decode($excludedGroups, true);
 		$this->excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
 
-		$this->userManager->callForAllUsers(function(IUser $user) {
+		$handler = function(IUser $user) {
 			$maxLastLogin = $this->userMaxLastLogin;
 			if ($user->getBackend() instanceof UserBackend) {
 				$maxLastLogin = $this->guestMaxLastLogin;
@@ -105,7 +109,12 @@ class ExpireUsers extends TimedJob {
 				}
 				$user->delete();
 			}
-		});
+		};
+		if($this->keepUsersWithoutLogin) {
+			$this->userManager->callForSeenUsers($handler);
+		} else {
+			$this->userManager->callForAllUsers($handler);
+		}
 	}
 
 	protected function shouldExpireUser(IUser $user, int $maxLastLogin): bool {
@@ -117,6 +126,11 @@ class ExpireUsers extends TimedJob {
 		if ($createdAt === 0) {
 			// Set "now" as created at timestamp for the user.
 			$this->setCreatedAt($user, $this->timeFactory->getTime());
+			return false;
+		}
+
+		if ($this->keepUsersWithoutLogin && $user->getLastLogin() === 0) {
+			// no need for deletion when no user dir was initialized
 			return false;
 		}
 
