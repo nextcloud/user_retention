@@ -3,7 +3,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
 	entry: {
-		"user_retention": path.join(__dirname, 'src', 'init.js'),
+		"user_retention": path.join(__dirname, 'src', 'AdminSettings.js'),
 	},
 	output: {
 		path: path.resolve(__dirname, './js'),
