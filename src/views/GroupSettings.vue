@@ -35,8 +35,11 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'User expiration:') }}</span>
-				<input id="user_days" v-model="userDays" type="number"
-					placeholder="180" @change="saveUserDays"> {{ t('user_retention', 'days') }}
+				<input id="user_days"
+					v-model="userDays"
+					type="number"
+					placeholder="180"
+					@change="saveUserDays"> {{ t('user_retention', 'days') }}
 				<em>{{ t('user_retention', '(0 to disable)') }}</em>
 			</label>
 		</div>
@@ -44,8 +47,11 @@
 		<div v-if="guestsAppInstalled">
 			<label>
 				<span>{{ t('user_retention', 'Guest expiration:') }}</span>
-				<input id="guest_days" v-model="guestDays" type="number"
-					placeholder="180" @change="saveGuestDays"> {{ t('user_retention', 'days') }}
+				<input id="guest_days"
+					v-model="guestDays"
+					type="number"
+					placeholder="180"
+					@change="saveGuestDays"> {{ t('user_retention', 'days') }}
 				<em>{{ t('user_retention', '(0 to disable)') }}</em>
 			</label>
 		</div>
@@ -53,7 +59,7 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
-				<multiselect v-model="excludedGroups"
+				<Multiselect v-model="excludedGroups"
 					class="exclude-groups-select"
 					:options="groups"
 					:placeholder="t('spreed', 'Limit app usage to groups.')"
@@ -73,14 +79,16 @@
 
 <script>
 import axios from 'nextcloud-axios'
-import { Multiselect } from 'nextcloud-vue'
-import _ from 'lodash'
+import debounce from 'debounce'
+import Multiselect from 'nextcloud-vue/dist/Components/Multiselect'
+import { generateOcsUrl } from 'nextcloud-router/dist/index'
+import { loadState } from 'nextcloud-initial-state'
 
 export default {
-	name: 'AllowedGroups',
+	name: 'GroupSettings',
 
 	components: {
-		Multiselect
+		Multiselect,
 	},
 
 	data() {
@@ -92,18 +100,18 @@ export default {
 			groups: [],
 			excludedGroups: [],
 			userDays: 0,
-			guestDays: 0
+			guestDays: 0,
 		}
 	},
 
 	mounted() {
 		this.loading = true
 
-		this.userDays = OCP.InitialState.loadState('user_retention', 'user_days')
-		this.guestDays = OCP.InitialState.loadState('user_retention', 'guest_days')
-		this.excludedGroups = OCP.InitialState.loadState('user_retention', 'excluded_groups')
-		this.guestsAppInstalled = OCP.InitialState.loadState('user_retention', 'guests_app_installed')
-		this.ldapBackendEnabled = OCP.InitialState.loadState('user_retention', 'ldap_backend_enabled')
+		this.userDays = loadState('user_retention', 'user_days')
+		this.guestDays = loadState('user_retention', 'guest_days')
+		this.excludedGroups = loadState('user_retention', 'excluded_groups')
+		this.guestsAppInstalled = loadState('user_retention', 'guests_app_installed')
+		this.ldapBackendEnabled = loadState('user_retention', 'ldap_backend_enabled')
 		this.groups = this.excludedGroups
 		this.loading = false
 
@@ -111,20 +119,19 @@ export default {
 	},
 
 	methods: {
-		searchGroup: _.debounce(function(query) {
+		searchGroup: debounce(async function(query) {
 			this.loadingGroups = true
-			axios.get(OC.linkToOCS(`cloud/groups?offset=0&search=${encodeURIComponent(query)}&limit=20`, 2))
-				.then(res => res.data.ocs)
-				.then(ocs => ocs.data.groups)
-				.then(groups => {
-					this.groups = _.sortedUniq(_.uniq(this.groups.concat(groups)))
+			try {
+				const res = await axios.get(generateOcsUrl('cloud', 2) + `groups?offset=0&search=${encodeURIComponent(query)}&limit=20`)
+				// remove duplicates and sort
+				this.groups = [...new Set(res.data.ocs.data.groups)].sort(function(a, b) {
+					return a.localeCompare(b)
 				})
-				.catch(err => {
-					console.error('could not search groups', err)
-				})
-				.then(() => {
-					this.loadingGroups = false
-				})
+			} catch (err) {
+				console.error('Could not fetch groups', err)
+			} finally {
+				this.loadingGroups = false
+			}
 		}, 500),
 
 		saveUserDays() {
@@ -143,10 +150,10 @@ export default {
 				success: function() {
 					this.loading = false
 					this.loadingGroups = false
-				}.bind(this)
+				}.bind(this),
 			})
-		}
-	}
+		},
+	},
 }
 </script>
 
