@@ -110,7 +110,8 @@ class ExpireUsers extends TimedJob {
 				$user->delete();
 			}
 		};
-		if($this->keepUsersWithoutLogin) {
+
+		if ($this->keepUsersWithoutLogin) {
 			$this->userManager->callForSeenUsers($handler);
 		} else {
 			$this->userManager->callForAllUsers($handler);
@@ -142,7 +143,7 @@ class ExpireUsers extends TimedJob {
 			return false;
 		}
 
-		if ($maxLastLogin < $createdAt) {
+		if (!$this->keepUsersWithoutLogin && $maxLastLogin < $createdAt) {
 			return false;
 		}
 
