@@ -1,0 +1,14 @@
+{
+  "name": "nextcloud/user_retention",
+  "description": "user_retention",
+  "license": "AGPL",
+  "config": {
+    "optimize-autoloader": true,
+    "classmap-authoritative": true
+  },
+  "require": {
+  },
+  "scripts": {
+    "lint": "find . -name \\*.php -not -path './vendor/*' -exec php -l \"{}\" \\;"
+  }
+}
