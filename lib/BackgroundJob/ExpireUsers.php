@@ -107,7 +107,12 @@ class ExpireUsers extends TimedJob {
 				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
 					return;
 				}
-				$user->delete();
+
+				if ($user->delete()) {
+					$this->server->getLogger()->info('User deleted: ' . $user->getUID(), [
+						'app' => 'user_retention',
+					]);
+				}
 			}
 		};
 
