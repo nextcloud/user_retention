@@ -2,6 +2,7 @@
     "User retention" : "Задржавање корисника",
     "Deletes users that did not log in in the last days." : "Брише кориснике који се нису скоро пријавили.",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Корисници су обрисани када се не пријаве одређен број дана на свој налог. Ово ће такође обрисати и све фајлове тих корисника.",
+    "Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear." : "LDAP корисници се бришу само локално, осим ако није укључена подршка за писање са LDAP-ом. Ако су још доступни на LDAP-у, корисници ће се појавити поново.",
     "User expiration:" : "Истицање корисника:",
     "days" : "дана",
     "(0 to disable)" : "(0 да искључите)",
