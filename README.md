@@ -6,6 +6,6 @@ Users are deleted when they did not log into their account within the given numb
 
 ## Users who did not log in
 
-By default users who have not logged in will be spared from removal. To also take them into consideration, set the conflig flag accordingly:
+By default users who have not logged in will be spared from removal. To also take them into consideration, set the config flag accordingly:
 
 `occ config:app:set user_retention keep_users_without_login --value=no`
