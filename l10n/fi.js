@@ -4,6 +4,7 @@ OC.L10N.register(
     "User expiration:" : "Käyttäjän vanhentuminen:",
     "days" : "päivää",
     "(0 to disable)" : "(0 poistaa käytöstä)",
+    "Guest expiration:" : "Vieraan vanhentuminen:",
     "Exclude groups:" : "Ohita ryhmät:",
     "Limit app usage to groups." : "Rajoita sovelluksen käyttö ryhmiin."
 },
