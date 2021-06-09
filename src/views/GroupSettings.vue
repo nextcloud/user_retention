@@ -25,7 +25,7 @@
 		<h2>{{ t('user_retention', 'User retention') }}</h2>
 
 		<p class="settings-hint">
-			{{ t('user_retention', 'Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users.') }}
+			{{ t('user_retention', 'Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.') }}
 		</p>
 
 		<p v-if="ldapBackendEnabled" class="settings-hint">

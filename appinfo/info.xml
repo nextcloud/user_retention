@@ -4,7 +4,12 @@
 	<id>user_retention</id>
 	<name>User retention</name>
 	<summary>Deletes users that did not log in in the last days.</summary>
-	<description>Deletes users that did not log in in the last days.</description>
+	<description><![CDATA[Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.
+
+* 🛂 Different retention possible for normal users and users of the [guests app](https://apps.nextcloud.com/apps/guests)
+* ⛔ Exclude users based on group memberships (default: admin group)
+* 🔑 Exclude users that never logged in (default: enabled)
+]]></description>
 	<version>1.5.0</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
@@ -18,6 +23,8 @@
 	<website>https://github.com/nextcloud/user_retention</website>
 	<bugs>https://github.com/nextcloud/user_retention/issues</bugs>
 	<repository>https://github.com/nextcloud/user_retention</repository>
+
+	<screenshot>https://raw.githubusercontent.com/nextcloud/user_retention/master/docs/screenshot.png</screenshot>
 
 	<dependencies>
 		<nextcloud min-version="22" max-version="22" />
