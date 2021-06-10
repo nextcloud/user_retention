@@ -34,6 +34,8 @@ use OCP\IServerContainer;
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\LDAP\IDeletionFlagSupport;
+use OCP\LDAP\ILDAPProvider;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class ExpireUsers
@@ -50,6 +52,10 @@ class ExpireUsers extends TimedJob {
 	protected $groupManager;
 	/** @var ITimeFactory */
 	protected $timeFactory;
+	/** @var LoggerInterface */
+	protected $logger;
+	/** @var IServerContainer */
+	private $server;
 
 	protected $userMaxLastLogin = 0;
 	protected $guestMaxLastLogin = 0;
@@ -57,21 +63,20 @@ class ExpireUsers extends TimedJob {
 	/** @var bool*/
 	protected $keepUsersWithoutLogin = true;
 
-	/** @var IServerContainer */
-	private $server;
-
 	public function __construct(
 		IConfig $config,
 		IUserManager $userManager,
 		IGroupManager $groupManager,
 		ITimeFactory $timeFactory,
-		IServerContainer $server
+		IServerContainer $server,
+		LoggerInterface $logger
 	) {
 		$this->config = $config;
 		$this->userManager = $userManager;
 		$this->groupManager = $groupManager;
 		$this->timeFactory = $timeFactory;
 		$this->server = $server;
+		$this->logger = $logger;
 
 		// Every day
 		$this->setInterval(60 * 60 * 24);
@@ -81,14 +86,20 @@ class ExpireUsers extends TimedJob {
 		$now = new \DateTimeImmutable();
 		$userDays = (int) $this->config->getAppValue('user_retention', 'user_days', 0);
 		if ($userDays > 0) {
-			$this->userMaxLastLogin = $now->sub(new \DateInterval('P' . $userDays . 'D'))->getTimestamp();
+			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $userDays . 'D'));
+			$this->userMaxLastLogin = $userMaxLastLogin->getTimestamp();
+			$this->logger->debug('User retention with last login before ' . $userMaxLastLogin->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug('User retention is disabled');
 		}
 
 		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', 0);
-		if ($guestDays === $userDays) {
-			$this->guestMaxLastLogin = $this->userMaxLastLogin;
-		} else if ($guestDays > 0) {
-			$this->guestMaxLastLogin = $now->sub(new \DateInterval('P' . $guestDays . 'D'))->getTimestamp();
+		if ($guestDays > 0) {
+			$guestMaxLastLogin = $now->sub(new \DateInterval('P' . $guestDays . 'D'));
+			$this->guestMaxLastLogin = $guestMaxLastLogin->getTimestamp();
+			$this->logger->debug('Guest retention with last login before ' . $guestMaxLastLogin->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug('Guest retention is disabled');
 		}
 
 		$this->keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
@@ -104,14 +115,15 @@ class ExpireUsers extends TimedJob {
 			}
 
 			if ($this->shouldExpireUser($user, $maxLastLogin)) {
+				$this->logger->debug('Attempting to delete user: {user}', [
+					'user' => $user->getUID(),
+				]);
 				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
 					return;
 				}
 
 				if ($user->delete()) {
-					$this->server->getLogger()->info('User deleted: ' . $user->getUID(), [
-						'app' => 'user_retention',
-					]);
+					$this->logger->info('User deleted: ' . $user->getUID());
 				}
 			}
 		};
@@ -132,23 +144,38 @@ class ExpireUsers extends TimedJob {
 		if ($createdAt === 0) {
 			// Set "now" as created at timestamp for the user.
 			$this->setCreatedAt($user, $this->timeFactory->getTime());
+			$this->logger->debug('New user, saving discovery time: {user}', [
+				'user' => $user->getUID(),
+			]);
 			return false;
 		}
 
 		if ($this->keepUsersWithoutLogin && $user->getLastLogin() === 0) {
 			// no need for deletion when no user dir was initialized
+			$this->logger->debug('Skipping user that never logged in: {user}', [
+				'user' => $user->getUID(),
+			]);
 			return false;
 		}
 
 		if ($maxLastLogin < $user->getLastLogin()) {
+			$this->logger->debug('Skipping user because of login time: {user}', [
+				'user' => $user->getUID(),
+			]);
 			return false;
 		}
 
 		if (!$this->allAuthTokensInactive($user, $maxLastLogin)) {
+			$this->logger->debug('Skipping user because of auth token time: {user}', [
+				'user' => $user->getUID(),
+			]);
 			return false;
 		}
 
 		if (!$this->keepUsersWithoutLogin && $maxLastLogin < $createdAt) {
+			$this->logger->debug('Skipping user because of discovery time: {user}', [
+				'user' => $user->getUID(),
+			]);
 			return false;
 		}
 
@@ -157,12 +184,20 @@ class ExpireUsers extends TimedJob {
 		}
 
 		$userGroups = $this->groupManager->getUserGroupIds($user);
-		return empty(array_intersect($userGroups, $this->excludedGroups));
+		$excludedGroups = array_intersect($userGroups, $this->excludedGroups);
+		if (!empty($excludedGroups)) {
+			$this->logger->debug('Skipping user because of excluded groups ({groups}): {user}', [
+				'user' => $user->getUID(),
+				'groups' => implode(',', $excludedGroups),
+			]);
+			return false;
+		}
+		return true;
 	}
 
 	protected function allAuthTokensInactive(IUser $user, int $maxLastActivity): bool {
 		/** @var Manager $authTokenManager */
-		$authTokenManager = \OC::$server->query(Manager::class);
+		$authTokenManager = $this->server->get(Manager::class);
 		/** @var DefaultToken[] $tokens */
 		$tokens = $authTokenManager->getTokenByUser($user->getUID());
 
@@ -195,14 +230,14 @@ class ExpireUsers extends TimedJob {
 
 	protected function prepareLDAPUser(IUser $user): bool {
 		try {
-			$ldapProvider = $this->server->query('LDAPProvider');
+			$ldapProvider = $this->server->get(ILDAPProvider::class);
 			if($ldapProvider instanceof IDeletionFlagSupport) {
 				$ldapProvider->flagRecord($user->getUID());
+				$this->logger->info('Marking LDAP user as deleted: ' . $user->getUID());
 			}
 		} catch (\Exception $e) {
-			$this->server->getLogger()->logException($e, [
-				'app' => 'user_retention',
-				'level' => ILogger::WARN,
+			$this->logger->warning($e->getMessage(), [
+				'exception' => $e,
 			]);
 			return false;
 		}
