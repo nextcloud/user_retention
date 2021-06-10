@@ -3,13 +3,13 @@ OC.L10N.register(
     {
     "User retention" : "Retenció d'usuaris",
     "Deletes users that did not log in in the last days." : "Suprimeix usuaris que no es connectan en els últims dies.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Els usuaris se suprimiran quan no iniciïn sessió al seu compte durant un nombre de dies determinat. Això també suprimirà tots els fitxers dels usuaris afectats.",
     "Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear." : "Les usuaris de LDAP són esborrats només localment, a excepció de que estigui habilitada la opció d'escriptura LDAP a l'aplicació.",
     "User expiration:" : "Caducitat de l'usuari:",
     "days" : "dies",
     "(0 to disable)" : "(0 per inhabilitar)",
     "Guest expiration:" : "Caducitat del convidat:",
     "Exclude groups:" : "Exclou els grups:",
-    "Limit app usage to groups." : "Límit ús d’app per a grups."
+    "Limit app usage to groups." : "Límit ús d’app per a grups.",
+    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Els usuaris se suprimiran quan no iniciïn sessió al seu compte durant un nombre de dies determinat. Això també suprimirà tots els fitxers dels usuaris afectats."
 },
 "nplurals=2; plural=(n != 1);");
