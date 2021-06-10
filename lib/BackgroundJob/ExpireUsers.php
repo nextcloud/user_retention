@@ -34,6 +34,7 @@ use OCP\IServerContainer;
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\LDAP\IDeletionFlagSupport;
+use OCP\LDAP\ILDAPProvider;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -229,7 +230,7 @@ class ExpireUsers extends TimedJob {
 
 	protected function prepareLDAPUser(IUser $user): bool {
 		try {
-			$ldapProvider = $this->server->get('LDAPProvider');
+			$ldapProvider = $this->server->get(ILDAPProvider::class);
 			if($ldapProvider instanceof IDeletionFlagSupport) {
 				$ldapProvider->flagRecord($user->getUID());
 				$this->logger->info('Marking LDAP user as deleted: ' . $user->getUID());
