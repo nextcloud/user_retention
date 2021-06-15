@@ -85,7 +85,7 @@ import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
 
 export default {
-	name: 'GroupSettings',
+	name: 'AdminSettings',
 
 	components: {
 		Multiselect,

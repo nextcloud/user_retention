@@ -21,13 +21,12 @@
  */
 
 import Vue from 'vue'
-import GroupSettings from './views/GroupSettings'
+import AdminSettings from './views/AdminSettings'
 
 Vue.prototype.t = t
 Vue.prototype.OCP = OCP
 
 export default new Vue({
 	el: '#user_retention',
-	name: 'AdminSettings',
-	render: h => h(GroupSettings),
+	render: h => h(AdminSettings),
 })

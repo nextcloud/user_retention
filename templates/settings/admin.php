@@ -19,6 +19,6 @@ declare(strict_types=1);
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-script('user_retention', 'user_retention');
+script('user_retention', 'user_retention-main');
 ?>
 <div id="user_retention"></div>
