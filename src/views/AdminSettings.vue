@@ -70,6 +70,8 @@
 					:loading="loadingGroups"
 					:show-no-options="false"
 					:close-on-select="false"
+					track-by="id"
+					label="displayname"
 					@search-change="searchGroup"
 					@input="saveExcludedGroups" />
 			</label>
@@ -109,7 +111,9 @@ export default {
 
 		this.userDays = loadState('user_retention', 'user_days')
 		this.guestDays = loadState('user_retention', 'guest_days')
-		this.excludedGroups = loadState('user_retention', 'excluded_groups')
+		this.excludedGroups = loadState('user_retention', 'excluded_groups').sort(function(a, b) {
+			return a.displayname.localeCompare(b.displayname)
+		})
 		this.guestsAppInstalled = loadState('user_retention', 'guests_app_installed')
 		this.ldapBackendEnabled = loadState('user_retention', 'ldap_backend_enabled')
 		this.groups = this.excludedGroups
@@ -122,10 +126,13 @@ export default {
 		searchGroup: debounce(async function(query) {
 			this.loadingGroups = true
 			try {
-				const res = await axios.get(generateOcsUrl('cloud', 2) + `groups?offset=0&search=${encodeURIComponent(query)}&limit=20`)
-				// remove duplicates and sort
-				this.groups = [...new Set(res.data.ocs.data.groups)].sort(function(a, b) {
-					return a.localeCompare(b)
+				const response = await axios.get(generateOcsUrl('cloud/groups/details'), {
+					search: query,
+					limit: 20,
+					offset: 0,
+				})
+				this.groups = response.data.ocs.data.groups.sort(function(a, b) {
+					return a.displayname.localeCompare(b.displayname)
 				})
 			} catch (err) {
 				console.error('Could not fetch groups', err)
@@ -146,7 +153,11 @@ export default {
 			this.loading = true
 			this.loadingGroups = true
 
-			OCP.AppConfig.setValue('user_retention', 'excluded_groups', JSON.stringify(this.excludedGroups), {
+			const groups = this.excludedGroups.map(group => {
+				return group.id
+			})
+
+			OCP.AppConfig.setValue('user_retention', 'excluded_groups', JSON.stringify(groups), {
 				success: function() {
 					this.loading = false
 					this.loadingGroups = false
