@@ -10,6 +10,6 @@
     "Guest expiration:" : "Expiração do convidado:",
     "Exclude groups:" : "Excluir grupos:",
     "Limit app usage to groups." : "Limitar o uso de aplicativos para grupos.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Os usuários são excluídos quando não fazem login em sua conta dentro do número determinado de dias. Isso também excluirá todos os arquivos dos usuários afetados."
+    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Os usuários são removidos quando não fazem login em sua conta dentro do número determinado de dias. Isso também apagará todos os arquivos dos usuários afetados."
 },"pluralForm" :"nplurals=2; plural=(n > 1);"
 }
