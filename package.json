@@ -1,7 +1,7 @@
 {
 	"name": "user_retention",
 	"description": "Deletes users that did not log in in the last days.",
-	"version": "1.6.0",
+	"version": "1.7.0",
 	"author": "Joas Schilling <coding@schilljs.com>",
 	"license": "agpl",
 	"private": true,
