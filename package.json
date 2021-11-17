@@ -18,7 +18,7 @@
 		"@nextcloud/axios": "^1.7.0",
 		"@nextcloud/initial-state": "^1.2.1",
 		"@nextcloud/router": "^2.0.0",
-		"@nextcloud/vue": "^4.1.0",
+		"@nextcloud/vue": "^4.2.0",
 		"debounce": "^1.2.1",
 		"regenerator-runtime": "^0.13.9",
 		"vue": "^2.6.14",
