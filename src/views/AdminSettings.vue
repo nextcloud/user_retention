@@ -85,6 +85,10 @@ import debounce from 'debounce'
 import Multiselect from '@nextcloud/vue/dist/Components/Multiselect'
 import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
+import {
+	showError,
+	showSuccess,
+} from '@nextcloud/dialogs'
 
 export default {
 	name: 'AdminSettings',
@@ -135,6 +139,7 @@ export default {
 					return a.displayname.localeCompare(b.displayname)
 				})
 			} catch (err) {
+				showError(t('user_retention', 'Could not fetch groups'))
 				console.error('Could not fetch groups', err)
 			} finally {
 				this.loadingGroups = false
@@ -142,11 +147,25 @@ export default {
 		}, 500),
 
 		saveUserDays() {
-			OCP.AppConfig.setValue('user_retention', 'user_days', this.userDays)
+			OCP.AppConfig.setValue('user_retention', 'user_days', this.userDays, {
+				success: () => {
+					showSuccess(t('user_retention', 'Setting saved'))
+				},
+				error: () => {
+					showSuccess(t('user_retention', 'Could not save the setting'))
+				},
+			})
 		},
 
 		saveGuestDays() {
-			OCP.AppConfig.setValue('user_retention', 'guest_days', this.guestDays)
+			OCP.AppConfig.setValue('user_retention', 'guest_days', this.guestDays, {
+				success: () => {
+					showSuccess(t('user_retention', 'Setting saved'))
+				},
+				error: () => {
+					showSuccess(t('user_retention', 'Could not save the setting'))
+				},
+			})
 		},
 
 		saveExcludedGroups() {
@@ -158,10 +177,14 @@ export default {
 			})
 
 			OCP.AppConfig.setValue('user_retention', 'excluded_groups', JSON.stringify(groups), {
-				success: function() {
+				success: () => {
 					this.loading = false
 					this.loadingGroups = false
-				}.bind(this),
+					showSuccess(t('user_retention', 'Setting saved'))
+				},
+				error: () => {
+					showSuccess(t('user_retention', 'Could not save the setting'))
+				},
 			})
 		},
 	},
