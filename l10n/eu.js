@@ -12,6 +12,9 @@ OC.L10N.register(
     "Guest expiration:" : "Gonbidatu-iraungitzea:",
     "Exclude groups:" : "Taldeak baztertu:",
     "Limit app usage to groups." : "Mugatu aplikazio-erabilera taldeei.",
+    "Could not fetch groups" : "Ezin izan dira taldeak eskuratu",
+    "Setting saved" : "Ezarpena gordeta",
+    "Could not save the setting" : "Ezin izan da ezarpena gorde",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Erabiltzaileak ezabatu egiten dira emandako egun kopuruaren barruan kontuan ez badute saiorik hasi. Horrek kaltetutako erabiltzaileen fitxategi guztiak ere ezabatuko ditu."
 },
 "nplurals=2; plural=(n != 1);");

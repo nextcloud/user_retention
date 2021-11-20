@@ -12,6 +12,9 @@ OC.L10N.register(
     "Guest expiration:" : "Gast verloopt:",
     "Exclude groups:" : "Uitgezonderde groepen:",
     "Limit app usage to groups." : "Beperkt gebruik programma tot groepen.",
+    "Could not fetch groups" : "Kon groepen niet ophalen",
+    "Setting saved" : "Instellingen opgeslagen",
+    "Could not save the setting" : "Kan instellingen niet opslaan",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Gebruikers worden verwijderd wanneer zij niet binnen het gestelde aantal dagen inloggen. Ook alle bestanden van deze gebruikers worden verwijderd."
 },
 "nplurals=2; plural=(n != 1);");
