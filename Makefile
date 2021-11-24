@@ -50,7 +50,7 @@ clean:
 clean-dev:
 	rm -rf node_modules
 
-appstore: dev-setup build-js-production
+appstore:
 	mkdir -p $(sign_dir)
 	rsync -a \
 	--exclude=/build \
