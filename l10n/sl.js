@@ -10,6 +10,9 @@ OC.L10N.register(
     "Guest expiration:" : "Pretek računa gosta:",
     "Exclude groups:" : "Izločene skupine:",
     "Limit app usage to groups." : "Omeji uporabo programov za skupine.",
+    "Could not fetch groups" : "Ni mogoče pridobiti skupin",
+    "Setting saved" : "Nastavitve so shranjene",
+    "Could not save the setting" : "Ni mogoče shraniti nastavitev",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Program izbriše uporabnike, ki se v sistem ne prijavijo znotraj obdobja, določenega v dneh. Izbrišejo se tudi vse datoteke teh uporabnikov."
 },
 "nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);");
