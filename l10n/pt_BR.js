@@ -12,6 +12,9 @@ OC.L10N.register(
     "Guest expiration:" : "Expiração do convidado:",
     "Exclude groups:" : "Excluir grupos:",
     "Limit app usage to groups." : "Limitar o uso de aplicativos para grupos.",
+    "Could not fetch groups" : "Não foi possível buscar grupos",
+    "Setting saved" : "Configuração salva",
+    "Could not save the setting" : "Não foi possível salvar a configuração",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Os usuários são removidos quando não fazem login em sua conta dentro do número determinado de dias. Isso também apagará todos os arquivos dos usuários afetados."
 },
 "nplurals=2; plural=(n > 1);");
