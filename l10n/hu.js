@@ -12,6 +12,9 @@ OC.L10N.register(
     "Guest expiration:" : "Vendégek lejárata:",
     "Exclude groups:" : "Csoportok kizárása:",
     "Limit app usage to groups." : "Az alkalmazás használatának csoportokra korlátozása.",
+    "Could not fetch groups" : "A csoportok nem kérhetők le",
+    "Setting saved" : "Beállítás mentve",
+    "Could not save the setting" : "A beállítás nem menthető",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "A felhasználók törlésre kerülnek, ha nem jelentkeznek be a fiókjukba a megadott számú napon belül. Ez az érintett felhasználók fájljait is törli."
 },
 "nplurals=2; plural=(n != 1);");
