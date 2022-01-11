@@ -10,6 +10,9 @@
     "Guest expiration:" : "Ablauf Gastzugang:",
     "Exclude groups:" : "Gruppen auschließen:",
     "Limit app usage to groups." : "App-Verwendung auf Gruppen beschränken.",
+    "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
+    "Setting saved" : "Einstellungen gespeichert",
+    "Could not save the setting" : "Einstellungen konnten nicht gespeichert werden",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Benutzer werden gelöscht, wenn sie sich innerhalb der angegebenen Anzahl von Tagen nicht bei ihrem Konto angemeldet haben. Dadurch werden auch alle Dateien der betroffenen Benutzer gelöscht."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
