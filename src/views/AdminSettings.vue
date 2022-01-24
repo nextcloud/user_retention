@@ -35,8 +35,7 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'User expiration:') }}</span>
-				<input
-					id="user_days"
+				<input id="user_days"
 					v-model="userDays"
 					type="number"
 					placeholder="180"
@@ -48,8 +47,7 @@
 		<div v-if="guestsAppInstalled">
 			<label>
 				<span>{{ t('user_retention', 'Guest expiration:') }}</span>
-				<input
-					id="guest_days"
+				<input id="guest_days"
 					v-model="guestDays"
 					type="number"
 					placeholder="180"
@@ -61,8 +59,7 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
-				<Multiselect
-					v-model="excludedGroups"
+				<Multiselect v-model="excludedGroups"
 					class="exclude-groups-select"
 					:options="groups"
 					:placeholder="t('spreed', 'Limit app usage to groups.')"
