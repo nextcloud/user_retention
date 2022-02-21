@@ -10,6 +10,9 @@
     "Guest expiration:" : "Gæstudløb:",
     "Exclude groups:" : "Ekskludér grupper:",
     "Limit app usage to groups." : "Begræns app-brug til grupper.",
+    "Could not fetch groups" : "Kunne ikke hente grupper",
+    "Setting saved" : "Indstilinger gemt",
+    "Could not save the setting" : "Kunne ikke gemme indstillinger",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Brugere slettes, når de ikke loggede ind på deres konto inden for det givne antal dage. Dette vil også slette alle filer fra de berørte brugere."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
