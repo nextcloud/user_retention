@@ -17,4 +17,4 @@ OC.L10N.register(
     "Could not save the setting" : "Impossible de sauvegarder les paramètres",
     "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Les utilisateurs sont supprimés lorsqu'ils ne se sont pas connectés à leur compte depuis le nombre de jours indiqué. Seront également supprimés tous les fichiers de ces utilisateurs."
 },
-"nplurals=2; plural=(n > 1);");
+"nplurals=3; plural=(n==0 || n==1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
