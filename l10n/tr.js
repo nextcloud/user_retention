@@ -14,7 +14,6 @@ OC.L10N.register(
     "Limit app usage to groups." : "Uygulamayı belirli gruplar kullanabilsin.",
     "Could not fetch groups" : "Gruplar alınamadı",
     "Setting saved" : "Ayarlar kaydedildi",
-    "Could not save the setting" : "Ayar kaydedilemedi",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Belirtilen gün süreyle oturum açmayan kullanıcılar silinir. Ayrıca ilgili kullanıcıların tüm dosyaları da silinir."
+    "Could not save the setting" : "Ayar kaydedilemedi"
 },
 "nplurals=2; plural=(n > 1);");
