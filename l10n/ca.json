@@ -9,7 +9,6 @@
     "(0 to disable)" : "(0 per inhabilitar)",
     "Guest expiration:" : "Caducitat del convidat:",
     "Exclude groups:" : "Exclou els grups:",
-    "Limit app usage to groups." : "Límit ús d’app per a grups.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Els usuaris se suprimiran quan no iniciïn sessió al seu compte durant un nombre de dies determinat. Això també suprimirà tots els fitxers dels usuaris afectats."
+    "Limit app usage to groups." : "Límit ús d’app per a grups."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

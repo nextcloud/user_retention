@@ -14,7 +14,6 @@ OC.L10N.register(
     "Limit app usage to groups." : "Obmedziť používanie aplikácie na skupiny.",
     "Could not fetch groups" : "Nepodarilo sa získať skupiny",
     "Setting saved" : "Nastavenia uložené",
-    "Could not save the setting" : "Nepodarilo sa uložiť nastavenia",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Používatelia sa odstránia, keď sa neprihlásili na svoj účet v danom počte dní. Týmto sa odstránia aj všetky ich súbory."
+    "Could not save the setting" : "Nepodarilo sa uložiť nastavenia"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

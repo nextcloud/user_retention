@@ -14,7 +14,6 @@ OC.L10N.register(
     "Limit app usage to groups." : "Limitar uso de apps a grupos.",
     "Could not fetch groups" : "No se han podido obtener los grupos",
     "Setting saved" : "Ajuste guardado",
-    "Could not save the setting" : "No se ha podido guardar el ajuste",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Los usuarios son borrados cuando no se conectan a su cuenta dentro de un cierto número de días. Esto también borra todos los archivos del usuario afectado."
+    "Could not save the setting" : "No se ha podido guardar el ajuste"
 },
 "nplurals=2; plural=(n != 1);");

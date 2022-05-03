@@ -14,7 +14,6 @@ OC.L10N.register(
     "Limit app usage to groups." : "アプリの使用をグループに制限する",
     "Could not fetch groups" : "グループを取得できません",
     "Setting saved" : "設定を保存しました",
-    "Could not save the setting" : "設定を保存できませんでした",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "指定された日数内に自分のアカウントにログインしなかった場合、ユーザーは削除されます。 これにより、影響を受けるユーザーのファイルもすべて削除されます。"
+    "Could not save the setting" : "設定を保存できませんでした"
 },
 "nplurals=1; plural=0;");
