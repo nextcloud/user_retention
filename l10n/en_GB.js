@@ -9,7 +9,6 @@ OC.L10N.register(
     "(0 to disable)" : "(0 to disable)",
     "Guest expiration:" : "Guest expiration:",
     "Exclude groups:" : "Exclude groups:",
-    "Limit app usage to groups." : "Limit app usage to groups.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users."
+    "Limit app usage to groups." : "Limit app usage to groups."
 },
 "nplurals=2; plural=(n != 1);");
