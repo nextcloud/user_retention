@@ -9,7 +9,6 @@ OC.L10N.register(
     "(0 to disable)" : "(0 for å deaktivere)",
     "Guest expiration:" : "Gjest utløpsdato:",
     "Exclude groups:" : "Utelukk grupper:",
-    "Limit app usage to groups." : "Begrens app-bruk til grupper",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Brukere blir slettet når de ikke har logget inn på kontoen sin innen det angitte antall dager. Dette vil også slette alle filene til de berørte brukerne."
+    "Limit app usage to groups." : "Begrens app-bruk til grupper"
 },
 "nplurals=2; plural=(n != 1);");

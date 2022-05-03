@@ -14,7 +14,6 @@ OC.L10N.register(
     "Limit app usage to groups." : "將應用程式使用限制為群組。",
     "Could not fetch groups" : "無法擷取群組",
     "Setting saved" : "設定已保存",
-    "Could not save the setting" : "無法保存設定",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "如果在指定的天數內未登入賬戶，用戶會被刪除。這還將刪除與這些用戶相關的所有檔案。"
+    "Could not save the setting" : "無法保存設定"
 },
 "nplurals=1; plural=0;");

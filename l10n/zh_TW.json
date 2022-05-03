@@ -12,7 +12,6 @@
     "Limit app usage to groups." : "限制群組的使用率:",
     "Could not fetch groups" : "無法擷取群組",
     "Setting saved" : "設定已儲存",
-    "Could not save the setting" : "無法儲存設定",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "使用者因為他們沒有在指定的天數登入他們的帳戶所以被刪除。這也將刪除所有影響到的使用者的檔案。"
+    "Could not save the setting" : "無法儲存設定"
 },"pluralForm" :"nplurals=1; plural=0;"
 }

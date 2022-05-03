@@ -9,7 +9,6 @@
     "(0 to disable)" : "(0 για απενεργοποίηση)",
     "Guest expiration:" : "Λήξη επισκέπτη:",
     "Exclude groups:" : "Εξαίρεση ομάδων:",
-    "Limit app usage to groups." : "Περιορισμός χρήσης της εφαρμογής σε ομάδες.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Οι χρήστες διαγράφονται όταν δεν έχουν συνδεθεί στο λογαριασμό τους εντός του δεδομένου αριθμού ημερών. Αυτό θα διαγράψει επίσης όλα τα αρχεία των επηρεαζόμενων χρηστών."
+    "Limit app usage to groups." : "Περιορισμός χρήσης της εφαρμογής σε ομάδες."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

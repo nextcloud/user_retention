@@ -11,7 +11,6 @@ OC.L10N.register(
     "(0 to disable)" : "(0 pro disativare)",
     "Guest expiration:" : "Iscadèntzia de persones invitadas:",
     "Exclude groups:" : "Esclude grupos:",
-    "Limit app usage to groups." : "Lìmita s'impreu de s'aplicatzione a grupos.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Is utentes si cantzellant cando no ant fatu s'atzessu a su contu intro su nùmeru de dies determinadu. Custu at a cantzellare puru totu is archìvios de is utentes in chistione."
+    "Limit app usage to groups." : "Lìmita s'impreu de s'aplicatzione a grupos."
 },
 "nplurals=2; plural=(n != 1);");

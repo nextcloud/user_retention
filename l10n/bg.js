@@ -14,7 +14,6 @@ OC.L10N.register(
     "Limit app usage to groups." : "Ограничаване използването на приложението от групи.",
     "Could not fetch groups" : "Групите не можаха да бъдат извлечени",
     "Setting saved" : "Настройката е запазена",
-    "Could not save the setting" : "Настройката не можа да бъде запазена ",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files of the affected users." : "Потребителите се изтриват, когато не са влизали в техния профил в рамките на определения брой дни. Това също така ще изтрие всички файлове на засегнатите потребители."
+    "Could not save the setting" : "Настройката не можа да бъде запазена "
 },
 "nplurals=2; plural=(n != 1);");
