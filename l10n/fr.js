@@ -16,4 +16,4 @@ OC.L10N.register(
     "Setting saved" : "Paramètres enregistrés",
     "Could not save the setting" : "Impossible de sauvegarder les paramètres"
 },
-"nplurals=2; plural=(n > 1);");
+"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

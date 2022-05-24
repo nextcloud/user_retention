@@ -10,4 +10,4 @@ OC.L10N.register(
     "Exclude groups:" : "Excluir grupos:",
     "Limit app usage to groups." : "Limitar o uso da aplicação a grupos."
 },
-"nplurals=2; plural=(n != 1);");
+"nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
