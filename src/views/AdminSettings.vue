@@ -60,9 +60,10 @@
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
 				<Multiselect v-model="excludedGroups"
+					name="exclude_group_select"
 					class="exclude-groups-select"
 					:options="groups"
-					:placeholder="t('spreed', 'Limit app usage to groups.')"
+					:placeholder="t('user_retention', 'Ignore members of these groups from retention')"
 					:disabled="loading"
 					:multiple="true"
 					:searchable="true"
@@ -152,7 +153,7 @@ export default {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
 				error: () => {
-					showSuccess(t('user_retention', 'Could not save the setting'))
+					showError(t('user_retention', 'Could not save the setting'))
 				},
 			})
 		},
@@ -163,7 +164,7 @@ export default {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
 				error: () => {
-					showSuccess(t('user_retention', 'Could not save the setting'))
+					showError(t('user_retention', 'Could not save the setting'))
 				},
 			})
 		},
@@ -183,7 +184,7 @@ export default {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
 				error: () => {
-					showSuccess(t('user_retention', 'Could not save the setting'))
+					showError(t('user_retention', 'Could not save the setting'))
 				},
 			})
 		},
