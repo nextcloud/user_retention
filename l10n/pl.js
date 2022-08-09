@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 aby zablokować)",
     "Guest expiration:" : "Wygaśnięcie konta gościa:",
     "Exclude groups:" : "Wyłącz grupy:",
-    "Limit app usage to groups." : " Ogranicz wykorzystanie aplikacji do wybranych grup.",
     "Could not fetch groups" : "Nie udało się pobrać grup",
     "Setting saved" : "Ustawienie zapisane",
-    "Could not save the setting" : "Nie udało się zapisać ustawienia"
+    "Could not save the setting" : "Nie udało się zapisać ustawienia",
+    "Limit app usage to groups." : " Ogranicz wykorzystanie aplikacji do wybranych grup."
 },
 "nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);");

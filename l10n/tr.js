@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(devre dışı bırakmak için 0)",
     "Guest expiration:" : "Konukların silinme süresi:",
     "Exclude groups:" : "Katılmayacak gruplar:",
-    "Limit app usage to groups." : "Uygulamayı belirli gruplar kullanabilsin.",
     "Could not fetch groups" : "Gruplar alınamadı",
     "Setting saved" : "Ayarlar kaydedildi",
-    "Could not save the setting" : "Ayar kaydedilemedi"
+    "Could not save the setting" : "Ayar kaydedilemedi",
+    "Limit app usage to groups." : "Uygulamayı belirli gruplar kullanabilsin."
 },
 "nplurals=2; plural=(n > 1);");

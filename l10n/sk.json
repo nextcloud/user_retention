@@ -9,9 +9,9 @@
     "(0 to disable)" : "(0 pre vypnutie)",
     "Guest expiration:" : "Vypršanie platnosti účtu hosťa:",
     "Exclude groups:" : "Vynechať skupiny:",
-    "Limit app usage to groups." : "Obmedziť používanie aplikácie na skupiny.",
     "Could not fetch groups" : "Nepodarilo sa získať skupiny",
     "Setting saved" : "Nastavenia uložené",
-    "Could not save the setting" : "Nepodarilo sa uložiť nastavenia"
+    "Could not save the setting" : "Nepodarilo sa uložiť nastavenia",
+    "Limit app usage to groups." : "Obmedziť používanie aplikácie na skupiny."
 },"pluralForm" :"nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);"
 }
