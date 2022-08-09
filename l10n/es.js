@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 para desactivar)",
     "Guest expiration:" : "Invitado caduca el: ",
     "Exclude groups:" : "Excluir grupos:",
-    "Limit app usage to groups." : "Limitar uso de apps a grupos.",
     "Could not fetch groups" : "No se han podido obtener los grupos",
     "Setting saved" : "Ajuste guardado",
-    "Could not save the setting" : "No se ha podido guardar el ajuste"
+    "Could not save the setting" : "No se ha podido guardar el ajuste",
+    "Limit app usage to groups." : "Limitar uso de apps a grupos."
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
