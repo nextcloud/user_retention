@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 zum Deaktivieren)",
     "Guest expiration:" : "Ablauf Gastzugang:",
     "Exclude groups:" : "Gruppen ausschließen:",
-    "Limit app usage to groups." : "App-Verwendung auf Gruppen beschränken.",
     "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
     "Setting saved" : "Einstellung gespeichert",
-    "Could not save the setting" : "Einstellung konnte nicht gespeichert werden"
+    "Could not save the setting" : "Einstellung konnte nicht gespeichert werden",
+    "Limit app usage to groups." : "App-Verwendung auf Gruppen beschränken."
 },
 "nplurals=2; plural=(n != 1);");

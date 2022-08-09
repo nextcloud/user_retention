@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 pour désactiver)",
     "Guest expiration:" : "Expiration Invité :",
     "Exclude groups:" : "Groupes à exclure :",
-    "Limit app usage to groups." : "Limiter l'utilisation de l'application aux groupes.",
     "Could not fetch groups" : "Impossible de récupérer les groupes",
     "Setting saved" : "Paramètres enregistrés",
-    "Could not save the setting" : "Impossible de sauvegarder les paramètres"
+    "Could not save the setting" : "Impossible de sauvegarder les paramètres",
+    "Limit app usage to groups." : "Limiter l'utilisation de l'application aux groupes."
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

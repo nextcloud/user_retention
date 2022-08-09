@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 desgaitzeko)",
     "Guest expiration:" : "Gonbidatu-iraungitzea:",
     "Exclude groups:" : "Taldeak baztertu:",
-    "Limit app usage to groups." : "Mugatu aplikazio-erabilera taldeei.",
     "Could not fetch groups" : "Ezin izan dira taldeak eskuratu",
     "Setting saved" : "Ezarpena gordeta",
-    "Could not save the setting" : "Ezin izan da ezarpena gorde"
+    "Could not save the setting" : "Ezin izan da ezarpena gorde",
+    "Limit app usage to groups." : "Mugatu aplikazio-erabilera taldeei."
 },
 "nplurals=2; plural=(n != 1);");

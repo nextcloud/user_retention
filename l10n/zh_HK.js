@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "（0 = 停用）",
     "Guest expiration:" : "訪客有效期至：",
     "Exclude groups:" : "排除的群組：",
-    "Limit app usage to groups." : "將應用程式使用限制為群組。",
     "Could not fetch groups" : "無法擷取群組",
     "Setting saved" : "設定已保存",
-    "Could not save the setting" : "無法保存設定"
+    "Could not save the setting" : "無法保存設定",
+    "Limit app usage to groups." : "將應用程式使用限制為群組。"
 },
 "nplurals=1; plural=0;");

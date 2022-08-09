@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 om uit te schakelen)",
     "Guest expiration:" : "Gast verloopt:",
     "Exclude groups:" : "Uitgezonderde groepen:",
-    "Limit app usage to groups." : "Beperkt gebruik programma tot groepen.",
     "Could not fetch groups" : "Kon groepen niet ophalen",
     "Setting saved" : "Instellingen opgeslagen",
-    "Could not save the setting" : "Kan instellingen niet opslaan"
+    "Could not save the setting" : "Kan instellingen niet opslaan",
+    "Limit app usage to groups." : "Beperkt gebruik programma tot groepen."
 },
 "nplurals=2; plural=(n != 1);");

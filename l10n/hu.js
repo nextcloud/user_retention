@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 a kikapcsoláshoz)",
     "Guest expiration:" : "Vendégek lejárata:",
     "Exclude groups:" : "Csoportok kizárása:",
-    "Limit app usage to groups." : "Az alkalmazás használatának csoportokra korlátozása.",
     "Could not fetch groups" : "A csoportok nem kérhetők le",
     "Setting saved" : "Beállítás mentve",
-    "Could not save the setting" : "A beállítás nem menthető"
+    "Could not save the setting" : "A beállítás nem menthető",
+    "Limit app usage to groups." : "Az alkalmazás használatának csoportokra korlátozása."
 },
 "nplurals=2; plural=(n != 1);");
