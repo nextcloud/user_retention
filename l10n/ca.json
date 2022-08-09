@@ -9,9 +9,9 @@
     "(0 to disable)" : "(0 per inhabilitar)",
     "Guest expiration:" : "Caducitat del convidat:",
     "Exclude groups:" : "Exclou els grups:",
-    "Limit app usage to groups." : "Límit ús d’app per a grups.",
     "Could not fetch groups" : "No s'han pogut recuperar els grups",
     "Setting saved" : "S'ha desat la configuració",
-    "Could not save the setting" : "No s'ha pogut desar la configuració"
+    "Could not save the setting" : "No s'ha pogut desar la configuració",
+    "Limit app usage to groups." : "Límit ús d’app per a grups."
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

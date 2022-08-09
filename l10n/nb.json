@@ -9,9 +9,9 @@
     "(0 to disable)" : "(0 for å deaktivere)",
     "Guest expiration:" : "Gjest utløpsdato:",
     "Exclude groups:" : "Utelukk grupper:",
-    "Limit app usage to groups." : "Begrens app-bruk til grupper",
     "Could not fetch groups" : "Kunne ikke hente grupper",
     "Setting saved" : "Innstillinger lagret",
-    "Could not save the setting" : "Kunne ikke lagre innstillingene"
+    "Could not save the setting" : "Kunne ikke lagre innstillingene",
+    "Limit app usage to groups." : "Begrens app-bruk til grupper"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

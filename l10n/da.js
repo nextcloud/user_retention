@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "(0 for at deaktivere)",
     "Guest expiration:" : "Gæstudløb:",
     "Exclude groups:" : "Ekskludér grupper:",
-    "Limit app usage to groups." : "Begræns app-brug til grupper.",
     "Could not fetch groups" : "Kunne ikke hente grupper",
     "Setting saved" : "Indstilinger gemt",
-    "Could not save the setting" : "Kunne ikke gemme indstillinger"
+    "Could not save the setting" : "Kunne ikke gemme indstillinger",
+    "Limit app usage to groups." : "Begræns app-brug til grupper."
 },
 "nplurals=2; plural=(n != 1);");

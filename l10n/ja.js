@@ -11,9 +11,9 @@ OC.L10N.register(
     "(0 to disable)" : "（無効にするには0）",
     "Guest expiration:" : "ゲストの有効期限:",
     "Exclude groups:" : "グループを除外:",
-    "Limit app usage to groups." : "アプリの使用をグループに制限する",
     "Could not fetch groups" : "グループを取得できません",
     "Setting saved" : "設定を保存しました",
-    "Could not save the setting" : "設定を保存できませんでした"
+    "Could not save the setting" : "設定を保存できませんでした",
+    "Limit app usage to groups." : "アプリの使用をグループに制限する"
 },
 "nplurals=1; plural=0;");
