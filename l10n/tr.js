@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(devre dışı bırakmak için 0)",
     "Guest expiration:" : "Konukların silinme süresi:",
     "Exclude groups:" : "Katılmayacak gruplar:",
+    "Ignore members of these groups from retention" : "Şu grupların üyeleri korunmasın",
     "Could not fetch groups" : "Gruplar alınamadı",
     "Setting saved" : "Ayarlar kaydedildi",
     "Could not save the setting" : "Ayar kaydedilemedi",
