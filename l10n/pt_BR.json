@@ -9,6 +9,7 @@
     "(0 to disable)" : "(0 para desativar)",
     "Guest expiration:" : "Expiração do convidado:",
     "Exclude groups:" : "Excluir grupos:",
+    "Ignore members of these groups from retention" : "Ignorar membros desses grupos da retenção",
     "Could not fetch groups" : "Não foi possível buscar grupos",
     "Setting saved" : "Configuração salva",
     "Could not save the setting" : "Não foi possível salvar a configuração",
