@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 個禁用)",
     "Guest expiration:" : "訪客過期:",
     "Exclude groups:" : "包含群組:",
+    "Ignore members of these groups from retention" : "從保留中忽略這些群組的成員",
     "Could not fetch groups" : "無法擷取群組",
     "Setting saved" : "設定已儲存",
     "Could not save the setting" : "無法儲存設定",

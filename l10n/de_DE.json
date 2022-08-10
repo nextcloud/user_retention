@@ -9,6 +9,7 @@
     "(0 to disable)" : "(0 zum Deaktivieren)",
     "Guest expiration:" : "Ablauf Gastzugang:",
     "Exclude groups:" : "Gruppen ausschließen:",
+    "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Datei-Aufbewahrung ausschließen",
     "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
     "Setting saved" : "Einstellung gespeichert",
     "Could not save the setting" : "Einstellung konnte nicht gespeichert werden",

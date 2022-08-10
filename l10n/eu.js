@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 desgaitzeko)",
     "Guest expiration:" : "Gonbidatu-iraungitzea:",
     "Exclude groups:" : "Taldeak baztertu:",
+    "Ignore members of these groups from retention" : "Ezikusi talde honetako kideak atxikitzetik",
     "Could not fetch groups" : "Ezin izan dira taldeak eskuratu",
     "Setting saved" : "Ezarpena gordeta",
     "Could not save the setting" : "Ezin izan da ezarpena gorde",
