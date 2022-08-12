@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 за деактивиране)",
     "Guest expiration:" : "Изтичане на срока на гост:",
     "Exclude groups:" : "Изключване на групи:",
+    "Ignore members of these groups from retention" : "Игнорирайте от задържане членовете на тези групи",
     "Could not fetch groups" : "Групите не можаха да бъдат извлечени",
     "Setting saved" : "Настройката е запазена",
     "Could not save the setting" : "Настройката не можа да бъде запазена ",
