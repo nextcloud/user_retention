@@ -15,6 +15,6 @@ OC.L10N.register(
     "Could not fetch groups" : "Nedaří se získat skupiny",
     "Setting saved" : "Nastavení uložena",
     "Could not save the setting" : "Nedaří se uložit nastavení",
-    "Limit app usage to groups." : "Omezit využití aplikace na skupiny."
+    "Limit app usage to groups." : "Omezit používání aplikace na skupiny."
 },
 "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;");
