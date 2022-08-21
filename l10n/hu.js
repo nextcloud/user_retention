@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 a kikapcsoláshoz)",
     "Guest expiration:" : "Vendégek lejárata:",
     "Exclude groups:" : "Csoportok kizárása:",
+    "Ignore members of these groups from retention" : "Ezen csoportok tagjainak figyelmen kívül hagyása a megtartás szempontjából",
     "Could not fetch groups" : "A csoportok nem kérhetők le",
     "Setting saved" : "Beállítás mentve",
     "Could not save the setting" : "A beállítás nem menthető",
