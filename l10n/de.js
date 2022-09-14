@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 zum Deaktivieren)",
     "Guest expiration:" : "Ablauf Gastzugang:",
     "Exclude groups:" : "Gruppen auschließen:",
+    "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Aufbewahrung ausschließen",
     "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
     "Setting saved" : "Einstellungen gespeichert",
     "Could not save the setting" : "Einstellungen konnten nicht gespeichert werden",
