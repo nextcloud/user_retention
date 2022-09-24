@@ -11,6 +11,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 per inhabilitar)",
     "Guest expiration:" : "Caducitat del convidat:",
     "Exclude groups:" : "Exclou els grups:",
+    "Ignore members of these groups from retention" : "Ignoreu els membres d'aquests grups per retenció",
     "Could not fetch groups" : "No s'han pogut recuperar els grups",
     "Setting saved" : "S'ha desat la configuració",
     "Could not save the setting" : "No s'ha pogut desar la configuració",
