@@ -83,7 +83,7 @@
 <script>
 import axios from '@nextcloud/axios'
 import debounce from 'debounce'
-import Multiselect from '@nextcloud/vue/dist/Components/Multiselect.js'
+import Multiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
 import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
 import {
