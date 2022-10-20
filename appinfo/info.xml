@@ -2,13 +2,13 @@
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
 	  xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>user_retention</id>
-	<name>User retention</name>
-	<summary>Deletes users that did not log in in the last days.</summary>
-	<description><![CDATA[Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.
+	<name>Account retention (formerly User retention)</name>
+	<summary>Deletes accounts that did not login in the last days.</summary>
+	<description><![CDATA[Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.
 
-* 🛂 Different retention possible for normal users and users of the [guests app](https://apps.nextcloud.com/apps/guests)
-* ⛔ Exclude users based on group memberships (default: admin group)
-* 🔑 Exclude users that never logged in (default: enabled)
+* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)
+* ⛔ Exclude accounts based on group memberships (default: admin group)
+* 🔑 Exclude accounts that never logged in (default: enabled)
 ]]></description>
 	<version>1.8.0</version>
 	<licence>agpl</licence>

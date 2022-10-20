@@ -88,18 +88,18 @@ class ExpireUsers extends TimedJob {
 		if ($userDays > 0) {
 			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $userDays . 'D'));
 			$this->userMaxLastLogin = $userMaxLastLogin->getTimestamp();
-			$this->logger->debug('User retention with last login before ' . $userMaxLastLogin->format(\DateTimeInterface::ATOM));
+			$this->logger->debug('Account retention with last login before ' . $userMaxLastLogin->format(\DateTimeInterface::ATOM));
 		} else {
-			$this->logger->debug('User retention is disabled');
+			$this->logger->debug('Account retention is disabled');
 		}
 
 		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', 0);
 		if ($guestDays > 0) {
 			$guestMaxLastLogin = $now->sub(new \DateInterval('P' . $guestDays . 'D'));
 			$this->guestMaxLastLogin = $guestMaxLastLogin->getTimestamp();
-			$this->logger->debug('Guest retention with last login before ' . $guestMaxLastLogin->format(\DateTimeInterface::ATOM));
+			$this->logger->debug('Guest account retention with last login before ' . $guestMaxLastLogin->format(\DateTimeInterface::ATOM));
 		} else {
-			$this->logger->debug('Guest retention is disabled');
+			$this->logger->debug('Guest account retention is disabled');
 		}
 
 		$this->keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
@@ -115,18 +115,18 @@ class ExpireUsers extends TimedJob {
 			}
 
 			if ($this->shouldExpireUser($user, $maxLastLogin)) {
-				$this->logger->debug('Attempting to delete user: {user}', [
+				$this->logger->debug('Attempting to delete account: {user}', [
 					'user' => $user->getUID(),
 				]);
 				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
-					$this->logger->warning('Expired LDAP user ' . $user->getUID() . ' was not deleted');
+					$this->logger->warning('Expired LDAP account ' . $user->getUID() . ' was not deleted');
 					return;
 				}
 
 				if ($user->delete()) {
-					$this->logger->info('User deleted: ' . $user->getUID());
+					$this->logger->info('Account deleted: ' . $user->getUID());
 				} else {
-					$this->logger->warning('Expired user ' . $user->getUID() . ' was not deleted');
+					$this->logger->warning('Expired account ' . $user->getUID() . ' was not deleted');
 				}
 			}
 		};

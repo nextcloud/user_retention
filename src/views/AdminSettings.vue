@@ -22,19 +22,19 @@
 
 <template>
 	<div id="user_retention" class="section">
-		<h2>{{ t('user_retention', 'User retention') }}</h2>
+		<h2>{{ t('user_retention', 'Account retention') }}</h2>
 
 		<p class="settings-hint">
-			{{ t('user_retention', 'Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.') }}
+			{{ t('user_retention', 'Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.') }}
 		</p>
 
 		<p v-if="ldapBackendEnabled" class="settings-hint">
-			{{ t('user_retention', 'Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear.') }}
+			{{ t('user_retention', 'Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear.') }}
 		</p>
 
 		<div>
 			<label>
-				<span>{{ t('user_retention', 'User expiration:') }}</span>
+				<span>{{ t('user_retention', 'Account expiration:') }}</span>
 				<input id="user_days"
 					v-model="userDays"
 					type="number"
@@ -46,7 +46,7 @@
 
 		<div v-if="guestsAppInstalled">
 			<label>
-				<span>{{ t('user_retention', 'Guest expiration:') }}</span>
+				<span>{{ t('user_retention', 'Guest account expiration:') }}</span>
 				<input id="guest_days"
 					v-model="guestDays"
 					type="number"
