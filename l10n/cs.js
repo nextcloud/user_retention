@@ -1,8 +1,16 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account retention (formerly User retention)" : "Uchovávání účtů (dříve uchovávání uživatelů)",
+    "Deletes accounts that did not login in the last days." : "Maže účty, které se dlouho nepřihlásily.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Účty jsou mazány když se nepřihlásí do daného počtu dnů. Toto také smaže veškeré soubory a další data dotčených uživatelů.\n\n* 🛂 Je možné nastavit různé uchovávání pro běžné účty a pro účty [aplikace Hosté](https://apps.nextcloud.com/apps/guests)\n* ⛔ Vynechání účtů na základě členství ve skupinách (výchozí: skupina správců)\n* 🔑 Vynechání účtů, kteří se ještě nikdy nepřihlásili (výchozí: zapnuto)",
+    "Account retention" : "Uchovávání účtů",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Účty jsou mazány když se nepřihlásí do daného počtu dnů. Toto také smaže veškeré soubory a další data příslušných účtů.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Pokud není zapnutá aplikace pro podporu zápisu do LDAP, účty z LDAP jsou smazáni pouze lokálně. To znamená, že v LDAP zůstanou a objeví se znovu.",
+    "Account expiration:" : "Konec platnosti účtu:",
     "days" : "dnů",
     "(0 to disable)" : "(0 nula pro vypnutí)",
+    "Guest account expiration:" : "Konec platnosti účtu hosta:",
     "Exclude groups:" : "Vynechat skupiny:",
     "Ignore members of these groups from retention" : "Nikdy automaticky nemazat účty uživatelů z těchto skupin",
     "Could not fetch groups" : "Nedaří se získat skupiny",
