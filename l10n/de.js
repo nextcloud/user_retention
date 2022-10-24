@@ -1,8 +1,14 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Deletes accounts that did not login in the last days." : "Löscht Konten, mit denen sich in den letzten Tagen nicht angemeldet wurde.",
+    "Account retention" : "Kontoaufbewahrung",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konten werden gelöscht, wenn sich mit ihnen innerhalb der angegebenen Anzahl von Tagen nicht angemeldet wurde. Dadurch werden auch alle mit dem Konto verbundenen Dateien und anderen Daten gelöscht.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Konten aus LDAP werden nur lokal gelöscht, es sei denn, die App zur Unterstützung von LDAP-Schreibvorgängen ist aktiviert. Wenn Konten noch auf LDAP verfügbar sind, werden sie wieder angezeigt.",
+    "Account expiration:" : "Ablauf des Kontos:",
     "days" : "Tage",
     "(0 to disable)" : "(0 zum Deaktivieren)",
+    "Guest account expiration:" : "Ablauf des Gastkontos:",
     "Exclude groups:" : "Gruppen auschließen:",
     "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Aufbewahrung ausschließen",
     "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
