@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## 1.7.0 – 2022-10-20
+## 1.8.0 – 2022-10-24
 ### Fixed
 - Require Nextcloud 25
 
