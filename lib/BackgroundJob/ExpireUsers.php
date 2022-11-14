@@ -42,23 +42,18 @@ use Psr\Log\LoggerInterface;
  * @package OCA\UserRetention\BackgroundJob
  */
 class ExpireUsers extends TimedJob {
+	protected IConfig $config;
+	protected IUserManager $userManager;
+	protected IGroupManager $groupManager;
+	protected LoggerInterface $logger;
+	protected IServerContainer $server;
 
-	/** @var IConfig */
-	protected $config;
-	/** @var IUserManager */
-	protected $userManager;
-	/** @var IGroupManager */
-	protected $groupManager;
-	/** @var LoggerInterface */
-	protected $logger;
-	/** @var IServerContainer */
-	private $server;
-
-	protected $userMaxLastLogin = 0;
-	protected $guestMaxLastLogin = 0;
-	protected $excludedGroups = [];
-	/** @var bool*/
-	protected $keepUsersWithoutLogin = true;
+	protected int $userMaxLastLogin = 0;
+	protected int $guestMaxLastLogin = 0;
+	protected array $excludedGroups = [];
+	protected array $reminders = [];
+	protected array $remindersPlain = [];
+	protected bool $keepUsersWithoutLogin = true;
 
 	public function __construct(
 		IConfig $config,
@@ -82,7 +77,7 @@ class ExpireUsers extends TimedJob {
 
 	protected function run($argument): void {
 		$now = new \DateTimeImmutable();
-		$userDays = (int) $this->config->getAppValue('user_retention', 'user_days', 0);
+		$userDays = (int) $this->config->getAppValue('user_retention', 'user_days', '0');
 		if ($userDays > 0) {
 			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $userDays . 'D'));
 			$this->userMaxLastLogin = $userMaxLastLogin->getTimestamp();
@@ -91,7 +86,7 @@ class ExpireUsers extends TimedJob {
 			$this->logger->debug('User retention is disabled');
 		}
 
-		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', 0);
+		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', '0');
 		if ($guestDays > 0) {
 			$guestMaxLastLogin = $now->sub(new \DateInterval('P' . $guestDays . 'D'));
 			$this->guestMaxLastLogin = $guestMaxLastLogin->getTimestamp();
@@ -100,11 +95,24 @@ class ExpireUsers extends TimedJob {
 			$this->logger->debug('Guest retention is disabled');
 		}
 
+		$reminderDaysString = $this->config->getAppValue('user_retention', 'reminder_days', '');
+		$reminderDayOptions = explode(',', $reminderDaysString);
+		foreach ($reminderDayOptions as $option) {
+			$option = (int) trim($option);
+			if ($option !== 0) {
+				$this->remindersPlain[] = $option;
+				$this->reminders[] = $now->sub(new \DateInterval('P' . $option . 'D'))->getTimestamp();
+			}
+		}
+
 		$this->keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
 
-		$excludedGroups = $this->config->getAppValue('user_retention', 'excluded_groups', '["admin"]');
-		$excludedGroups = json_decode($excludedGroups, true);
-		$this->excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
+		try {
+			$excludedGroups = $this->config->getAppValue('user_retention', 'excluded_groups', '["admin"]');
+			$excludedGroups = json_decode($excludedGroups, true, 512, JSON_THROW_ON_ERROR);
+			$this->excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
+		} catch (\JsonException $e) {
+		}
 
 		$handler = function(IUser $user) {
 			$maxLastLogin = $this->userMaxLastLogin;
@@ -112,8 +120,8 @@ class ExpireUsers extends TimedJob {
 				$maxLastLogin = $this->guestMaxLastLogin;
 			}
 
-			if ($this->shouldExpireUser($user, $maxLastLogin)) {
-				$this->logger->debug('Attempting to delete user: {user}', [
+			if ($this->shouldPerformActionOnUser($user, $maxLastLogin)) {
+				$this->logger->debug('Attempting to delete account: {user}', [
 					'user' => $user->getUID(),
 				]);
 				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
@@ -126,6 +134,21 @@ class ExpireUsers extends TimedJob {
 				} else {
 					$this->logger->warning('Expired user ' . $user->getUID() . ' was not deleted');
 				}
+				return;
+			}
+
+			foreach ($this->reminders as $key => $reminder) {
+				$this->logger->debug('Checking reminder with {reminder} day: {user}', [
+					'reminder' => $this->remindersPlain[$key] ?? 0,
+					'user' => $user->getUID(),
+				]);
+				if ($this->shouldPerformActionOnUser($user, $reminder, false)) {
+					$this->logger->debug('Send reminder to account: {user}', [
+						'user' => $user->getUID(),
+					]);
+
+					// FIXME send notification
+				}
 			}
 		};
 
@@ -136,7 +159,8 @@ class ExpireUsers extends TimedJob {
 		}
 	}
 
-	protected function shouldExpireUser(IUser $user, int $maxLastLogin): bool {
+
+	protected function shouldPerformActionOnUser(IUser $user, int $maxLastLogin, bool $retryOnFollowupDays = true): bool {
 		if (!$maxLastLogin) {
 			return false;
 		}
@@ -151,6 +175,13 @@ class ExpireUsers extends TimedJob {
 			return false;
 		}
 
+		if (!$this->keepUsersWithoutLogin && $maxLastLogin < $createdAt) {
+			$this->logger->debug('Skipping user because of discovery time: {user}', [
+				'user' => $user->getUID(),
+			]);
+			return false;
+		}
+
 		if ($this->keepUsersWithoutLogin && $user->getLastLogin() === 0) {
 			// no need for deletion when no user dir was initialized
 			$this->logger->debug('Skipping user that never logged in: {user}', [
@@ -159,22 +190,22 @@ class ExpireUsers extends TimedJob {
 			return false;
 		}
 
-		if ($maxLastLogin < $user->getLastLogin()) {
-			$this->logger->debug('Skipping user because of login time: {user}', [
+		$authTokensLastActivity = $this->getAuthTokensLastActivity($user);
+		if ($authTokensLastActivity === null) {
+			$lastAuthentication = $user->getLastLogin();
+		} else {
+			$lastAuthentication = max($user->getLastLogin(), $authTokensLastActivity);
+		}
+
+		if ($maxLastLogin < $lastAuthentication) {
+			$this->logger->debug('Skipping user because of login or auth token time: {user}', [
 				'user' => $user->getUID(),
 			]);
 			return false;
 		}
 
-		if (!$this->allAuthTokensInactive($user, $maxLastLogin)) {
-			$this->logger->debug('Skipping user because of auth token time: {user}', [
-				'user' => $user->getUID(),
-			]);
-			return false;
-		}
-
-		if (!$this->keepUsersWithoutLogin && $maxLastLogin < $createdAt) {
-			$this->logger->debug('Skipping user because of discovery time: {user}', [
+		if (!$retryOnFollowupDays && ($maxLastLogin - 86400) > $lastAuthentication) {
+			$this->logger->debug('Skipping user because of login or auth token time is not in retry window: {user}', [
 				'user' => $user->getUID(),
 			]);
 			return false;
@@ -193,22 +224,26 @@ class ExpireUsers extends TimedJob {
 			]);
 			return false;
 		}
+
 		return true;
 	}
 
-	protected function allAuthTokensInactive(IUser $user, int $maxLastActivity): bool {
+	protected function getAuthTokensLastActivity(IUser $user): ?int {
 		/** @var Manager $authTokenManager */
 		$authTokenManager = $this->server->get(Manager::class);
 		/** @var PublicKeyToken[] $tokens */
 		$tokens = $authTokenManager->getTokenByUser($user->getUID());
 
+		$lastActivities = [];
 		foreach ($tokens as $token) {
-			if ($maxLastActivity < $token->getLastActivity()) {
-				return false;
-			}
+			$lastActivities[] = $token->getLastActivity();
 		}
 
-		return true;
+		if (empty($lastActivities)) {
+			return null;
+		}
+
+		return max(...$lastActivities);
 	}
 
 	protected function getCreatedAt(IUser $user): int {
@@ -216,7 +251,7 @@ class ExpireUsers extends TimedJob {
 			$user->getUID(),
 			'user_retention',
 			'user_created_at',
-			0
+			'0'
 		);
 	}
 
