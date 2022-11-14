@@ -24,9 +24,9 @@ namespace OCA\UserRetention\BackgroundJob;
 
 use OC\Authentication\Token\DefaultToken;
 use OC\Authentication\Token\Manager;
-use OC\BackgroundJob\TimedJob;
 use OCA\Guests\UserBackend;
 use OCP\AppFramework\Utility\ITimeFactory;
+use OCP\BackgroundJob\TimedJob;
 use OCP\IConfig;
 use OCP\IGroupManager;
 use OCP\ILogger;
@@ -50,8 +50,6 @@ class ExpireUsers extends TimedJob {
 	protected $userManager;
 	/** @var IGroupManager */
 	protected $groupManager;
-	/** @var ITimeFactory */
-	protected $timeFactory;
 	/** @var LoggerInterface */
 	protected $logger;
 	/** @var IServerContainer */
@@ -67,14 +65,15 @@ class ExpireUsers extends TimedJob {
 		IConfig $config,
 		IUserManager $userManager,
 		IGroupManager $groupManager,
-		ITimeFactory $timeFactory,
+		ITimeFactory $time,
 		IServerContainer $server,
 		LoggerInterface $logger
 	) {
+		parent::__construct($time);
+
 		$this->config = $config;
 		$this->userManager = $userManager;
 		$this->groupManager = $groupManager;
-		$this->timeFactory = $timeFactory;
 		$this->server = $server;
 		$this->logger = $logger;
 
@@ -146,7 +145,7 @@ class ExpireUsers extends TimedJob {
 		$createdAt = $this->getCreatedAt($user);
 		if ($createdAt === 0) {
 			// Set "now" as created at timestamp for the user.
-			$this->setCreatedAt($user, $this->timeFactory->getTime());
+			$this->setCreatedAt($user, $this->time->getTime());
 			$this->logger->debug('New user, saving discovery time: {user}', [
 				'user' => $user->getUID(),
 			]);
