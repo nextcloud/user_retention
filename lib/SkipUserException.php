@@ -5,6 +5,8 @@ declare(strict_types=1);
 /**
  * @copyright Copyright (c) 2022 Joas Schilling <coding@schilljs.com>
  *
+ * @author Joas Schilling <coding@schilljs.com>
+ *
  * @license GNU AGPL version 3 or any later version
  *
  * This program is free software: you can redistribute it and/or modify
@@ -22,27 +24,17 @@ declare(strict_types=1);
  *
  */
 
-namespace OCA\UserRetention\BackgroundJob;
+namespace OCA\UserRetention;
 
-use OCA\UserRetention\Service\RetentionService;
-use OCP\AppFramework\Utility\ITimeFactory;
-use OCP\BackgroundJob\TimedJob;
+class SkipUserException extends \RuntimeException {
+	protected array $logParameters;
 
-class ExpireUsers extends TimedJob {
-	protected RetentionService $service;
-
-	public function __construct(
-		ITimeFactory $time,
-		RetentionService $service
-	) {
-		parent::__construct($time);
-		$this->service = $service;
-
-		// Every day
-		$this->setInterval(60 * 60 * 24);
+	public function __construct(string $logMessage = '', array $logParameters = []) {
+		parent::__construct($logMessage);
+		$this->logParameters = $logParameters;
 	}
 
-	protected function run($argument): void {
-		$this->service->runCron();
+	public function getLogParameters(): array {
+		return $this->logParameters;
 	}
 }
