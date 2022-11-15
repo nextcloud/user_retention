@@ -29,6 +29,8 @@ use OCP\IGroupManager;
 use OCP\IServerContainer;
 use OCP\IUser;
 use OCP\IUserManager;
+use OCP\L10N\IFactory;
+use OCP\Mail\IMailer;
 use PHPUnit\Framework\MockObject\MockObject;
 use Psr\Log\LoggerInterface;
 use Test\TestCase;
@@ -44,23 +46,31 @@ class RetentionServiceTest extends TestCase {
 	protected $timeFactory;
 	/** @var MockObject|IServerContainer */
 	protected $container;
+	/** @var MockObject|IMailer */
+	protected $mailer;
+	/** @var MockObject|IFactory */
+	protected $l10nFactory;
 	/** @var MockObject|LoggerInterface */
 	protected $logger;
 
 	protected function setUp(): void {
 		parent::setUp();
 
-		/** @var MockObject|IConfig $config */
+		/** @var MockObject|IConfig */
 		$this->config = $this->createMock(IConfig::class);
-		/** @var MockObject|IUserManager $userManager */
+		/** @var MockObject|IUserManager */
 		$this->userManager = $this->createMock(IUserManager::class);
-		/** @var MockObject|IGroupManager $groupManager */
+		/** @var MockObject|IGroupManager */
 		$this->groupManager = $this->createMock(IGroupManager::class);
-		/** @var MockObject|ITimeFactory $timeFactory */
+		/** @var MockObject|ITimeFactory */
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
-		/** @var MockObject|IServerContainer $urlGenerator */
+		/** @var MockObject|IServerContainer */
 		$this->container = $this->createMock(IServerContainer::class);
-		/** @var MockObject|LoggerInterface $dispatcher */
+		/** @var MockObject|IMailer */
+		$this->mailer = $this->createMock(IMailer::class);
+		/** @var MockObject|IFactory */
+		$this->l10nFactory = $this->createMock(IFactory::class);
+		/** @var MockObject|LoggerInterface */
 		$this->logger = $this->createMock(LoggerInterface::class);
 	}
 
@@ -76,6 +86,8 @@ class RetentionServiceTest extends TestCase {
 				$this->groupManager,
 				$this->timeFactory,
 				$this->container,
+				$this->mailer,
+				$this->l10nFactory,
 				$this->logger
 			);
 		}
@@ -87,6 +99,8 @@ class RetentionServiceTest extends TestCase {
 			$this->groupManager,
 			$this->timeFactory,
 			$this->container,
+			$this->mailer,
+			$this->l10nFactory,
 			$this->logger,
 		]);
 		$mock->onlyMethods($methods);
