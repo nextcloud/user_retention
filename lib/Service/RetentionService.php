@@ -28,7 +28,7 @@ namespace OCA\UserRetention\Service;
 
 use OC\Authentication\Token\Manager;
 use OC\Authentication\Token\PublicKeyToken;
-use OCA\Guests\UserBackend;
+use OCA\Guests\UserBackend as GuestUserBackend;
 use OCA\UserRetention\SkipUserException;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
@@ -106,7 +106,7 @@ class RetentionService {
 		$reminderDayOptions = explode(',', $reminderDaysString);
 		foreach ($reminderDayOptions as $option) {
 			$option = (int) trim($option);
-			if ($option !== 0) {
+			if ($option > 0) {
 				$this->remindersPlain[] = $option;
 				$this->reminders[] = $now->sub(new \DateInterval('P' . $option . 'D'))->getTimestamp();
 			}
@@ -119,6 +119,7 @@ class RetentionService {
 			$excludedGroups = json_decode($excludedGroups, true, 512, JSON_THROW_ON_ERROR);
 			$this->excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
 		} catch (\JsonException $e) {
+			$this->logger->warning('User retention excluded groups is not a valid JSON array');
 		}
 
 		if ($this->keepUsersWithoutLogin) {
@@ -132,7 +133,7 @@ class RetentionService {
 		$this->logger->warning($user->getUID());
 		$skipIfNewerThan = $this->userMaxLastLogin;
 		$policyDays = $this->userDays;
-		if ($user->getBackend() instanceof UserBackend) {
+		if ($user->getBackend() instanceof GuestUserBackend) {
 			$skipIfNewerThan = $this->guestMaxLastLogin;
 			$policyDays = $this->guestDays;
 		}
@@ -186,7 +187,6 @@ class RetentionService {
 			try {
 				$lastActivity = $this->shouldPerformActionOnUser($user, $reminder, $reminder - 86400);
 
-				// FIXME send notification
 				$this->sendReminder($user, $lastActivity, $policyDays);
 			} catch (SkipUserException $e) {
 				$this->logger->debug($e->getMessage(), $e->getLogParameters());
@@ -209,7 +209,11 @@ class RetentionService {
 		$lastWebLogin = $user->getLastLogin();
 		$authTokensLastActivity = $this->getAuthTokensLastActivity($user);
 
-		$lastAction = max($discoveryTimestamp, $lastWebLogin, $authTokensLastActivity);
+		if ($authTokensLastActivity === null) {
+			$lastAction = max($discoveryTimestamp, $lastWebLogin);
+		} else {
+			$lastAction = max($discoveryTimestamp, $lastWebLogin, $authTokensLastActivity);
+		}
 
 		if ($this->keepUsersWithoutLogin && $lastAction === 0) {
 			throw new SkipUserException(
@@ -331,13 +335,13 @@ class RetentionService {
 
 		$template->addHeader();
 		$template->addHeading($l->t('Account deletion'));
-		$template->addBodyText(str_replace('{date}', $l->l('date', $lastActivity), $l->t('You have used your account since {date}.')));
+		$template->addBodyText(str_replace('{date}', $l->l('date', $lastActivity), $l->t('You have not used your account since {date}.')));
 		$template->addBodyText($l->n(
 			'Due to the configured policy for accounts, inactive accounts will be deleted after %n day.',
 			'Due to the configured policy for accounts, inactive accounts will be deleted after %n days.',
 			$policyDays
 		));
-		$template->addBodyText($l->t('To keep your account you only need to login or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted.'));
+		$template->addBodyText($l->t('To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted.'));
 		$template->addBodyText($l->t('If you have any questions, please contact your administration.'));
 		$template->addFooter();
 

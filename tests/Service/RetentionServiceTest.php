@@ -56,21 +56,13 @@ class RetentionServiceTest extends TestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		/** @var MockObject|IConfig */
 		$this->config = $this->createMock(IConfig::class);
-		/** @var MockObject|IUserManager */
 		$this->userManager = $this->createMock(IUserManager::class);
-		/** @var MockObject|IGroupManager */
 		$this->groupManager = $this->createMock(IGroupManager::class);
-		/** @var MockObject|ITimeFactory */
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
-		/** @var MockObject|IServerContainer */
 		$this->container = $this->createMock(IServerContainer::class);
-		/** @var MockObject|IMailer */
 		$this->mailer = $this->createMock(IMailer::class);
-		/** @var MockObject|IFactory */
 		$this->l10nFactory = $this->createMock(IFactory::class);
-		/** @var MockObject|LoggerInterface */
 		$this->logger = $this->createMock(LoggerInterface::class);
 	}
 
@@ -142,6 +134,10 @@ class RetentionServiceTest extends TestCase {
 			[true, 99_999, 100_001, 99_999, 100, true],
 			[true, 9, 9, 100_001, 100, true],
 			[true, 99_999, 99_999, 100_001, 100, true],
+
+			// Don't break with null on client response
+			[true, 100_001, 9, null, null, true],
+			[true, 9, 9, null, null, false, 9],
 		];
 	}
 
@@ -153,7 +149,7 @@ class RetentionServiceTest extends TestCase {
 	 * @param int $authTokenLastActivity
 	 * @param bool $expectsThrow
 	 */
-	public function testShouldPerformActionOnUser(bool $skipWithoutLogin, int $discoveryTimestamp, int $lastLogin, int $authTokenLastActivity, ?int $skipOlderThan, bool $expectsThrow, ?int $expectedReturn = null): void {
+	public function testShouldPerformActionOnUser(bool $skipWithoutLogin, int $discoveryTimestamp, int $lastLogin, ?int $authTokenLastActivity, ?int $skipOlderThan, bool $expectsThrow, ?int $expectedReturn = null): void {
 		/** @var MockObject|RetentionService $service */
 		$service = $this->createService(['skipUserBasedOnDiscovery', 'getAuthTokensLastActivity']);
 		self::invokePrivate($service, 'keepUsersWithoutLogin', [$skipWithoutLogin]);
