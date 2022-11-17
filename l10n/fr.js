@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "days" : "jours",
     "(0 to disable)" : "(0 pour désactiver)",
-    "Exclude groups:" : "Groupes à exclure :",
+    "Exclude groups:" : "Groupes à exclure :",
     "Could not fetch groups" : "Impossible de récupérer les groupes",
     "Setting saved" : "Paramètres enregistrés",
     "Could not save the setting" : "Impossible de sauvegarder les paramètres",
