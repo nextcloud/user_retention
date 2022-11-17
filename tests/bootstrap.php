@@ -1,9 +1,8 @@
 <?php
-
-declare(strict_types=1);
-
 /**
  * @copyright Copyright (c) 2022 Joas Schilling <coding@schilljs.com>
+ *
+ * @author Joas Schilling <coding@schilljs.com>
  *
  * @license GNU AGPL version 3 or any later version
  *
@@ -21,28 +20,20 @@ declare(strict_types=1);
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-namespace OCA\UserRetention\BackgroundJob;
-
-use OCA\UserRetention\Service\RetentionService;
-use OCP\AppFramework\Utility\ITimeFactory;
-use OCP\BackgroundJob\TimedJob;
-
-class ExpireUsers extends TimedJob {
-	protected RetentionService $service;
-
-	public function __construct(
-		ITimeFactory $time,
-		RetentionService $service
-	) {
-		parent::__construct($time);
-		$this->service = $service;
-
-		// Every day
-		$this->setInterval(60 * 60 * 24);
-	}
-
-	protected function run($argument): void {
-		$this->service->runCron();
-	}
+if (!defined('PHPUNIT_RUN')) {
+	define('PHPUNIT_RUN', 1);
 }
+
+require_once __DIR__.'/../../../lib/base.php';
+
+// Fix for "Autoload path not allowed: .../tests/lib/testcase.php"
+\OC::$loader->addValidRoot(OC::$SERVERROOT . '/tests');
+
+// Fix for "Autoload path not allowed: .../user_retention/tests/testcase.php"
+\OC_App::loadApp('user_retention');
+
+if (!class_exists('\PHPUnit\Framework\TestCase')) {
+	require_once('PHPUnit/Autoload.php');
+}
+
+OC_Hook::clear();
