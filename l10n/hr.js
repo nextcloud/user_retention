@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Brisanje računa",
     "days" : "dana",
     "(0 to disable)" : "(0 za onemogućivanje)",
     "Exclude groups:" : "Izuzmi grupe:",
