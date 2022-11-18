@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "מחיקת חשבון",
     "days" : "ימים",
     "(0 to disable)" : "(0 להשבתה)",
     "Exclude groups:" : "למעט הקבוצות:",

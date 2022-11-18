@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Paskyros ištrynimas",
     "days" : "dienų",
     "(0 to disable)" : "(0, kad būtų išjungta)",
     "Deletes users that did not log in in the last days." : "Ištrina naudotojus, kurie per pastarąsias dienas nebuvo prisijungę.",

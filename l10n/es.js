@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Eliminación de la cuenta",
     "Account retention (formerly User retention)" : "Retención de cuenta (previamente retención de usuario)",
     "Deletes accounts that did not login in the last days." : "Elimina las cuentas que no han ingresado en los últimos días",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Las cuentas son eliminadas cuando no han ingresado en un cierto número de días. Esto también borrará todos los archivos y otros datos asociados con la cuenta.\n\n* 🛂 Se pueden establecer diferentes niveles de retención para cuentas normales y cuentas de la aplicación de [invitados](https://apps.nextcloud.com/apps/guests)\n* ⛔ Excluir cuentas basadas en membresía de grupos (por defecto: grupo admin)\n* 🔑 Excluir cuentas que nunca han ingresado (por defecto: habilitado)",

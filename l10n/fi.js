@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Tilin poistaminen",
     "Account expiration:" : "Tilin vanhentuminen:",
     "days" : "päivää",
     "(0 to disable)" : "(0 poistaa käytöstä)",

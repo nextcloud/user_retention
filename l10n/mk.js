@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Бришење на сметката",
     "days" : "дена",
     "Limit app usage to groups." : "Ограничување за користење на апликации во групи"
 },

@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Zmazanie účtu",
     "days" : "dní",
     "(0 to disable)" : "(0 pre vypnutie)",
     "Exclude groups:" : "Vynechať skupiny:",

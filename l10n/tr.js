@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Hesap silme",
     "Account retention (formerly User retention)" : "Hesap saklama (eski kullanıcı saklama)",
     "Deletes accounts that did not login in the last days." : "Belirtilen gün süreyle oturum açmayan hesapları siler",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Hesaplar belirtilen gün sayısı içinde oturum açmadığında silinir. Bu işlem, etkilenen hesapların tüm dosyalarını ve diğer verilerini de siler.\n\n* 🛂 Normal hesaplar ve [konuk uygulama](https://apps.nextcloud.com/apps/guests) hesapları için farklı saklama seçenekleri vardır\n* ⛔ Hesaplar grup üyeliklerine göre katılmayabilir (varsayılan: yönetici grubu)\n* 🔑 Hiç oturum açmamış hesaplar katılmayabilir (varsayılan: etkin)",
