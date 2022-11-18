@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.7.2 – 2022-11-18
+### Fixed
+- Build version in the package
+
 ## 1.7.1 – 2022-11-18
 ### Added
 - Allow to send an email reminder before deleting users

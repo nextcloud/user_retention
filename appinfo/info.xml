@@ -10,7 +10,7 @@
 * ⛔ Exclude users based on group memberships (default: admin group)
 * 🔑 Exclude users that never logged in (default: enabled)
 ]]></description>
-	<version>1.7.1</version>
+	<version>1.7.2</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 	<namespace>UserRetention</namespace>
