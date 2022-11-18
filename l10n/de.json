@@ -1,4 +1,5 @@
 { "translations": {
+    "Account deletion" : "Löschung des Kontos",
     "Deletes accounts that did not login in the last days." : "Löscht Konten, mit denen sich in den letzten Tagen nicht angemeldet wurde.",
     "Account retention" : "Kontoaufbewahrung",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konten werden gelöscht, wenn sich mit ihnen innerhalb der angegebenen Anzahl von Tagen nicht angemeldet wurde. Dadurch werden auch alle mit dem Konto verbundenen Dateien und anderen Daten gelöscht.",

@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Удаление учётной записи",
     "days" : "дней",
     "(0 to disable)" : "(0 — никогда не удалять)",
     "Exclude groups:" : "Запретить удалять пользователей групп:",

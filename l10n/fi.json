@@ -1,4 +1,5 @@
 { "translations": {
+    "Account deletion" : "Tilin poistaminen",
     "Account expiration:" : "Tilin vanhentuminen:",
     "days" : "päivää",
     "(0 to disable)" : "(0 poistaa käytöstä)",
