@@ -330,7 +330,12 @@ class RetentionService {
 		$l = $this->l10nFactory->get('user_retention', $this->l10nFactory->getUserLanguage($user));
 
 		$message = $this->mailer->createMessage();
-		$template = $this->mailer->createEMailTemplate('user_retention.Reminder');
+		$template = $this->mailer->createEMailTemplate('user_retention.Reminder', [
+			'user_id' => $user->getUID(),
+			'user_displayname' => $user->getDisplayName(),
+			'last_activity' => $l->l('date', $lastActivity),
+			'policy_days' => $policyDays,
+		]);
 		$template->setSubject($l->t('Important information regarding your account'));
 
 		$template->addHeader();
