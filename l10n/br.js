@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Lemel ar c'hont",
     "days" : "devezh",
     "(0 to disable)" : "(0 da lemel)",
     "Exclude groups:" : "Argas ar strolladoù :",
