@@ -1,7 +1,12 @@
 OC.L10N.register(
     "user_retention",
     {
-    "Account deletion" : "Löschung des Kontos",
+    "Important information regarding your account" : "Wichtige Informationen zu Ihrem Konto",
+    "Account deletion" : "Kontenlöschung",
+    "You have not used your account since {date}." : "Sie haben Ihr Konto seit dem {date} nicht mehr verwendet.",
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Aufgrund der konfigurierten Richtlinie für Konten werden inaktive Konten nach %n Tag gelöscht.","Aufgrund der konfigurierten Richtlinie für Konten werden inaktive Konten nach %n Tagen gelöscht."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Um Ihr Konto zu behalten, müssen Sie sich nur mit Ihrem Browser anmelden oder sich mit einer Desktop- oder mobilen App verbinden. Andernfalls werden Ihr Konto und alle damit verbundenen Daten dauerhaft gelöscht.",
+    "If you have any questions, please contact your administration." : "Bei Fragen wenden Sie sich bitte an Ihre Administration.",
     "Account retention (formerly User retention)" : "Kontoaufbewahrung (ehemals Benutzeraufbewahrung)",
     "Deletes accounts that did not login in the last days." : "Löscht Konten, die sich in den letzten Tagen nicht angemeldet haben.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Konten werden gelöscht, wenn sie sich nicht innerhalb der angegebenen Anzahl von Tagen angemeldet haben. Dadurch werden auch alle mit dem Konto verbundenen Dateien und anderen Daten gelöscht.\n\n* 🛂 Unterschiedliche Aufbewahrung möglich für normale Accounts und Accounts der [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Konten basierend auf Gruppenmitgliedschaften ausschließen (Standard: Admin-Gruppe)\n* 🔑 Konten ausschließen, die sich nie angemeldet haben (Standard: aktiviert)",

@@ -1,7 +1,12 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Hesabınızla ilgili önemli bilgiler",
     "Account deletion" : "Hesap silme",
+    "You have not used your account since {date}." : "Hesabınızı {date} tarihinden beri kullanmadınız.",
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Hesap kullanımı ilkelerine göre, kullanılmayan hesaplar %n gün sonra silinir.","Hesap kullanımı ilkelerine göre, kullanılmayan hesaplar %n gün sonra silinir."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Hesabınızı korumak için web tarayıcınızdan oturum açmanız ya da bir masaüstü veya mobil uygulama ile bağlantı kurmanız yeterlidir. Yoksa hesabınız ve ilişkili tüm veriler kalıcı olarak silinecek.",
+    "If you have any questions, please contact your administration." : "Herhangi bir sorunuz varsa lütfen yöneticiniz ile görüşün.",
     "Account retention (formerly User retention)" : "Hesap saklama (eski kullanıcı saklama)",
     "Deletes accounts that did not login in the last days." : "Belirtilen gün süreyle oturum açmayan hesapları siler",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Hesaplar belirtilen gün sayısı içinde oturum açmadığında silinir. Bu işlem, etkilenen hesapların tüm dosyalarını ve diğer verilerini de siler.\n\n* 🛂 Normal hesaplar ve [konuk uygulama](https://apps.nextcloud.com/apps/guests) hesapları için farklı saklama seçenekleri vardır\n* ⛔ Hesaplar grup üyeliklerine göre katılmayabilir (varsayılan: yönetici grubu)\n* 🔑 Hiç oturum açmamış hesaplar katılmayabilir (varsayılan: etkin)",
