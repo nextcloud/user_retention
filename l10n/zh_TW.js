@@ -1,7 +1,12 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "關於您帳號的重要資訊",
     "Account deletion" : "帳號刪除",
+    "You have not used your account since {date}." : "您自 {date} 起就沒有使用過您的帳號。",
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["由於帳號的設定策略，不活躍的帳號將在%n天後被刪除。"],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "要保留您的帳號，您只需要使用瀏覽器登入，或使用桌面或行動裝置應用程式連線。否則您的帳號與所有已連結的資料將會被永久刪除。",
+    "If you have any questions, please contact your administration." : "若您有任何問題，請聯絡您的管理員。",
     "Account retention (formerly User retention)" : "帳號保留（以前的使用者保留）",
     "Deletes accounts that did not login in the last days." : "刪除過去幾天內未登入的帳號。",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "如果帳號在指定的天數內無登入就會被刪除。並將刪除該帳號所有的檔案與其他資料。\n\n* 🛂 可以針對一般使帳號與 [guests 應用程式](https://apps.nextcloud.com/apps/guests)的帳號設定不同的保留時間\n* ⛔ 可以根據群組成員身份排除帳號（預設：admin 群組）\n* 🔑 排除從未登入的帳號（預設：啟用）",
