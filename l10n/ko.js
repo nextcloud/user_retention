@@ -2,8 +2,11 @@ OC.L10N.register(
     "user_retention",
     {
     "Account deletion" : "계정 삭제",
+    "Deletes accounts that did not login in the last days." : "마지막 날에 로그인하지 않은 계정을 삭제합니다.",
+    "Account expiration:" : "계정 만료:",
     "days" : "일",
     "(0 to disable)" : "(사용하지 않으려면 0)",
+    "Guest account expiration:" : "손님 계정 만료:",
     "Exclude groups:" : "그룹 제외 :",
     "User retention" : "사용자 유지",
     "Deletes users that did not log in in the last days." : "마지막 날에 로그인하지 않은 사용자를 삭제합니다.",
