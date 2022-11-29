@@ -1,7 +1,11 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Information importante concernant votre compte",
     "Account deletion" : "Suppression de compte",
+    "You have not used your account since {date}." : "Vous n'avez pas utilisé votre compte depuis {date}.",
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Pour conserver votre compte, vous avez uniquement besoin de vous connecter sur votre navigateur web, l'application de bureau ou l'application mobile. Autrement, votre compte et toutes ses données seront supprimés définitivement.",
+    "If you have any questions, please contact your administration." : "Si vous avez une question, veuillez contacter votre administration.",
     "days" : "jours",
     "(0 to disable)" : "(0 pour désactiver)",
     "Exclude groups:" : "Groupes à exclure :",
