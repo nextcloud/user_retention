@@ -6,6 +6,7 @@ OC.L10N.register(
     "You have not used your account since {date}." : "Vous n'avez pas utilisé votre compte depuis {date}.",
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Pour conserver votre compte, vous avez uniquement besoin de vous connecter sur votre navigateur web, l'application de bureau ou l'application mobile. Autrement, votre compte et toutes ses données seront supprimés définitivement.",
     "If you have any questions, please contact your administration." : "Si vous avez une question, veuillez contacter votre administration.",
+    "Deletes accounts that did not login in the last days." : "Supprime les utilisateurs qui ne se sont pas connectés récemment.",
     "days" : "jours",
     "(0 to disable)" : "(0 pour désactiver)",
     "Exclude groups:" : "Groupes à exclure :",
