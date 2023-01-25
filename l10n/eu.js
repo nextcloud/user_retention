@@ -2,6 +2,8 @@ OC.L10N.register(
     "user_retention",
     {
     "Account deletion" : "Kontu ezabaketa",
+    "You have not used your account since {date}." : "Ez duzu zure kontua erabili egun honetatik: {date}.",
+    "Account expiration:" : "Kontu iraungitzea:",
     "days" : "egun",
     "(0 to disable)" : "(0 desgaitzeko)",
     "Exclude groups:" : "Taldeak baztertu:",
