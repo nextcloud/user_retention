@@ -6,6 +6,7 @@ OC.L10N.register(
     "Account expiration:" : "Kontu iraungitzea:",
     "days" : "egun",
     "(0 to disable)" : "(0 desgaitzeko)",
+    "Guest account expiration:" : "Gonbidatu-kontuaren iraungitzea:",
     "Exclude groups:" : "Taldeak baztertu:",
     "Ignore members of these groups from retention" : "Ezikusi talde honetako kideak atxikitzetik",
     "Could not fetch groups" : "Ezin izan dira taldeak eskuratu",
