@@ -296,6 +296,10 @@ class RetentionService {
 			return null;
 		}
 
+		if (count($lastActivities) === 1) {
+			return array_pop($lastActivities);
+		}
+
 		return max(...$lastActivities);
 	}
 

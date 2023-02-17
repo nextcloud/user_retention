@@ -20,6 +20,8 @@
  */
 namespace OCA\UserRetention\Tests;
 
+use OC\Authentication\Token\Manager;
+use OC\Authentication\Token\PublicKeyToken;
 use OCA\UserRetention\BackgroundJob\ExpireUsers;
 use OCA\UserRetention\Service\RetentionService;
 use OCA\UserRetention\SkipUserException;
@@ -253,5 +255,48 @@ class RetentionServiceTest extends TestCase {
 		if (!$expectsThrow) {
 			$this->assertTrue(true);
 		}
+	}
+
+	public function dataGetAuthTokensLastActivity(): array {
+		return [
+			[[], null],
+			[[1], 1],
+			[[1, 2], 2],
+			[[4, 2], 4],
+		];
+	}
+
+	/**
+	 * @dataProvider dataGetAuthTokensLastActivity
+	 * @param int[] $tokenActivities
+	 * @param ?int $expected
+	 */
+	public function testGetAuthTokensLastActivity(array $tokenActivities, ?int $expected): void {
+		$service = $this->createService();
+
+		$tokens = [];
+		foreach ($tokenActivities as $lastActivity) {
+			$token = PublicKeyToken::fromParams([
+				'lastActivity' => $lastActivity,
+			]);
+
+			$tokens[] = $token;
+		}
+
+		$user = $this->createMock(IUser::class);
+		$user->method('getUID')
+			->willReturn('uid');
+
+		$manager = $this->createMock(Manager::class);
+		$manager->method('getTokenByUser')
+			->with('uid')
+			->willReturn($tokens);
+
+		$this->container->method('get')
+			->with(Manager::class)
+			->willReturn($manager);
+
+		$actual = self::invokePrivate($service, 'getAuthTokensLastActivity', [$user]);
+		$this->assertSame($expected, $actual);
 	}
 }

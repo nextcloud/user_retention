@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.9.0 – 2023-02-17
+### Changed
+- Compatibility with Nextcloud 26
+
+### Fixed
+- Prevent "must be of type array, int given" for max()
+
 ## 1.8.1 – 2022-11-18
 ### Added
 - Allow to send an email reminder before deleting users
