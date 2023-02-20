@@ -130,7 +130,7 @@ class RetentionService {
 	}
 
 	public function executeRetentionPolicy(IUser $user): ?bool {
-		$this->logger->warning($user->getUID());
+		$this->logger->debug($user->getUID());
 		$skipIfNewerThan = $this->userMaxLastLogin;
 		$policyDays = $this->userDays;
 		if ($user->getBackend() instanceof GuestUserBackend) {
