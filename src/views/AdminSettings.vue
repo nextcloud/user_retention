@@ -43,12 +43,36 @@
 
 		<div>
 			<label>
+				<span>{{ t('user_retention', 'Account disabling:') }}</span>
+				<input id="user_days_disable"
+					v-model="userDaysDisable"
+					type="number"
+					placeholder="180"
+					@change="saveUserDaysDisable"> {{ t('user_retention', 'days') }}
+				<em>{{ t('user_retention', '(0 to disable)') }}</em>
+			</label>
+		</div>
+
+		<div>
+			<label>
 				<span>{{ t('user_retention', 'Account expiration:') }}</span>
 				<input id="user_days"
 					v-model="userDays"
 					type="number"
 					placeholder="180"
 					@change="saveUserDays"> {{ t('user_retention', 'days') }}
+				<em>{{ t('user_retention', '(0 to disable)') }}</em>
+			</label>
+		</div>
+
+		<div v-if="guestsAppInstalled">
+			<label>
+				<span>{{ t('user_retention', 'Guest account disabling:') }}</span>
+				<input id="guest_days_disable"
+					v-model="guestDaysDisable"
+					type="number"
+					placeholder="180"
+					@change="saveGuestDaysDisable"> {{ t('user_retention', 'days') }}
 				<em>{{ t('user_retention', '(0 to disable)') }}</em>
 			</label>
 		</div>
@@ -118,7 +142,9 @@ export default {
 			groups: [],
 			excludedGroups: [],
 			keepUsersWithoutLogin: true,
+			userDaysDisable: 0,
 			userDays: 0,
+			guestDaysDisable: 0,
 			guestDays: 0,
 		}
 	},
@@ -127,7 +153,9 @@ export default {
 		this.loading = true
 
 		this.keepUsersWithoutLogin = loadState('user_retention', 'keep_users_without_login')
+		this.userDaysDisable = loadState('user_retention', 'user_days_disable')
 		this.userDays = loadState('user_retention', 'user_days')
+		this.guestDaysDisable = loadState('user_retention', 'guest_days_disable')
 		this.guestDays = loadState('user_retention', 'guest_days')
 		this.excludedGroups = loadState('user_retention', 'excluded_groups').sort(function(a, b) {
 			return a.displayname.localeCompare(b.displayname)
@@ -171,8 +199,30 @@ export default {
 			})
 		},
 
+		saveUserDaysDisable() {
+			OCP.AppConfig.setValue('user_retention', 'user_days_disable', this.userDaysDisable, {
+				success: () => {
+					showSuccess(t('user_retention', 'Setting saved'))
+				},
+				error: () => {
+					showError(t('user_retention', 'Could not save the setting'))
+				},
+			})
+		},
+
 		saveUserDays() {
 			OCP.AppConfig.setValue('user_retention', 'user_days', this.userDays, {
+				success: () => {
+					showSuccess(t('user_retention', 'Setting saved'))
+				},
+				error: () => {
+					showError(t('user_retention', 'Could not save the setting'))
+				},
+			})
+		},
+
+		saveGuestDaysDisable() {
+			OCP.AppConfig.setValue('user_retention', 'guest_days_disable', this.guestDaysDisable, {
 				success: () => {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},

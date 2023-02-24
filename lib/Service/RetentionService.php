@@ -53,8 +53,12 @@ class RetentionService {
 	protected IFactory $l10nFactory;
 	protected LoggerInterface $logger;
 
+	protected int $userDaysDisable = 0;
+	protected int $userDisableMaxLastLogin = 0;
 	protected int $userDays = 0;
 	protected int $userMaxLastLogin = 0;
+	protected int $guestDaysDisable = 0;
+	protected int $guestDisableMaxLastLogin = 0;
 	protected int $guestDays = 0;
 	protected int $guestMaxLastLogin = 0;
 	protected array $excludedGroups = [];
@@ -84,6 +88,15 @@ class RetentionService {
 
 	public function runCron(): void {
 		$now = new \DateTimeImmutable();
+		$this->userDaysDisable = (int) $this->config->getAppValue('user_retention', 'user_days_disable', '0');
+		if ($this->userDaysDisable > 0) {
+			$userDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDaysDisable . 'D'));
+			$this->userDisableMaxLastLogin = $userDisableMaxLastLogin->getTimestamp();
+			$this->logger->debug('Account disabling with last login before ' . $userDisableMaxLastLogin->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug('Account disabling is disabled');
+		}
+
 		$this->userDays = (int) $this->config->getAppValue('user_retention', 'user_days', '0');
 		if ($this->userDays > 0) {
 			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDays . 'D'));
@@ -91,6 +104,15 @@ class RetentionService {
 			$this->logger->debug('Account retention with last login before ' . $userMaxLastLogin->format(\DateTimeInterface::ATOM));
 		} else {
 			$this->logger->debug('Account retention is disabled');
+		}
+
+		$this->guestDaysDisable = (int) $this->config->getAppValue('user_retention', 'guest_days_disable', '0');
+		if ($this->guestDaysDisable > 0) {
+			$guestDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->guestDaysDisable . 'D'));
+			$this->guestDisableMaxLastLogin = $guestDisableMaxLastLogin->getTimestamp();
+			$this->logger->debug('Guest account disabling with last login before ' . $guestDisableMaxLastLogin->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug('Guest account disabling is disabled');
 		}
 
 		$this->guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', '0');
@@ -130,6 +152,11 @@ class RetentionService {
 	}
 
 	public function executeRetentionPolicy(IUser $user): ?bool {
+		$skipDisableIfNewerThan = $this->userDisableMaxLastLogin;
+		if ($user->getBackend() instanceof GuestUserBackend) {
+			$skipDisableIfNewerThan = $this->guestDisableMaxLastLogin;
+		}
+
 		$skipIfNewerThan = $this->userMaxLastLogin;
 		$policyDays = $this->userDays;
 		if ($user->getBackend() instanceof GuestUserBackend) {
@@ -137,7 +164,7 @@ class RetentionService {
 			$policyDays = $this->guestDays;
 		}
 
-		if (!$skipIfNewerThan) {
+		if (!$skipDisableIfNewerThan && !$skipIfNewerThan) {
 			$this->logger->debug('Skipping retention because not defined for user backend: {user}', [
 				'user' => $user->getUID(),
 			]);
@@ -150,6 +177,20 @@ class RetentionService {
 		} catch (SkipUserException $e) {
 			$this->logger->debug($e->getMessage(), $e->getLogParameters());
 			return true;
+		}
+
+		// Check if we disable the user
+		try {
+			$this->shouldPerformActionOnUser($user, $skipDisableIfNewerThan);
+
+			if ($user->isEnabled()) {
+				$user->setEnabled(false);
+				$this->logger->info('Account disabled: ' . $user->getUID());
+				return true;
+			}
+			$this->logger->debug('Account already disabled, continuing with potential deletion: ' . $user->getUID());
+		} catch (SkipUserException $e) {
+			// Not disabling yet, continue with checking deletion
 		}
 
 		// Check if we delete the user
