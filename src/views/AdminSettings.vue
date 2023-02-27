@@ -34,6 +34,15 @@
 
 		<div>
 			<label>
+				<CheckboxRadioSwitch :checked.sync="keepUsersWithoutLogin"
+					@update:checked="saveKeepUsersWithoutLogin">
+					{{ t('user_retention', 'Keep accounts that never logged in') }}
+				</CheckboxRadioSwitch>
+			</label>
+		</div>
+
+		<div>
+			<label>
 				<span>{{ t('user_retention', 'Account expiration:') }}</span>
 				<input id="user_days"
 					v-model="userDays"
@@ -83,6 +92,7 @@
 <script>
 import axios from '@nextcloud/axios'
 import debounce from 'debounce'
+import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
 import Multiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
 import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
@@ -95,6 +105,7 @@ export default {
 	name: 'AdminSettings',
 
 	components: {
+		CheckboxRadioSwitch,
 		Multiselect,
 	},
 
@@ -106,6 +117,7 @@ export default {
 			ldapBackendEnabled: false,
 			groups: [],
 			excludedGroups: [],
+			keepUsersWithoutLogin: true,
 			userDays: 0,
 			guestDays: 0,
 		}
@@ -114,6 +126,7 @@ export default {
 	mounted() {
 		this.loading = true
 
+		this.keepUsersWithoutLogin = loadState('user_retention', 'keep_users_without_login')
 		this.userDays = loadState('user_retention', 'user_days')
 		this.guestDays = loadState('user_retention', 'guest_days')
 		this.excludedGroups = loadState('user_retention', 'excluded_groups').sort(function(a, b) {
@@ -146,6 +159,17 @@ export default {
 				this.loadingGroups = false
 			}
 		}, 500),
+
+		saveKeepUsersWithoutLogin() {
+			OCP.AppConfig.setValue('user_retention', 'keep_users_without_login', this.keepUsersWithoutLogin ? 'yes' : 'no', {
+				success: () => {
+					showSuccess(t('user_retention', 'Setting saved'))
+				},
+				error: () => {
+					showError(t('user_retention', 'Could not save the setting'))
+				},
+			})
+		},
 
 		saveUserDays() {
 			OCP.AppConfig.setValue('user_retention', 'user_days', this.userDays, {

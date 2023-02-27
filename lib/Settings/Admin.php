@@ -52,6 +52,8 @@ class Admin implements ISettings {
 	}
 
 	public function getForm(): TemplateResponse {
+		$keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
+		$this->initialStateService->provideInitialState('keep_users_without_login', $keepUsersWithoutLogin);
 		$userDays = (int) $this->config->getAppValue('user_retention', 'user_days', 0);
 		$this->initialStateService->provideInitialState('user_days', $userDays);
 		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', 0);
