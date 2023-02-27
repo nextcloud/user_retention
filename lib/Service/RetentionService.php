@@ -180,39 +180,47 @@ class RetentionService {
 		}
 
 		// Check if we disable the user
-		try {
-			$this->shouldPerformActionOnUser($user, $skipDisableIfNewerThan);
+		if ($skipDisableIfNewerThan !== 0) {
+			try {
+				$this->shouldPerformActionOnUser($user, $skipDisableIfNewerThan);
 
-			if ($user->isEnabled()) {
-				$user->setEnabled(false);
-				$this->logger->info('Account disabled: ' . $user->getUID());
-				return true;
+				if ($user->isEnabled()) {
+					$user->setEnabled(false);
+					$this->logger->info('Account disabled: ' . $user->getUID());
+					return true;
+				}
+				$this->logger->debug('Account already disabled, continuing with potential deletion: ' . $user->getUID());
+			} catch (SkipUserException $e) {
+				// Not disabling yet, continue with checking deletion
 			}
-			$this->logger->debug('Account already disabled, continuing with potential deletion: ' . $user->getUID());
-		} catch (SkipUserException $e) {
-			// Not disabling yet, continue with checking deletion
+		} else {
+			$this->logger->debug('No account disabling policy enabled for account: ' . $user->getUID());
 		}
 
 		// Check if we delete the user
-		try {
-			$this->shouldPerformActionOnUser($user, $skipIfNewerThan);
+		if ($skipIfNewerThan !== 0) {
+			try {
+				$this->shouldPerformActionOnUser($user, $skipIfNewerThan);
 
-			$this->logger->debug('Attempting to delete account: {user}', [
-				'user' => $user->getUID(),
-			]);
-			if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
-				$this->logger->warning('Expired LDAP account ' . $user->getUID() . ' was not deleted');
+				$this->logger->debug('Attempting to delete account: {user}', [
+					'user' => $user->getUID(),
+				]);
+				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
+					$this->logger->warning('Expired LDAP account ' . $user->getUID() . ' was not deleted');
+					return true;
+				}
+
+				if ($user->delete()) {
+					$this->logger->info('Account deleted: ' . $user->getUID());
+				} else {
+					$this->logger->warning('Expired account ' . $user->getUID() . ' was not deleted');
+				}
 				return true;
+			} catch (SkipUserException $e) {
+				// Not deleting yet, continue with checking reminders
 			}
-
-			if ($user->delete()) {
-				$this->logger->info('Account deleted: ' . $user->getUID());
-			} else {
-				$this->logger->warning('Expired account ' . $user->getUID() . ' was not deleted');
-			}
-			return true;
-		} catch (SkipUserException $e) {
-			// Not deleting yet, continue with checking reminders
+		} else {
+			$this->logger->debug('No account retention policy enabled for account: ' . $user->getUID());
 		}
 
 		// Check if we remind the user
