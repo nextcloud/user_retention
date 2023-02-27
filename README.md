@@ -1,6 +1,6 @@
 # 👤🗑 Account retention (formerly User retention)
 
-Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.
+Accounts are disabled or deleted when they did not log in within the given number of days. In case of deletion, this will also delete all files and other data associated with the account.
 
 * 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)
 * ⛔ Exclude accounts based on group memberships (default: admin group)
@@ -8,13 +8,9 @@ Accounts are deleted when they did not log in within the given number of days. T
 
 ![Screenshot of the admin settings](docs/screenshot.png)
 
-## 🔐 Accounts that never logged-in
+## 🔐 Accounts that never logged in
 
-By default, accounts that have never logged in at all, will be spared from removal. To also take them into consideration, set the config flag accordingly:
-
-```shell
-occ config:app:set user_retention keep_users_without_login --value='no'
-```
+By default, accounts that have never logged in at all, will be spared from removal.
 
 In this case the number of days will start counting from the day on which the account has been seen for the first time by the app (first run of the background job after the account was created).
 
