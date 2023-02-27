@@ -159,9 +159,11 @@ class RetentionService {
 
 		$skipIfNewerThan = $this->userMaxLastLogin;
 		$policyDays = $this->userDays;
+		$policyDaysDisable = $this->userDaysDisable;
 		if ($user->getBackend() instanceof GuestUserBackend) {
 			$skipIfNewerThan = $this->guestMaxLastLogin;
 			$policyDays = $this->guestDays;
+			$policyDaysDisable = $this->guestDaysDisable;
 		}
 
 		if (!$skipDisableIfNewerThan && !$skipIfNewerThan) {
@@ -235,7 +237,7 @@ class RetentionService {
 			try {
 				$lastActivity = $this->shouldPerformActionOnUser($user, $reminder, $reminder - 86400);
 
-				$this->sendReminder($user, $lastActivity, $policyDays);
+				$this->sendReminder($user, $lastActivity, $policyDays, $policyDaysDisable);
 			} catch (SkipUserException $e) {
 				$this->logger->debug($e->getMessage(), $e->getLogParameters());
 				continue;
@@ -367,7 +369,7 @@ class RetentionService {
 		return true;
 	}
 
-	protected function sendReminder(IUser $user, int $lastActivity, int $policyDays): void {
+	protected function sendReminder(IUser $user, int $lastActivity, int $policyDays, int $policyDaysDisable): void {
 		if (!$user->getEMailAddress()) {
 			$this->logger->warning('Could not send account retention reminder to {user} because no email address is configured.', [
 				'user' => $user->getUID(),
@@ -393,11 +395,20 @@ class RetentionService {
 		$template->addHeader();
 		$template->addHeading($l->t('Account deletion'));
 		$template->addBodyText(str_replace('{date}', $l->l('date', $lastActivity), $l->t('You have not used your account since {date}.')));
-		$template->addBodyText($l->n(
-			'Due to the configured policy for accounts, inactive accounts will be deleted after %n day.',
-			'Due to the configured policy for accounts, inactive accounts will be deleted after %n days.',
-			$policyDays
-		));
+		if ($policyDaysDisable) {
+			$template->addBodyText($l->n(
+				'Due to the configured policy for accounts, inactive accounts will be disabled after %n day.',
+				'Due to the configured policy for accounts, inactive accounts will be disabled after %n days.',
+				$policyDaysDisable
+			));
+		}
+		if ($policyDays) {
+			$template->addBodyText($l->n(
+				'Due to the configured policy for accounts, inactive accounts will be deleted after %n day.',
+				'Due to the configured policy for accounts, inactive accounts will be deleted after %n days.',
+				$policyDays
+			));
+		}
 		$template->addBodyText($l->t('To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted.'));
 		$template->addBodyText($l->t('If you have any questions, please contact your administration.'));
 		$template->addFooter();
