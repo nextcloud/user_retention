@@ -11,6 +11,7 @@
     "Account retention" : "Uchovávání účtů",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Účty jsou mazány když se nepřihlásí do daného počtu dnů. Toto také smaže veškeré soubory a další data příslušných účtů.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Pokud není zapnutá aplikace pro podporu zápisu do LDAP, účty z LDAP jsou smazáni pouze lokálně. To znamená, že v LDAP zůstanou a objeví se znovu.",
+    "Keep accounts that never logged in" : "Ponechat účty, kterými se nikdo nikdy nepřihlásil",
     "Account expiration:" : "Konec platnosti účtu:",
     "days" : "dnů",
     "(0 to disable)" : "(0 nula pro vypnutí)",

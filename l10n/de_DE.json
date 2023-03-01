@@ -11,6 +11,7 @@
     "Account retention" : "Kontoaufbewahrung",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konten werden gelöscht, wenn sie sich nicht innerhalb der angegebenen Anzahl von Tagen angemeldet haben. Dadurch werden auch alle mit dem Konto verbundenen Dateien und anderen Daten gelöscht.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Konten aus LDAP werden nur lokal gelöscht, es sei denn, die App zur Unterstützung von LDAP-Schreibvorgängen ist aktiviert. Wenn Konten noch auf LDAP verfügbar sind, werden sie wieder angezeigt.",
+    "Keep accounts that never logged in" : "Behalten Sie Konten, die sich nie angemeldet haben",
     "Account expiration:" : "Kontoablauf:",
     "days" : "Tage",
     "(0 to disable)" : "(0 zum Deaktivieren)",
