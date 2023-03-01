@@ -13,6 +13,7 @@ OC.L10N.register(
     "Account retention" : "Запазване на профил",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Профили се изтриват, когато нямат вписване в приложението в рамките на зададения брой дни. Също така ще бъдат изтрити и всички файлове и други данни, свързани с този профил.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Профили от LDAP се изтриват само локално, освен ако не е активирано приложението за поддръжка на LDAP запис. Когато все още са налице в LDAP, профилите ще се появят отново.",
+    "Keep accounts that never logged in" : "Запазване на профили, които никога не са влизали в системата",
     "Account expiration:" : "Изтичане на срока на профил:",
     "days" : "дни",
     "(0 to disable)" : "(0 за деактивиране)",
