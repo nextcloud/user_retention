@@ -13,6 +13,7 @@ OC.L10N.register(
     "Account retention" : "Retención de la cuenta",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Las cuentas son eliminadas cuando no han ingresado en un cierto número de días. Esto también borrará todos los archivos y otros datos asociados con la cuenta.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Las cuentas desde LDAP se eliminan solo localmente a menos que el soporte de escritura LDAP esté habilitado. Mientras sigan activas en LDAP, las cuentas volverán a aparecer.",
+    "Keep accounts that never logged in" : "Conservar cuentas que nunca iniciaron sesión",
     "Account expiration:" : "Caducidad de la cuenta:",
     "days" : "días",
     "(0 to disable)" : "(0 para desactivar)",
