@@ -53,8 +53,12 @@ class RetentionService {
 	protected IFactory $l10nFactory;
 	protected LoggerInterface $logger;
 
+	protected int $userDaysDisable = 0;
+	protected int $userDisableMaxLastLogin = 0;
 	protected int $userDays = 0;
 	protected int $userMaxLastLogin = 0;
+	protected int $guestDaysDisable = 0;
+	protected int $guestDisableMaxLastLogin = 0;
 	protected int $guestDays = 0;
 	protected int $guestMaxLastLogin = 0;
 	protected array $excludedGroups = [];
@@ -84,6 +88,15 @@ class RetentionService {
 
 	public function runCron(): void {
 		$now = new \DateTimeImmutable();
+		$this->userDaysDisable = (int) $this->config->getAppValue('user_retention', 'user_days_disable', '0');
+		if ($this->userDaysDisable > 0) {
+			$userDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDaysDisable . 'D'));
+			$this->userDisableMaxLastLogin = $userDisableMaxLastLogin->getTimestamp();
+			$this->logger->debug('Account disabling with last login before ' . $userDisableMaxLastLogin->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug('Account disabling is disabled');
+		}
+
 		$this->userDays = (int) $this->config->getAppValue('user_retention', 'user_days', '0');
 		if ($this->userDays > 0) {
 			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDays . 'D'));
@@ -91,6 +104,15 @@ class RetentionService {
 			$this->logger->debug('Account retention with last login before ' . $userMaxLastLogin->format(\DateTimeInterface::ATOM));
 		} else {
 			$this->logger->debug('Account retention is disabled');
+		}
+
+		$this->guestDaysDisable = (int) $this->config->getAppValue('user_retention', 'guest_days_disable', '0');
+		if ($this->guestDaysDisable > 0) {
+			$guestDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->guestDaysDisable . 'D'));
+			$this->guestDisableMaxLastLogin = $guestDisableMaxLastLogin->getTimestamp();
+			$this->logger->debug('Guest account disabling with last login before ' . $guestDisableMaxLastLogin->format(\DateTimeInterface::ATOM));
+		} else {
+			$this->logger->debug('Guest account disabling is disabled');
 		}
 
 		$this->guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', '0');
@@ -130,14 +152,21 @@ class RetentionService {
 	}
 
 	public function executeRetentionPolicy(IUser $user): ?bool {
+		$skipDisableIfNewerThan = $this->userDisableMaxLastLogin;
+		if ($user->getBackend() instanceof GuestUserBackend) {
+			$skipDisableIfNewerThan = $this->guestDisableMaxLastLogin;
+		}
+
 		$skipIfNewerThan = $this->userMaxLastLogin;
 		$policyDays = $this->userDays;
+		$policyDaysDisable = $this->userDaysDisable;
 		if ($user->getBackend() instanceof GuestUserBackend) {
 			$skipIfNewerThan = $this->guestMaxLastLogin;
 			$policyDays = $this->guestDays;
+			$policyDaysDisable = $this->guestDaysDisable;
 		}
 
-		if (!$skipIfNewerThan) {
+		if (!$skipDisableIfNewerThan && !$skipIfNewerThan) {
 			$this->logger->debug('Skipping retention because not defined for user backend: {user}', [
 				'user' => $user->getUID(),
 			]);
@@ -152,26 +181,48 @@ class RetentionService {
 			return true;
 		}
 
+		// Check if we disable the user
+		if ($skipDisableIfNewerThan !== 0) {
+			try {
+				$this->shouldPerformActionOnUser($user, $skipDisableIfNewerThan);
+
+				if ($user->isEnabled()) {
+					$user->setEnabled(false);
+					$this->logger->info('Account disabled: ' . $user->getUID());
+					return true;
+				}
+				$this->logger->debug('Account already disabled, continuing with potential deletion: ' . $user->getUID());
+			} catch (SkipUserException $e) {
+				// Not disabling yet, continue with checking deletion
+			}
+		} else {
+			$this->logger->debug('No account disabling policy enabled for account: ' . $user->getUID());
+		}
+
 		// Check if we delete the user
-		try {
-			$this->shouldPerformActionOnUser($user, $skipIfNewerThan);
+		if ($skipIfNewerThan !== 0) {
+			try {
+				$this->shouldPerformActionOnUser($user, $skipIfNewerThan);
 
-			$this->logger->debug('Attempting to delete account: {user}', [
-				'user' => $user->getUID(),
-			]);
-			if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
-				$this->logger->warning('Expired LDAP account ' . $user->getUID() . ' was not deleted');
+				$this->logger->debug('Attempting to delete account: {user}', [
+					'user' => $user->getUID(),
+				]);
+				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
+					$this->logger->warning('Expired LDAP account ' . $user->getUID() . ' was not deleted');
+					return true;
+				}
+
+				if ($user->delete()) {
+					$this->logger->info('Account deleted: ' . $user->getUID());
+				} else {
+					$this->logger->warning('Expired account ' . $user->getUID() . ' was not deleted');
+				}
 				return true;
+			} catch (SkipUserException $e) {
+				// Not deleting yet, continue with checking reminders
 			}
-
-			if ($user->delete()) {
-				$this->logger->info('Account deleted: ' . $user->getUID());
-			} else {
-				$this->logger->warning('Expired account ' . $user->getUID() . ' was not deleted');
-			}
-			return true;
-		} catch (SkipUserException $e) {
-			// Not deleting yet, continue with checking reminders
+		} else {
+			$this->logger->debug('No account retention policy enabled for account: ' . $user->getUID());
 		}
 
 		// Check if we remind the user
@@ -186,7 +237,7 @@ class RetentionService {
 			try {
 				$lastActivity = $this->shouldPerformActionOnUser($user, $reminder, $reminder - 86400);
 
-				$this->sendReminder($user, $lastActivity, $policyDays);
+				$this->sendReminder($user, $lastActivity, $policyDays, $policyDaysDisable);
 			} catch (SkipUserException $e) {
 				$this->logger->debug($e->getMessage(), $e->getLogParameters());
 				continue;
@@ -318,7 +369,7 @@ class RetentionService {
 		return true;
 	}
 
-	protected function sendReminder(IUser $user, int $lastActivity, int $policyDays): void {
+	protected function sendReminder(IUser $user, int $lastActivity, int $policyDays, int $policyDaysDisable): void {
 		if (!$user->getEMailAddress()) {
 			$this->logger->warning('Could not send account retention reminder to {user} because no email address is configured.', [
 				'user' => $user->getUID(),
@@ -344,11 +395,20 @@ class RetentionService {
 		$template->addHeader();
 		$template->addHeading($l->t('Account deletion'));
 		$template->addBodyText(str_replace('{date}', $l->l('date', $lastActivity), $l->t('You have not used your account since {date}.')));
-		$template->addBodyText($l->n(
-			'Due to the configured policy for accounts, inactive accounts will be deleted after %n day.',
-			'Due to the configured policy for accounts, inactive accounts will be deleted after %n days.',
-			$policyDays
-		));
+		if ($policyDaysDisable) {
+			$template->addBodyText($l->n(
+				'Due to the configured policy for accounts, inactive accounts will be disabled after %n day.',
+				'Due to the configured policy for accounts, inactive accounts will be disabled after %n days.',
+				$policyDaysDisable
+			));
+		}
+		if ($policyDays) {
+			$template->addBodyText($l->n(
+				'Due to the configured policy for accounts, inactive accounts will be deleted after %n day.',
+				'Due to the configured policy for accounts, inactive accounts will be deleted after %n days.',
+				$policyDays
+			));
+		}
 		$template->addBodyText($l->t('To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted.'));
 		$template->addBodyText($l->t('If you have any questions, please contact your administration.'));
 		$template->addFooter();
