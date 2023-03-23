@@ -19,7 +19,7 @@ OC.L10N.register(
     "days" : "Tage",
     "(0 to disable)" : "(0 zum Deaktivieren)",
     "Account expiration:" : "Kontoablauf:",
-    "Guest account disabling:" : "Goast-Konto deaktivieren:",
+    "Guest account disabling:" : "Gast-Konto deaktivieren:",
     "Guest account expiration:" : "Ablauf des Gastkontos:",
     "Exclude groups:" : "Gruppen ausschließen:",
     "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Aufbewahrung ausschließen",
