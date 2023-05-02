@@ -76,6 +76,7 @@ appstore:
 	--exclude=/npm-debug.log \
 	--exclude=/package.json \
 	--exclude=/package-lock.json \
+	--exclude=/psalm.xml \
 	--exclude=/webpack.*.js \
 	--exclude=/Makefile \
 	--exclude=.l10nignore \
