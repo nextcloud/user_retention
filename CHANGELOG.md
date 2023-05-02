@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.10.0 – 2023-05-03
+### Changed
+- Allow to disable users instead of deleting them (#31)
+- Add UI setting for `keep_users_without_login` (#118)
+- Compatibility with Nextcloud 27
+
+### Fixed
+- Prevent "must be of type array, int given" for max()
+
 ## 1.9.0 – 2023-02-17
 ### Changed
 - Compatibility with Nextcloud 26
