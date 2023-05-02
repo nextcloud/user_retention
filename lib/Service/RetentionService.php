@@ -370,7 +370,8 @@ class RetentionService {
 	}
 
 	protected function sendReminder(IUser $user, int $lastActivity, int $policyDays, int $policyDaysDisable): void {
-		if (!$user->getEMailAddress()) {
+		$email = $user->getEMailAddress();
+		if (!$email) {
 			$this->logger->warning('Could not send account retention reminder to {user} because no email address is configured.', [
 				'user' => $user->getUID(),
 			]);
@@ -415,7 +416,7 @@ class RetentionService {
 
 		$message->useTemplate($template);
 		$message->setTo([
-			$user->getEMailAddress() => $user->getDisplayName(),
+			$email => $user->getDisplayName(),
 		]);
 
 		try {

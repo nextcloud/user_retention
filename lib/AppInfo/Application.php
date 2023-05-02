@@ -51,7 +51,7 @@ class Application extends App implements IBootstrap {
 			$parameters['uid'],
 			'user_retention',
 			'user_created_at',
-			time()
+			(string)time()
 		);
 	}
 }

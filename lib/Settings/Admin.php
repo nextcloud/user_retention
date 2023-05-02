@@ -54,13 +54,13 @@ class Admin implements ISettings {
 	public function getForm(): TemplateResponse {
 		$keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
 		$this->initialStateService->provideInitialState('keep_users_without_login', $keepUsersWithoutLogin);
-		$userDaysDisable = (int) $this->config->getAppValue('user_retention', 'user_days_disable', 0);
+		$userDaysDisable = (int) $this->config->getAppValue('user_retention', 'user_days_disable', '0');
 		$this->initialStateService->provideInitialState('user_days_disable', $userDaysDisable);
-		$userDays = (int) $this->config->getAppValue('user_retention', 'user_days', 0);
+		$userDays = (int) $this->config->getAppValue('user_retention', 'user_days', '0');
 		$this->initialStateService->provideInitialState('user_days', $userDays);
-		$guestDaysDisable = (int) $this->config->getAppValue('user_retention', 'guest_days_disable', 0);
+		$guestDaysDisable = (int) $this->config->getAppValue('user_retention', 'guest_days_disable', '0');
 		$this->initialStateService->provideInitialState('guest_days_disable', $guestDaysDisable);
-		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', 0);
+		$guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', '0');
 		$this->initialStateService->provideInitialState('guest_days', $guestDays);
 
 		$this->initialStateService->provideInitialState('guests_app_installed', $this->appManager->isInstalled('guests'));
