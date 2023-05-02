@@ -24,7 +24,7 @@
 	<bugs>https://github.com/nextcloud/user_retention/issues</bugs>
 	<repository>https://github.com/nextcloud/user_retention</repository>
 
-	<screenshot>https://raw.githubusercontent.com/nextcloud/user_retention/master/docs/screenshot.png</screenshot>
+	<screenshot>https://raw.githubusercontent.com/nextcloud/user_retention/main/docs/screenshot.png</screenshot>
 
 	<dependencies>
 		<nextcloud min-version="25" max-version="27" />
