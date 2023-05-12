@@ -35,6 +35,7 @@
 		<div>
 			<label>
 				<CheckboxRadioSwitch :checked.sync="keepUsersWithoutLogin"
+					id="keep_users_without_login"
 					@update:checked="saveKeepUsersWithoutLogin">
 					{{ t('user_retention', 'Keep accounts that never logged in') }}
 				</CheckboxRadioSwitch>
