@@ -72,6 +72,8 @@ appstore:
 	--exclude=/.scrutinizer.yml \
 	--exclude=/.travis.yml \
 	--exclude=/check-vuejs-builds.sh \
+	--exclude=/cypress \
+	--exclude=/cypress.config.js \
 	--exclude=/node_modules \
 	--exclude=/npm-debug.log \
 	--exclude=/package.json \
