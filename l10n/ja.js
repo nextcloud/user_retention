@@ -2,6 +2,8 @@ OC.L10N.register(
     "user_retention",
     {
     "Account deletion" : "アカウント削除",
+    "You have not used your account since {date}." : "{date}以降、アカウントを使用していません。",
+    "If you have any questions, please contact your administration." : "ご質問がある場合は、管理者にお問い合わせください。",
     "days" : "日",
     "(0 to disable)" : "（無効にするには0）",
     "Exclude groups:" : "グループを除外:",
