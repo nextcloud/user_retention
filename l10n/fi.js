@@ -9,9 +9,6 @@ OC.L10N.register(
     "Exclude groups:" : "Ohita ryhmät:",
     "Could not fetch groups" : "Ryhmiä ei voitu noutaa",
     "Setting saved" : "Asetus tallennettu",
-    "Could not save the setting" : "Asetusta ei voitu tallentaa",
-    "User expiration:" : "Käyttäjän vanhentuminen:",
-    "Guest expiration:" : "Vieraan vanhentuminen:",
-    "Limit app usage to groups." : "Rajoita sovelluksen käyttö ryhmiin."
+    "Could not save the setting" : "Asetusta ei voitu tallentaa"
 },
 "nplurals=2; plural=(n != 1);");

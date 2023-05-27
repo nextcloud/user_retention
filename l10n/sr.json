@@ -23,14 +23,6 @@
     "Ignore members of these groups from retention" : "Изузми чланове следећих група од задржавања",
     "Could not fetch groups" : "Нису могле да се добаве групе",
     "Setting saved" : "Подешавање је сачувано",
-    "Could not save the setting" : "Није могло да се сачува подешавање",
-    "User retention" : "Задржавање корисника",
-    "Deletes users that did not log in in the last days." : "Брише кориснике који се нису скоро пријавили.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.\n\n* 🛂 Different retention possible for normal users and users of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude users based on group memberships (default: admin group)\n* 🔑 Exclude users that never logged in (default: enabled)" : "Корисници се бришу када се нису пријавили на свој налог у року од задатог броја дана. Ово ће такође да обрише и све податке, као и све остале податке тих корисника.\n\n* 🛂 Различито задржавање је могуће за обичне кориснике и за кориснике [гост апликације](https://apps.nextcloud.com/apps/guests)\n* ⛔ Изузимају се корисници у зависности од припадности групи (подразумевано: админ група)\n* 🔑 Изузимају се корисници који се никада раније нису пријавили на налог (подразумевано: укључено)",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users." : "Корисници се бришу када се не пријаве на свој налог у року од одређеног броја дана. Ово ће такође обрисати и све фајлове тих корисника.",
-    "Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear." : "LDAP корисници се бришу само локално, осим ако није укључена подршка за писање са LDAP-ом. Ако су још доступни на LDAP-у, корисници ће се појавити поново.",
-    "User expiration:" : "Истицање корисника:",
-    "Guest expiration:" : "Истицање гостију:",
-    "Limit app usage to groups." : "Ограничи коришћење апликације на групе."
+    "Could not save the setting" : "Није могло да се сачува подешавање"
 },"pluralForm" :"nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);"
 }

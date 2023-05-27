@@ -25,14 +25,6 @@ OC.L10N.register(
     "Ignore members of these groups from retention" : "Ignore members of these groups from retention",
     "Could not fetch groups" : "Could not fetch groups",
     "Setting saved" : "Setting saved",
-    "Could not save the setting" : "Could not save the setting",
-    "User retention" : "User retention",
-    "Deletes users that did not log in in the last days." : "Deletes users that did not log in in the last days.",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.\n\n* 🛂 Different retention possible for normal users and users of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude users based on group memberships (default: admin group)\n* 🔑 Exclude users that never logged in (default: enabled)" : "Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.\n\n* 🛂 Different retention possible for normal users and users of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude users based on group memberships (default: admin group)\n* 🔑 Exclude users that never logged in (default: enabled)",
-    "Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users." : "Users are deleted when they did not log into their account within the given number of days. This will also delete all files and other data of the affected users.",
-    "Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear." : "Users from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, users will reappear.",
-    "User expiration:" : "User expiration:",
-    "Guest expiration:" : "Guest expiration:",
-    "Limit app usage to groups." : "Limit app usage to groups."
+    "Could not save the setting" : "Could not save the setting"
 },
 "nplurals=2; plural=(n != 1);");
