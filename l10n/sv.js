@@ -1,9 +1,28 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Viktig information om ditt konto",
     "Account deletion" : "Radering av konto",
+    "You have not used your account since {date}." : "Du har inte använt ditt konto sedan {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["På grund av den konfigurerade policyn för konton kommer inaktiva konton att inaktiveras efter %n dag.","På grund av den konfigurerade policyn för konton kommer inaktiva konton att inaktiveras efter %n dagar."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["På grund av den konfigurerade policyn för konton kommer inaktiva konton att raderas efter %n dag.","På grund av den konfigurerade policyn för konton kommer inaktiva konton att raderas efter %n dagar."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "För att behålla ditt konto behöver du bara logga in med din webbläsare eller ansluta med en klient eller mobilapp. Annars kommer ditt konto och all ansluten data att raderas permanent.",
+    "If you have any questions, please contact your administration." : "Kontakta din administration om du har några frågor.",
+    "Deletes accounts that did not login in the last days." : "Raderar konton som inte loggat in de senaste dagarna.",
+    "Account retention" : "Kontolagring",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konton raderas när de inte loggat in inom det angivna antalet dagar. Detta kommer också att radera alla filer och annan data som är associerad med kontot.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Användare från LDAP raderas endast lokalt, såvida inte stöd för att skriva till LDAP är aktiverat. När användaren fortfarande finns tillgänglig via LDAP kommer användare att visas igen.",
+    "Keep accounts that never logged in" : "Behåll konton som aldrig loggat in",
+    "Account disabling:" : "Inaktivering av konto:",
     "days" : "dagar",
     "(0 to disable)" : "(0 för att inaktivera)",
-    "Exclude groups:" : "Uteslut grupper:"
+    "Account expiration:" : "Konto upphör:",
+    "Guest account disabling:" : "Inaktivering av gästkonto:",
+    "Guest account expiration:" : "Gästkonto upphör:",
+    "Exclude groups:" : "Uteslut grupper:",
+    "Ignore members of these groups from retention" : "Ignorera medlemmar i dessa grupper från radering",
+    "Could not fetch groups" : "Det gick inte att hämta grupper",
+    "Setting saved" : "Inställningen sparad",
+    "Could not save the setting" : "Det gick inte att spara inställningen"
 },
 "nplurals=2; plural=(n != 1);");
