@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "关于您账号的详细信息",
     "Account deletion" : "帐号删除",
     "days" : "天",
     "(0 to disable)" : "（选0禁用）",
