@@ -1,10 +1,30 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Información importante sobre a súa conta",
     "Account deletion" : "Eliminación de conta",
+    "You have not used your account since {date}." : "Leva sen usar a súa conta dende o {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Por mor da directiva configurada para as contas, as contas inactivas desactivaranse após %n día.","Por mor da directiva configurada para as contas, as contas inactivas desactivaranse após %n días."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Por mor da directiva configurada para as contas, as contas inactivas eliminaranse após %n día.","Por mor da directiva configurada para as contas, as contas inactivas eliminaranse após %n días."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Para manter activa a súa conta só tes que acceder co seu navegador ou conectarse cunha aplicación de escritorio ou móbil. En caso contrario, a súa conta e todos os datos conectados eliminaranse permanentemente.",
+    "If you have any questions, please contact your administration." : "Se Vde. non solicitou isto, póñase en contacto coa administración desta instancia.",
+    "Account retention (formerly User retention)" : "Retención da conta (anteriormente Retención de usuarios)",
+    "Deletes accounts that did not login in the last days." : "Elimina as contas ás que non se accedeu nos últimos días.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "As contas elimínanse cando non se accedeu a elas no número de días indicado. Isto tamén eliminará todos os ficheiros e outros datos asociados á conta.\n\n* 🛂 Posíbel retención diferente para contas normais e contas da [aplicación de convidados](https://apps.nextcloud.com/apps/guests)\n* ⛔ Excluír contas en función das pertenzas a grupos (predeterminado: grupo de administración)\n* 🔑 Excluír contas ás que nunca se accedeu (predeterminado: activado)",
+    "Account retention" : "Retención da conta",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "As contas elimínanse cando non se accedeu a elas no número de días indicado. Isto tamén eliminará todos os ficheiros e outros datos asociados á conta.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "As contas de LDAP elimínanse só localmente, a menos que a aplicación de asistencia á escritura LDAP estea activada. Cando volvan estar dispoñíbeis en LDAP, as contas volverán aparecer.",
+    "Keep accounts that never logged in" : "Manter as contas ás que nunca se accedeu",
+    "Account disabling:" : "Desactivación da conta:",
     "days" : "días",
     "(0 to disable)" : "(0 para desactivar)",
+    "Account expiration:" : "Caducidade da conta:",
+    "Guest account disabling:" : "Desactivación da conta de convidado:",
+    "Guest account expiration:" : "Caducidade da conta de convidado:",
     "Exclude groups:" : "Excluír grupos:",
-    "Ignore members of these groups from retention" : "Ignorar aos membros destes grupos de retención"
+    "Ignore members of these groups from retention" : "Ignorar aos membros destes grupos de retención",
+    "Could not fetch groups" : "Non foi posíbel recuperar os grupos",
+    "Setting saved" : "Axustes gardados",
+    "Could not save the setting" : "Non foi posíbel gardar o axuste"
 },
 "nplurals=2; plural=(n != 1);");
