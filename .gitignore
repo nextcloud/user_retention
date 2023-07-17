@@ -1,6 +1,7 @@
 /build
 /cypress/screenshots/
 /cypress/videos/
+/js/
 /node_modules
 /tests/.phpunit.result.cache
 /vendor
