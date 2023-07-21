@@ -1,5 +1,28 @@
 { "translations": {
+    "Important information regarding your account" : "Información importante sobre tu cuenta",
     "Account deletion" : "Borrado de cuenta",
-    "days" : "días"
+    "You have not used your account since {date}." : "No has utilizado tu cuenta desde {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Debido a la política configurada para las cuentas, las cuentas inactivas serán deshabilitadas después de %n día.","Debido a la política configurada para las cuentas, las cuentas inactivas serán deshabilitadas después de %n días.","Debido a la política configurada para las cuentas, las cuentas inactivas serán deshabilitadas después de %n días."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Debido a la política configurada para las cuentas, las cuentas inactivas serán eliminadas después de %n día.","Debido a la política configurada para las cuentas, las cuentas inactivas serán eliminadas después de %n días.","Debido a la política configurada para las cuentas, las cuentas inactivas serán eliminadas después de %n días."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Para mantener tu cuenta, solo necesitas iniciar sesión con tu navegador o conectarte con una aplicación de escritorio o móvil. De lo contrario, tu cuenta y todos los datos conectados serán eliminados permanentemente.",
+    "If you have any questions, please contact your administration." : "Si tienes alguna pregunta, por favor, contacta a tu administración.",
+    "Account retention (formerly User retention)" : "Retención de cuentas (antes Retención de usuarios)",
+    "Deletes accounts that did not login in the last days." : "Elimina cuentas que no hayan iniciado sesión en los últimos días.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Las cuentas se eliminan cuando no han iniciado sesión en el número de días indicado. Esto también eliminará todos los archivos y otros datos asociados con la cuenta.\n      \n      * 🛂 Posible retención diferente para cuentas normales y cuentas de la [aplicación de invitados](https://apps.nextcloud.com/apps/guests)\n      * ⛔ Excluir cuentas basadas en membresías de grupos (por defecto: grupo de administradores)\n      * 🔑 Excluir cuentas que nunca hayan iniciado sesión (por defecto: habilitado)",
+    "Account retention" : "Retención de cuentas",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Las cuentas se eliminan cuando no han iniciado sesión en el número de días indicado. Esto también eliminará todos los archivos y otros datos asociados con la cuenta.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Las cuentas de LDAP se eliminan solo localmente, a menos que la aplicación de soporte de escritura LDAP esté habilitada. Si aún están disponibles en LDAP, las cuentas volverán a aparecer.",
+    "Keep accounts that never logged in" : "Mantener cuentas que nunca hayan iniciado sesión",
+    "Account disabling:" : "Deshabilitar cuenta:",
+    "days" : "días",
+    "(0 to disable)" : "(0 para deshabilitar)",
+    "Account expiration:" : "Expiración de cuenta:",
+    "Guest account disabling:" : "Deshabilitar cuenta de invitado:",
+    "Guest account expiration:" : "Expiración de cuenta de invitado:",
+    "Exclude groups:" : "Excluir grupos:",
+    "Ignore members of these groups from retention" : "Ignorar miembros de estos grupos en la retención",
+    "Could not fetch groups" : "No se pudieron obtener los grupos",
+    "Setting saved" : "Configuración guardada",
+    "Could not save the setting" : "No se pudo guardar la configuración"
 },"pluralForm" :"nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;"
 }
