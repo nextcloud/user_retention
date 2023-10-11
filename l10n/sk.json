@@ -1,7 +1,9 @@
 { "translations": {
     "Account deletion" : "Zmazanie účtu",
+    "Keep accounts that never logged in" : "Ponechať účty, ktoré sa nikdy neprihlásili",
     "days" : "dní",
     "(0 to disable)" : "(0 pre vypnutie)",
+    "Account expiration:" : "Platnosť účtu:",
     "Exclude groups:" : "Vynechať skupiny:",
     "Ignore members of these groups from retention" : "Ignorovať členov týchto skupín z uchovávania",
     "Could not fetch groups" : "Nepodarilo sa získať skupiny",
