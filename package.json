@@ -23,7 +23,7 @@
     "@nextcloud/router": "^2.2.0",
     "@nextcloud/vue": "^7.12.6",
     "debounce": "^1.2.1",
-    "vue": "^2.7.14",
+    "vue": "^2.7.15",
     "vuex": "^3.6.2"
   },
   "browserslist": [
@@ -43,6 +43,6 @@
     "@nextcloud/webpack-vue-config": "^6.0.0",
     "cypress": "^13.3.3",
     "eslint-plugin-cypress": "^2.15.1",
-    "vue-template-compiler": "^2.7.14"
+    "vue-template-compiler": "^2.7.15"
   }
 }
