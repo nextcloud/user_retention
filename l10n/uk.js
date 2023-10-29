@@ -2,6 +2,7 @@ OC.L10N.register(
     "user_retention",
     {
     "Account deletion" : "Вилучення облікового запису",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n день.","Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n дні.","Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n днів.","Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n днів."],
     "days" : "днів",
     "(0 to disable)" : "(0 для вимкнення)",
     "Exclude groups:" : "Виключити групи:",
