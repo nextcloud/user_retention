@@ -34,11 +34,11 @@
 
 		<div>
 			<label>
-				<CheckboxRadioSwitch :checked.sync="keepUsersWithoutLogin"
-					id="keep_users_without_login"
+				<NcCheckboxRadioSwitch id="keep_users_without_login"
+					:checked.sync="keepUsersWithoutLogin"
 					@update:checked="saveKeepUsersWithoutLogin">
 					{{ t('user_retention', 'Keep accounts that never logged in') }}
-				</CheckboxRadioSwitch>
+				</NcCheckboxRadioSwitch>
 			</label>
 		</div>
 
@@ -93,21 +93,16 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
-				<Multiselect v-model="excludedGroups"
-					name="exclude_group_select"
+				<NcSelect v-model="excludedGroups"
 					class="exclude-groups-select"
 					:options="groups"
 					:placeholder="t('user_retention', 'Ignore members of these groups from retention')"
 					:disabled="loading"
 					:multiple="true"
-					:searchable="true"
-					:tag-width="60"
 					:loading="loadingGroups"
-					:show-no-options="false"
 					:close-on-select="false"
-					track-by="id"
 					label="displayname"
-					@search-change="searchGroup"
+					@search="searchGroup"
 					@input="saveExcludedGroups" />
 			</label>
 		</div>
@@ -117,22 +112,21 @@
 <script>
 import axios from '@nextcloud/axios'
 import debounce from 'debounce'
-import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import Multiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
+import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
 import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
 import {
 	showError,
 	showSuccess,
 } from '@nextcloud/dialogs'
-import '@nextcloud/dialogs/dist/index.css'
 
 export default {
 	name: 'AdminSettings',
 
 	components: {
-		CheckboxRadioSwitch,
-		Multiselect,
+		NcCheckboxRadioSwitch,
+		NcSelect,
 	},
 
 	data() {
