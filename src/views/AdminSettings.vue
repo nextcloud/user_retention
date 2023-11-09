@@ -93,21 +93,16 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
-				<Multiselect v-model="excludedGroups"
-					name="exclude_group_select"
+				<Select v-model="excludedGroups"
 					class="exclude-groups-select"
 					:options="groups"
 					:placeholder="t('user_retention', 'Ignore members of these groups from retention')"
 					:disabled="loading"
 					:multiple="true"
-					:searchable="true"
-					:tag-width="60"
 					:loading="loadingGroups"
-					:show-no-options="false"
 					:close-on-select="false"
-					track-by="id"
 					label="displayname"
-					@search-change="searchGroup"
+					@search="searchGroup"
 					@input="saveExcludedGroups" />
 			</label>
 		</div>
@@ -118,7 +113,7 @@
 import axios from '@nextcloud/axios'
 import debounce from 'debounce'
 import CheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import Multiselect from '@nextcloud/vue/dist/Components/NcMultiselect.js'
+import Select from '@nextcloud/vue/dist/Components/NcSelect.js'
 import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
 import {
@@ -132,7 +127,7 @@ export default {
 
 	components: {
 		CheckboxRadioSwitch,
-		Multiselect,
+		Select,
 	},
 
 	data() {
