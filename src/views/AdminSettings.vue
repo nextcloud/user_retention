@@ -120,7 +120,6 @@ import {
 	showError,
 	showSuccess,
 } from '@nextcloud/dialogs'
-import '@nextcloud/dialogs/dist/index.css'
 
 export default {
 	name: 'AdminSettings',
