@@ -1,5 +1,7 @@
 { "translations": {
+    "Important information regarding your account" : "Важлива інформація стосовно вашого облікового запису",
     "Account deletion" : "Вилучення облікового запису",
+    "You have not used your account since {date}." : "Ви не використовували свій обліковий запис починаючи з {date}.",
     "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n день.","Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n дні.","Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n днів.","Згідно з налаштованою політикою неактивні облікові записи буде вимкнено через %n днів."],
     "days" : "днів",
     "(0 to disable)" : "(0 для вимкнення)",
