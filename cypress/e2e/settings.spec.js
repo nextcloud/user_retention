@@ -12,7 +12,7 @@ describe('Admin settings', function() {
 			.should('contain', 'Account retention')
 		cy.get('#user_retention input#keep_users_without_login')
 			.should('be.checked')
-		cy.get('#user_retention label[for="keep_users_without_login"]')
+		cy.get('#user_retention span#keep_users_without_login-label')
 			.click()
 		cy.get('.toast-success').should('contain', 'Setting saved')
 
