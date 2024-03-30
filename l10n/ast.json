@@ -1,0 +1,17 @@
+{ "translations": {
+    "Account deletion" : "Desaniciu de la cuenta",
+    "You have not used your account since {date}." : "Nun usesti la cuenta dende'l {date}.",
+    "If you have any questions, please contact your administration." : "Si tienes dalguna entruga, ponte en contautu cola alministración.",
+    "Deletes accounts that did not login in the last days." : "Desanicia les cuentes que nun aniciaren la sesión nos últimos díes.",
+    "Account retention" : "Retención de cuentes",
+    "days" : "díes",
+    "(0 to disable)" : "(0 pa desactivar)",
+    "Account expiration:" : "Caducidá de les cuentes:",
+    "Guest account disabling:" : "Desactivación de les cuentes de convidáu:",
+    "Guest account expiration:" : "Caducidá de les cuentes de convidáu:",
+    "Exclude groups:" : "Escluyir los grupos:",
+    "Could not fetch groups" : "Nun se pudo dir en cata de los grupos",
+    "Setting saved" : "Guardóse la opción",
+    "Could not save the setting" : "Nun se pudo guardar la opción"
+},"pluralForm" :"nplurals=2; plural=(n != 1);"
+}
