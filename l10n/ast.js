@@ -6,6 +6,7 @@ OC.L10N.register(
     "If you have any questions, please contact your administration." : "Si tienes dalguna entruga, ponte en contautu cola alministración.",
     "Deletes accounts that did not login in the last days." : "Desanicia les cuentes que nun aniciaren la sesión nos últimos díes.",
     "Account retention" : "Retención de cuentes",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Les cuentes desaníciense cuando nun anicien la sesión dientro'l númberu de díes apurríu. Esta aición tamién desanicia tolos datos asociaos cola cuenta.",
     "days" : "díes",
     "(0 to disable)" : "(0 pa desactivar)",
     "Account expiration:" : "Caducidá de les cuentes:",
