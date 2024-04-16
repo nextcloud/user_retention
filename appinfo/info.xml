@@ -10,7 +10,7 @@
 * ⛔ Exclude accounts based on group memberships (default: admin group)
 * 🔑 Exclude accounts that never logged in (default: enabled)
 ]]></description>
-	<version>1.13.0-dev</version>
+	<version>1.12.0</version>
 	<licence>agpl</licence>
 	<author>Joas Schilling</author>
 	<namespace>UserRetention</namespace>
@@ -27,7 +27,7 @@
 	<screenshot>https://raw.githubusercontent.com/nextcloud/user_retention/main/docs/screenshot.png</screenshot>
 
 	<dependencies>
-		<nextcloud min-version="26" max-version="30" />
+		<nextcloud min-version="27" max-version="29" />
 	</dependencies>
 
 	<background-jobs>
