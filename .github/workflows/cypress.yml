@@ -54,7 +54,7 @@ jobs:
         node-version: [20]
         php-versions: ['8.1']
         databases: ['sqlite']
-        server-versions: ['stable26', 'master']
+        server-versions: ['stable27', 'master']
 
     steps:
       - name: Set app env
