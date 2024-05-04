@@ -17,7 +17,7 @@
 		"test:cypress:open": "cd cypress && ./runLocal.sh open"
 	},
 	"dependencies": {
-		"@nextcloud/axios": "^2.4.0",
+		"@nextcloud/axios": "^2.5.0",
 		"@nextcloud/dialogs": "^5.3.1",
 		"@nextcloud/initial-state": "^2.2.0",
 		"@nextcloud/router": "^3.0.1",
