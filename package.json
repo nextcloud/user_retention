@@ -41,7 +41,7 @@
 		"@nextcloud/eslint-config": "^8.3.0",
 		"@nextcloud/stylelint-config": "^3.0.0",
 		"@nextcloud/webpack-vue-config": "^6.0.1",
-		"cypress": "^13.8.1",
+		"cypress": "^13.9.0",
 		"eslint-plugin-cypress": "^3.1.1",
 		"vue-template-compiler": "^2.7.16"
 	}
