@@ -33,13 +33,11 @@
 		</p>
 
 		<div>
-			<label>
-				<NcCheckboxRadioSwitch id="keep_users_without_login"
-					:checked.sync="keepUsersWithoutLogin"
-					@update:checked="saveKeepUsersWithoutLogin">
-					{{ t('user_retention', 'Keep accounts that never logged in') }}
-				</NcCheckboxRadioSwitch>
-			</label>
+			<NcCheckboxRadioSwitch id="keep_users_without_login"
+				:checked.sync="keepUsersWithoutLogin"
+				@update:checked="saveKeepUsersWithoutLogin">
+				{{ t('user_retention', 'Keep accounts that never logged in') }}
+			</NcCheckboxRadioSwitch>
 		</div>
 
 		<div>
