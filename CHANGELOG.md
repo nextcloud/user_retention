@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.12.1 – 2024-05-21
+### Fixed
+- AdminSettings: prevent checkbox double click
+
 ## 1.12.0 – 2024-04-16
 ### Changed
 - Add compatibility with Nextcloud 29
