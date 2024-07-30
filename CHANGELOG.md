@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.13.0 – 2024-07-30
+### Changed
+- ✨ Support Nextcloud 30 and require Nextcloud 28.
+- 🗣️ Update translations.
+- 🔌 Upgrade dependencies.
+
 ## 1.12.1 – 2024-05-21
 ### Fixed
 - AdminSettings: prevent checkbox double click
