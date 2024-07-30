@@ -1,28 +1,14 @@
 <?php
+
+declare(strict_types=1);
 /**
- * @copyright Copyright (c) 2022 Joas Schilling <coding@schilljs.com>
- *
- * @license GNU AGPL version 3 or any later version
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Affero General Public License as
- * published by the Free Software Foundation, either version 3 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Affero General Public License for more details.
- *
- * You should have received a copy of the GNU Affero General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * SPDX-FileCopyrightText: 2022 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 namespace OCA\UserRetention\Tests;
 
 use OC\Authentication\Token\Manager;
 use OC\Authentication\Token\PublicKeyToken;
-use OCA\UserRetention\BackgroundJob\ExpireUsers;
 use OCA\UserRetention\Service\RetentionService;
 use OCA\UserRetention\SkipUserException;
 use OCP\AppFramework\Utility\ITimeFactory;
@@ -38,22 +24,14 @@ use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
 class RetentionServiceTest extends TestCase {
-	/** @var MockObject|IConfig */
-	protected $config;
-	/** @var MockObject|IUserManager */
-	protected $userManager;
-	/** @var MockObject|IGroupManager */
-	protected $groupManager;
-	/** @var MockObject|ITimeFactory */
-	protected $timeFactory;
-	/** @var MockObject|IServerContainer */
-	protected $container;
-	/** @var MockObject|IMailer */
-	protected $mailer;
-	/** @var MockObject|IFactory */
-	protected $l10nFactory;
-	/** @var MockObject|LoggerInterface */
-	protected $logger;
+	protected MockObject|IConfig $config;
+	protected MockObject|IUserManager $userManager;
+	protected MockObject|IGroupManager $groupManager;
+	protected MockObject|ITimeFactory $timeFactory;
+	protected MockObject|IServerContainer $container;
+	protected MockObject|IMailer $mailer;
+	protected MockObject|IFactory $l10nFactory;
+	protected MockObject|LoggerInterface $logger;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -145,11 +123,6 @@ class RetentionServiceTest extends TestCase {
 
 	/**
 	 * @dataProvider dataShouldPerformActionOnUser
-	 * @param bool $skipWithoutLogin
-	 * @param int $discoveryTimestamp
-	 * @param int $lastLogin
-	 * @param int $authTokenLastActivity
-	 * @param bool $expectsThrow
 	 */
 	public function testShouldPerformActionOnUser(bool $skipWithoutLogin, int $discoveryTimestamp, int $lastLogin, ?int $authTokenLastActivity, ?int $skipOlderThan, bool $expectsThrow, ?int $expectedReturn = null): void {
 		/** @var MockObject|RetentionService $service */
@@ -171,7 +144,7 @@ class RetentionServiceTest extends TestCase {
 			->willReturn($authTokenLastActivity);
 
 		if ($expectsThrow) {
-			 $this->expectException(SkipUserException::class);
+			$this->expectException(SkipUserException::class);
 			self::invokePrivate($service, 'shouldPerformActionOnUser', [$user, 100_000, $skipOlderThan]);
 		} else {
 			$this->assertSame($expectedReturn, self::invokePrivate($service, 'shouldPerformActionOnUser', [$user, 100_000, $skipOlderThan]));
@@ -187,9 +160,6 @@ class RetentionServiceTest extends TestCase {
 
 	/**
 	 * @dataProvider dataSkipUserBasedOnDiscovery
-	 * @param int $discoveryTimestamp
-	 * @param int|null $newDiscoveryTimestamp
-	 * @param bool $expectsThrow
 	 */
 	public function testSkipUserBasedOnDiscovery(int $discoveryTimestamp, ?int $newDiscoveryTimestamp, bool $expectsThrow): void {
 		$service = $this->createService();
@@ -215,7 +185,7 @@ class RetentionServiceTest extends TestCase {
 		}
 
 		if ($expectsThrow) {
-			 $this->expectException(SkipUserException::class);
+			$this->expectException(SkipUserException::class);
 		}
 		self::invokePrivate($service, 'skipUserBasedOnDiscovery', [$user]);
 	}
@@ -236,7 +206,6 @@ class RetentionServiceTest extends TestCase {
 	 * @dataProvider dataSkipUserBasedOnProtectedGroupMembership
 	 * @param string[] $excludedGroups
 	 * @param string[] $groupMemberships
-	 * @param bool $expectsThrow
 	 */
 	public function testSkipUserBasedOnProtectedGroupMembership(array $excludedGroups, array $groupMemberships, bool $expectsThrow): void {
 		$service = $this->createService();
@@ -269,7 +238,6 @@ class RetentionServiceTest extends TestCase {
 	/**
 	 * @dataProvider dataGetAuthTokensLastActivity
 	 * @param int[] $tokenActivities
-	 * @param ?int $expected
 	 */
 	public function testGetAuthTokensLastActivity(array $tokenActivities, ?int $expected): void {
 		$service = $this->createService();
