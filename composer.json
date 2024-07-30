@@ -11,11 +11,14 @@
 		"sort-packages": true
 	},
 	"require-dev": {
+		"nextcloud/coding-standard": "^1.2.1",
 		"nextcloud/ocp": "dev-stable27",
 		"phpunit/phpunit": "^9.5",
-		"vimeo/psalm": "^5.9"
+		"vimeo/psalm": "^5.25"
 	},
 	"scripts": {
+		"cs:check": "php-cs-fixer fix --dry-run --diff",
+		"cs:fix": "php-cs-fixer fix",
 		"lint": "find . -name \\*.php -not -path './vendor/*' -print0 | xargs -0 -n1 php -l",
 		"psalm": "psalm --threads=1",
 		"psalm:update-baseline": "psalm --threads=1 --update-baseline --set-baseline=tests/psalm-baseline.xml",
