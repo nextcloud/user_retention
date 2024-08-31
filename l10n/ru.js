@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Важная информация, касающаяся вашей учетной записи",
     "Account deletion" : "Удаление учётной записи",
     "days" : "дней",
     "(0 to disable)" : "(0 — никогда не удалять)",
