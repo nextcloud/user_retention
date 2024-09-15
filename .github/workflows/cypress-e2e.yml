@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2023-2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: MIT
+
 name: Cypress
 
 on: pull_request
@@ -10,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  APP_NAME: monthly_status_email
+  APP_NAME: ${{ github.event.repository.name }}
   CYPRESS_baseUrl: http://localhost:8081/index.php
 
 jobs:
@@ -56,17 +59,15 @@ jobs:
         databases: ['sqlite']
         server-versions: ['stable28', 'master']
 
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
+
     steps:
       - name: Disabled on forks
         if: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
         run: |
           echo 'Can not approve PRs from forks'
           exit 1
-
-      - name: Set app env
-        run: |
-          # Split and keep last
-          echo "APP_NAME=${GITHUB_REPOSITORY##*/}" >> $GITHUB_ENV
 
       - name: Checkout server
         uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
@@ -81,33 +82,35 @@ jobs:
           path: apps/${{ env.APP_NAME }}
 
       - name: Set up php ${{ matrix.php-versions }}
-        uses: shivammathur/setup-php@c541c155eee45413f5b09a52248675b1a2575231 # v2.31.1
+        uses: shivammathur/setup-php@c541c155eee45413f5b09a52248675b1a2575231 # v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: mbstring, iconv, fileinfo, intl, sqlite, pdo_sqlite, gd
+            # https://docs.nextcloud.com/server/stable/admin_manual/installation/source_installation.html#prerequisites-for-manual-installation
+          extensions: bz2, ctype, curl, dom, fileinfo, gd, iconv, intl, json, libxml, mbstring, openssl, pcntl, posix, session, simplexml, xmlreader, xmlwriter, zip, zlib, sqlite, pdo_sqlite
           coverage: none
+          ini-file: development
 
       - name: Read package.json node and npm engines version
         uses: skjnldsv/read-package-engines-version-actions@06d6baf7d8f41934ab630e97d9e6c0bc9c9ac5e4 # v3
         id: versions
         with:
-          fallbackNode: '^20'
-          fallbackNpm: '^9'
+          fallbackNode: "^20"
+          fallbackNpm: "^10"
           path: apps/${{ env.APP_NAME }}
 
       - name: Set up node ${{ steps.versions.outputs.nodeVersion }}
-        uses: actions/setup-node@1e60f620b9541d16bece96c5465dc8ee9832be0b # v4.0.3
+        uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version: ${{ steps.versions.outputs.nodeVersion }}
 
       - name: Set up npm ${{ steps.versions.outputs.npmVersion }}
         run: npm i -g 'npm@${{ steps.versions.outputs.npmVersion }}'
 
-      - name: Install dependencies & build
+      - name: Install node dependencies & build app
         working-directory: apps/${{ env.APP_NAME }}
         run: |
           npm ci
-          npm run build --if-present
+          TESTING=true npm run build --if-present
 
       - name: Set up Nextcloud
         env:
@@ -120,33 +123,27 @@ jobs:
       - name: Run Nextcloud
         run: php -S 0.0.0.0:8081 &
 
-      - name: Run Cypress
-        uses: cypress-io/github-action@v6
-        with:
-          record: true
-          wait-on: '${{ env.CYPRESS_baseUrl }}'
-          working-directory: apps/${{ env.APP_NAME }}
-          config: video=false,defaultCommandTimeout=20000
-          tag: ${{ github.event_name }}
+      - name: Run E2E cypress tests
+        run: |
+          cd 'apps/${{ env.APP_NAME }}'
+          npx wait-on $CYPRESS_baseUrl
+          npx cypress run --record false --config defaultCommandTimeout=20000,video=false
         env:
-          # https://github.com/cypress-io/github-action/issues/124
-          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
-          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_ncVersion: ${{ matrix.server-versions }}
 
       - name: Upload test failure screenshots
-        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: failure()
         with:
-          name: Upload screenshots
+          name: screenshots_${{ matrix.server-versions }}
           path: apps/${{ env.APP_NAME }}/cypress/screenshots/
           retention-days: 5
 
-      - name: Upload nextcloud logs
-        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+      - name: Upload NC logs
+        uses: actions/upload-artifact@50769540e7f4bd5e21e526ee35c689e35e0d6874 # v4.4.0
         if: failure()
         with:
-          name: Upload nextcloud log
+          name: nc_logs_${{ matrix.server-versions }}.log
           path: data/nextcloud.log
           retention-days: 5
 
