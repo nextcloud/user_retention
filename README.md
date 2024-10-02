@@ -4,6 +4,8 @@
 -->
 # 👤🗑 Account retention (formerly User retention)
 
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud/user_retention)](https://api.reuse.software/info/github.com/nextcloud/user_retention)
+
 Accounts are disabled or deleted when they did not log in within the given number of days. In case of deletion, this will also delete all files and other data associated with the account.
 
 * 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)
