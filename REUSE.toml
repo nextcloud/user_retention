@@ -26,5 +26,5 @@ SPDX-License-Identifier = "AGPL-3.0-or-later"
 [[annotations]]
 path = ["l10n/**.js", "l10n/**.json"]
 precedence = "aggregate"
-SPDX-FileCopyrightText = "2018 Nextcloud translators <https://www.transifex.com/nextcloud/>"
+SPDX-FileCopyrightText = "2019 Nextcloud translators <https://www.transifex.com/nextcloud/>"
 SPDX-License-Identifier = "AGPL-3.0-or-later"
