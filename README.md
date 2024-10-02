@@ -1,3 +1,7 @@
+<!--
+  - SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 # 👤🗑 Account retention (formerly User retention)
 
 Accounts are disabled or deleted when they did not log in within the given number of days. In case of deletion, this will also delete all files and other data associated with the account.
