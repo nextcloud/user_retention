@@ -3,7 +3,7 @@
 	"description": "Deletes users that did not log in in the last days.",
 	"version": "1.14.0-dev.0",
 	"author": "Joas Schilling <coding@schilljs.com>",
-	"license": "agpl",
+	"license": "AGPL-3.0-or-later",
 	"private": true,
 	"scripts": {
 		"build": "NODE_ENV=production webpack --progress --config webpack.js",

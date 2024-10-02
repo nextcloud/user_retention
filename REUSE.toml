@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2024 Nextcloud GmbH and Nextcloud contributors
+# SPDX-License-Identifier: AGPL-3.0-or-later
+version = 1
+SPDX-PackageName = "user_retention"
+SPDX-PackageSupplier = "2024 Nextcloud GmbH and Nextcloud contributors"
+SPDX-PackageDownloadLocation = "https://github.com/nextcloud/user_retention"
+
+[[annotations]]
+path = [".tx/config", "package.json", "package-lock.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2019 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["composer.json", "composer.lock"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["psalm.xml", "tests/psalm-baseline.xml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2023 Nextcloud GmbH and Nextcloud contributors"
+SPDX-License-Identifier = "AGPL-3.0-or-later"
+
+[[annotations]]
+path = ["l10n/**.js", "l10n/**.json"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2019 Nextcloud translators <https://www.transifex.com/nextcloud/>"
+SPDX-License-Identifier = "AGPL-3.0-or-later"

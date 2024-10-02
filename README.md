@@ -1,4 +1,10 @@
+<!--
+  - SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
+  - SPDX-License-Identifier: AGPL-3.0-or-later
+-->
 # 👤🗑 Account retention (formerly User retention)
+
+[![REUSE status](https://api.reuse.software/badge/github.com/nextcloud/user_retention)](https://api.reuse.software/info/github.com/nextcloud/user_retention)
 
 Accounts are disabled or deleted when they did not log in within the given number of days. In case of deletion, this will also delete all files and other data associated with the account.
 
