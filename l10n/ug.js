@@ -1,0 +1,28 @@
+OC.L10N.register(
+    "user_retention",
+    {
+    "Important information regarding your account" : "ھېساباتىڭىزغا مۇناسىۋەتلىك مۇھىم ئۇچۇرلار",
+    "Account deletion" : "ھېسابات ئۆچۈرۈش",
+    "You have not used your account since {date}." : "ھېساباتىڭىزنى {چېسلا since دىن باشلاپ ئىشلىتىپ باقمىدىڭىز.",
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "ھېساباتىڭىزنى ساقلاش ئۈچۈن پەقەت توركۆرگۈڭىز بىلەن كىرىشىڭىز ياكى ئۈستەل يۈزى ياكى كۆچمە ئەپ بىلەن ئۇلىنىشىڭىز كېرەك. بولمىسا ھېساباتىڭىز ۋە ئۇلانغان بارلىق سانلىق مەلۇماتلار مەڭگۈلۈك ئۆچۈرۈلىدۇ.",
+    "If you have any questions, please contact your administration." : "سوئالىڭىز بولسا ، باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىڭ.",
+    "Account retention (formerly User retention)" : "ھېساباتنى ساقلاش (ئىلگىرىكى ئىشلەتكۈچىنى ساقلاپ قېلىش)",
+    "Deletes accounts that did not login in the last days." : "ئاخىرقى كۈنلەردە كىرمىگەن ھېساباتلارنى ئۆچۈرىدۇ.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "ھېسابات بەلگىلەنگەن كۈن ئىچىدە كىرمىگەندە ئۆچۈرۈلىدۇ. بۇ يەنە ھېساباتقا مۇناسىۋەتلىك بارلىق ھۆججەت ۋە باشقا سانلىق مەلۇماتلارنى ئۆچۈرۈۋېتىدۇ.\n\n* [[مېھمانلار دېتالى] نىڭ نورمال ھېساباتى ۋە ھېساباتى ئۈچۈن ئوخشىمىغان ساقلاش مۇمكىنچىلىكى بار (https://apps.nextcloud.com/apps/guests)\n* Group گۇرۇپپا ئەزالىقىغا ئاساسەن ھېساباتنى چىقىرىۋېتىڭ (سۈكۈت: باشقۇرۇش گۇرۇپپىسى)\n* Never ئەزەلدىن كىرمىگەن ھېساباتلارنى چىقىرىۋېتىڭ (سۈكۈتتىكى: قوزغىتىلغان)",
+    "Account retention" : "ھېساباتنى ساقلاش",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "ھېسابات بەلگىلەنگەن كۈن ئىچىدە كىرمىگەندە ئۆچۈرۈلىدۇ. بۇ يەنە ھېساباتقا مۇناسىۋەتلىك بارلىق ھۆججەت ۋە باشقا سانلىق مەلۇماتلارنى ئۆچۈرۈۋېتىدۇ.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "ئەگەر LDAP يېزىش قوللاش دېتالى قوزغىتىلمىغان بولسا ، LDAP دىكى ھېساباتلار پەقەت يەرلىكتە ئۆچۈرۈلىدۇ. LDAP دا يەنىلا ئىشلەتكەندە ، ھېساباتلار قايتا كۆرۈنىدۇ.",
+    "Keep accounts that never logged in" : "ئەزەلدىن كىرمىگەن ھېساباتلارنى ساقلاڭ",
+    "Account disabling:" : "ھېساباتنى چەكلەش:",
+    "days" : "كۈنلەر",
+    "(0 to disable)" : "(0 نى چەكلەش)",
+    "Account expiration:" : "ھېسابات مۇددىتى:",
+    "Guest account disabling:" : "مېھمان ھېساباتىنى چەكلەش:",
+    "Guest account expiration:" : "مېھمان ھېساباتىنىڭ ۋاقتى:",
+    "Exclude groups:" : "گۇرۇپپىلارنى ئۆز ئىچىگە ئالمايدۇ:",
+    "Ignore members of these groups from retention" : "بۇ گۇرۇپپىلارنىڭ ئەزالىرىنى ساقلاپ قېلىشقا پەرۋا قىلماڭ",
+    "Could not fetch groups" : "گۇرۇپپا ئېلىپ كېلەلمىدى",
+    "Setting saved" : "تەڭشەك ساقلاندى",
+    "Could not save the setting" : "تەڭشەكنى ساقلىيالمىدى"
+},
+"nplurals=2; plural=(n != 1);");
