@@ -1,7 +1,7 @@
 { "translations": {
     "Important information regarding your account" : "Información importante sobre a súa conta",
     "Account deletion" : "Eliminación de conta",
-    "You have not used your account since {date}." : "Leva sen usar a súa conta dende o {date}.",
+    "You have not used your account since {date}." : "Leva sen usar a súa conta desde o {date}.",
     "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Por mor da directiva configurada para as contas, as contas inactivas desactivaranse após %n día.","Por mor da directiva configurada para as contas, as contas inactivas desactivaranse após %n días."],
     "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Por mor da directiva configurada para as contas, as contas inactivas eliminaranse após %n día.","Por mor da directiva configurada para as contas, as contas inactivas eliminaranse após %n días."],
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Para manter activa a súa conta só tes que acceder co seu navegador ou conectarse cunha aplicación de escritorio ou móbil. En caso contrario, a súa conta e todos os datos conectados eliminaranse permanentemente.",
