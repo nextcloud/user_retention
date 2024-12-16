@@ -3,7 +3,7 @@ OC.L10N.register(
     {
     "Important information regarding your account" : "ھېساباتىڭىزغا مۇناسىۋەتلىك مۇھىم ئۇچۇرلار",
     "Account deletion" : "ھېسابات ئۆچۈرۈش",
-    "You have not used your account since {date}." : "ھېساباتىڭىزنى {چېسلا since دىن باشلاپ ئىشلىتىپ باقمىدىڭىز.",
+    "You have not used your account since {date}." : "ھېساباتىڭىزنى {date} since دىن باشلاپ ئىشلىتىپ باقمىدىڭىز.",
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "ھېساباتىڭىزنى ساقلاش ئۈچۈن پەقەت توركۆرگۈڭىز بىلەن كىرىشىڭىز ياكى ئۈستەل يۈزى ياكى كۆچمە ئەپ بىلەن ئۇلىنىشىڭىز كېرەك. بولمىسا ھېساباتىڭىز ۋە ئۇلانغان بارلىق سانلىق مەلۇماتلار مەڭگۈلۈك ئۆچۈرۈلىدۇ.",
     "If you have any questions, please contact your administration." : "سوئالىڭىز بولسا ، باشقۇرغۇچىڭىز بىلەن ئالاقىلىشىڭ.",
     "Account retention (formerly User retention)" : "ھېساباتنى ساقلاش (ئىلگىرىكى ئىشلەتكۈچىنى ساقلاپ قېلىش)",
