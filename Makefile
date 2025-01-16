@@ -55,35 +55,31 @@ clean-dev:
 appstore:
 	mkdir -p $(sign_dir)
 	rsync -a \
-	--exclude=/build \
-	--exclude=/docs \
-	--exclude=/src \
-	--exclude=/.tx \
-	--exclude=/tests \
 	--exclude=/.git \
 	--exclude=/.github \
-	--exclude=/CONTRIBUTING.md \
-	--exclude=/issue_template.md \
-	--exclude=/js/**.js.map \
-	--exclude=/README.md \
-	--exclude=/.babel.js \
-	--exclude=/.drone.yml \
+	--exclude=/.tx \
+	--exclude=/build \
+	--exclude=/cypress \
+	--exclude=/docs \
+	--exclude=/node_modules \
+	--exclude=/src \
+	--exclude=/tests \
+	--exclude=/vendor \
+	--exclude=/vendor-bin \
 	--exclude=/.eslintrc.js \
 	--exclude=/.gitattributes \
 	--exclude=/.gitignore \
-	--exclude=/.scrutinizer.yml \
-	--exclude=/.travis.yml \
-	--exclude=/check-vuejs-builds.sh \
-	--exclude=/cypress \
+	--exclude=/.l10nignore \
+	--exclude=/.php-cs-fixer.cache \
+	--exclude=/.php-cs-fixer.dist.php \
+	--exclude=/babel.config.js \
 	--exclude=/cypress.config.js \
-	--exclude=/node_modules \
-	--exclude=/npm-debug.log \
-	--exclude=/package.json \
-	--exclude=/package-lock.json \
-	--exclude=/psalm.xml \
-	--exclude=/webpack.*.js \
 	--exclude=/Makefile \
-	--exclude=.l10nignore \
+	--exclude=/npm-debug.log \
+	--exclude=/psalm.xml \
+	--exclude=/README.md \
+	--exclude=/stylelint.config.js \
+	--exclude=/webpack.js \
 	$(project_dir)/  $(sign_dir)/$(app_name)
 	@if [ -f $(cert_dir)/$(app_name).key ]; then \
 		echo "Signing app files…"; \
