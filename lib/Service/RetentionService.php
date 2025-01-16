@@ -51,7 +51,7 @@ class RetentionService {
 
 	public function runCron(): void {
 		$now = new \DateTimeImmutable();
-		$this->userDaysDisable = (int) $this->config->getAppValue('user_retention', 'user_days_disable', '0');
+		$this->userDaysDisable = (int)$this->config->getAppValue('user_retention', 'user_days_disable', '0');
 		if ($this->userDaysDisable > 0) {
 			$userDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDaysDisable . 'D'));
 			$this->userDisableMaxLastLogin = $userDisableMaxLastLogin->getTimestamp();
@@ -60,7 +60,7 @@ class RetentionService {
 			$this->logger->debug('Account disabling is disabled');
 		}
 
-		$this->userDays = (int) $this->config->getAppValue('user_retention', 'user_days', '0');
+		$this->userDays = (int)$this->config->getAppValue('user_retention', 'user_days', '0');
 		if ($this->userDays > 0) {
 			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDays . 'D'));
 			$this->userMaxLastLogin = $userMaxLastLogin->getTimestamp();
@@ -69,7 +69,7 @@ class RetentionService {
 			$this->logger->debug('Account retention is disabled');
 		}
 
-		$this->guestDaysDisable = (int) $this->config->getAppValue('user_retention', 'guest_days_disable', '0');
+		$this->guestDaysDisable = (int)$this->config->getAppValue('user_retention', 'guest_days_disable', '0');
 		if ($this->guestDaysDisable > 0) {
 			$guestDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->guestDaysDisable . 'D'));
 			$this->guestDisableMaxLastLogin = $guestDisableMaxLastLogin->getTimestamp();
@@ -78,7 +78,7 @@ class RetentionService {
 			$this->logger->debug('Guest account disabling is disabled');
 		}
 
-		$this->guestDays = (int) $this->config->getAppValue('user_retention', 'guest_days', '0');
+		$this->guestDays = (int)$this->config->getAppValue('user_retention', 'guest_days', '0');
 		if ($this->guestDays > 0) {
 			$guestMaxLastLogin = $now->sub(new \DateInterval('P' . $this->guestDays . 'D'));
 			$this->guestMaxLastLogin = $guestMaxLastLogin->getTimestamp();
@@ -90,7 +90,7 @@ class RetentionService {
 		$reminderDaysString = $this->config->getAppValue('user_retention', 'reminder_days', '');
 		$reminderDayOptions = explode(',', $reminderDaysString);
 		foreach ($reminderDayOptions as $option) {
-			$option = (int) trim($option);
+			$option = (int)trim($option);
 			if ($option > 0) {
 				$this->remindersPlain[] = $option;
 				$this->reminders[] = $now->sub(new \DateInterval('P' . $option . 'D'))->getTimestamp();
@@ -170,7 +170,7 @@ class RetentionService {
 				$this->logger->debug('Attempting to delete account: {user}', [
 					'user' => $user->getUID(),
 				]);
-				if($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
+				if ($user->getBackendClassName() === 'LDAP' && !$this->prepareLDAPUser($user)) {
 					$this->logger->warning('Expired LDAP account ' . $user->getUID() . ' was not deleted');
 					return true;
 				}
@@ -258,10 +258,10 @@ class RetentionService {
 	 * @throws SkipUserException When the user was just discovered
 	 */
 	protected function skipUserBasedOnDiscovery(IUser $user): int {
-		$discoveryTimestamp = (int) $this->config->getUserValue($user->getUID(), 'user_retention', 'user_created_at', '0');
+		$discoveryTimestamp = (int)$this->config->getUserValue($user->getUID(), 'user_retention', 'user_created_at', '0');
 		if ($discoveryTimestamp === 0) {
 			// Set "now" as created at timestamp for the user.
-			$this->config->setUserValue($user->getUID(), 'user_retention', 'user_created_at', (string) $this->time->getTime());
+			$this->config->setUserValue($user->getUID(), 'user_retention', 'user_created_at', (string)$this->time->getTime());
 
 			throw new SkipUserException(
 				'New user, saving discovery time: {user}',
@@ -319,7 +319,7 @@ class RetentionService {
 	protected function prepareLDAPUser(IUser $user): bool {
 		try {
 			$ldapProvider = $this->server->get(ILDAPProvider::class);
-			if($ldapProvider instanceof IDeletionFlagSupport) {
+			if ($ldapProvider instanceof IDeletionFlagSupport) {
 				$ldapProvider->flagRecord($user->getUID());
 				$this->logger->info('Marking LDAP user as deleted: ' . $user->getUID());
 			}

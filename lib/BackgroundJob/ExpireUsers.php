@@ -15,7 +15,7 @@ class ExpireUsers extends TimedJob {
 
 	public function __construct(
 		ITimeFactory $time,
-		protected RetentionService $service
+		protected RetentionService $service,
 	) {
 		parent::__construct($time);
 
