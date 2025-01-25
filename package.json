@@ -24,7 +24,7 @@
 		"@nextcloud/vue": "^8.22.0",
 		"debounce": "^2.1.1",
 		"vue": "^2.7.16",
-		"vuex": "^3.6.2"
+		"vuex": "^4.1.0"
 	},
 	"browserslist": [
 		"extends @nextcloud/browserslist-config"
