@@ -9,6 +9,9 @@
     "Account retention (formerly User retention)" : "Kontooppbevaring (tidligere brukeroppbevaring)",
     "Deletes accounts that did not login in the last days." : "Sletter kontoer som ikke har logget på de siste dagene.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Kontoer slettes når de ikke logger seg på innen det gitte antall dager. Dette vil også slette alle filer og annen data tilknyttet kontoen.\n\n* 🛂 Ulik oppbevaring mulig for normale kontoer og kontoer i [gjeste-appen](https://apps.nextcloud.com/apps/guests)\n* ⛔ Ekskluder kontoer basert på gruppemedlemskap (admin-gruppen er standard)\n* 🔑 Ekskluder kontoer som aldri har logget på (aktivert som standard)",
+    "Could not fetch groups" : "Kunne ikke hente grupper",
+    "Setting saved" : "Innstillinger lagret",
+    "Could not save the setting" : "Kunne ikke lagre innstillingene",
     "Account retention" : "Kontooppbevaring",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Kontoer slettes når de ikke logget inn innen det gitte antall dager. Dette vil også slette alle filer og andre data knyttet til kontoen.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Kontoer fra LDAP blir bare slettet lokalt, med mindre LDAP-skrivestøtte-appen er aktivert. Når de fremdeles er tilgjengelige på LDAP, vil kontoene dukke opp igjen.",
@@ -20,9 +23,6 @@
     "Guest account disabling:" : "Deaktivering av gjestekonto:",
     "Guest account expiration:" : "Gjestekontoens utløp:",
     "Exclude groups:" : "Utelukk grupper:",
-    "Ignore members of these groups from retention" : "Ignorere medlemmer av disse gruppene fra oppbevaring",
-    "Could not fetch groups" : "Kunne ikke hente grupper",
-    "Setting saved" : "Innstillinger lagret",
-    "Could not save the setting" : "Kunne ikke lagre innstillingene"
+    "Ignore members of these groups from retention" : "Ignorere medlemmer av disse gruppene fra oppbevaring"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

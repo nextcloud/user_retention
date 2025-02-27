@@ -11,6 +11,9 @@ OC.L10N.register(
     "Account retention (formerly User retention)" : "Kontoaufbewahrung (ehemals Benutzeraufbewahrung)",
     "Deletes accounts that did not login in the last days." : "Löscht Konten, die sich in den letzten Tagen nicht angemeldet haben.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Konten werden gelöscht, wenn sie sich nicht innerhalb der angegebenen Anzahl von Tagen angemeldet haben. Dadurch werden auch alle mit dem Konto verbundenen Dateien und anderen Daten gelöscht.\n\n* 🛂 Unterschiedliche Aufbewahrung möglich für normale Accounts und Accounts der [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Konten basierend auf Gruppenmitgliedschaften ausschließen (Standard: Admin-Gruppe)\n* 🔑 Konten ausschließen, die sich nie angemeldet haben (Standard: aktiviert)",
+    "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
+    "Setting saved" : "Einstellung gespeichert",
+    "Could not save the setting" : "Einstellung konnte nicht gespeichert werden",
     "Account retention" : "Kontoaufbewahrung",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konten werden gelöscht, wenn sie sich nicht innerhalb der angegebenen Anzahl von Tagen angemeldet haben. Dadurch werden auch alle mit dem Konto verbundenen Dateien und anderen Daten gelöscht.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Konten aus LDAP werden nur lokal gelöscht, es sei denn, die App zur Unterstützung von LDAP-Schreibvorgängen ist aktiviert. Wenn Konten noch auf LDAP verfügbar sind, werden sie wieder angezeigt.",
@@ -22,9 +25,6 @@ OC.L10N.register(
     "Guest account disabling:" : "Gast-Konto deaktivieren:",
     "Guest account expiration:" : "Ablauf des Gastkontos:",
     "Exclude groups:" : "Gruppen ausschließen:",
-    "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Aufbewahrung ausschließen",
-    "Could not fetch groups" : "Gruppen konnten nicht geladen werden",
-    "Setting saved" : "Einstellung gespeichert",
-    "Could not save the setting" : "Einstellung konnte nicht gespeichert werden"
+    "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Aufbewahrung ausschließen"
 },
 "nplurals=2; plural=(n != 1);");

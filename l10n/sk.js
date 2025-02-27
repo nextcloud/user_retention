@@ -11,6 +11,9 @@ OC.L10N.register(
     "Account retention (formerly User retention)" : "Uchovávanie účtov (predtým uchovávanie užívateľov)",
     "Deletes accounts that did not login in the last days." : "Odstráni účty, ktorých užívatelia sa neprihlásili v posledných dňoch.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Účty sú vymazané, keď sa užívatelia do nich neprihlásili do daného počtu dní. Týmto sa tiež odstránia všetky súbory a ďalšie údaje spojené s účtom.\n\n* 🛂 Pre bežné účty a účty [aplikácie pre hostí] je možné nastaviť rôzne uchovávanie (https://apps.nextcloud.com/apps/guests)\n* ⛔ Vylúčiť účty na základe členstva v skupinách (predvolené: skupina správcov)\n* 🔑 Vylúčiť účty, ktoré sa nikdy neprihlásili (predvolené: povolené)",
+    "Could not fetch groups" : "Nepodarilo sa získať skupiny",
+    "Setting saved" : "Nastavenia uložené",
+    "Could not save the setting" : "Nepodarilo sa uložiť nastavenia",
     "Account retention" : "Uchovávanie účtu",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Účty budú vymazané, keď sa užívatelia neprihlásili do daného počtu dní. Týmto sa tiež odstránia všetky súbory a ďalšie údaje spojené s účtom.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Účty z LDAP sa odstránia iba lokálne, pokiaľ nie je povolená aplikácia na podporu zápisu LDAP. Keď budú účty stále dostupné na LDAP, znova sa zobrazia.",
@@ -22,9 +25,6 @@ OC.L10N.register(
     "Guest account disabling:" : "Deaktivácia účtu návštevníka:",
     "Guest account expiration:" : "Vypršanie platnosti účtu návštevníka:",
     "Exclude groups:" : "Vynechať skupiny:",
-    "Ignore members of these groups from retention" : "Ignorovať členov týchto skupín z uchovávania",
-    "Could not fetch groups" : "Nepodarilo sa získať skupiny",
-    "Setting saved" : "Nastavenia uložené",
-    "Could not save the setting" : "Nepodarilo sa uložiť nastavenia"
+    "Ignore members of these groups from retention" : "Ignorovať členov týchto skupín z uchovávania"
 },
 "nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);");

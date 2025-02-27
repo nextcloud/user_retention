@@ -9,6 +9,9 @@ OC.L10N.register(
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "För att behålla ditt konto behöver du bara logga in med din webbläsare eller ansluta med en klient eller mobilapp. Annars kommer ditt konto och all ansluten data att raderas permanent.",
     "If you have any questions, please contact your administration." : "Kontakta din administration om du har några frågor.",
     "Deletes accounts that did not login in the last days." : "Raderar konton som inte loggat in de senaste dagarna.",
+    "Could not fetch groups" : "Det gick inte att hämta grupper",
+    "Setting saved" : "Inställningen sparad",
+    "Could not save the setting" : "Det gick inte att spara inställningen",
     "Account retention" : "Kontolagring",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konton raderas när de inte loggat in inom det angivna antalet dagar. Detta kommer också att radera alla filer och annan data som är associerad med kontot.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Användare från LDAP raderas endast lokalt, såvida inte stöd för att skriva till LDAP är aktiverat. När användaren fortfarande finns tillgänglig via LDAP kommer användare att visas igen.",
@@ -20,9 +23,6 @@ OC.L10N.register(
     "Guest account disabling:" : "Inaktivering av gästkonto:",
     "Guest account expiration:" : "Gästkonto upphör:",
     "Exclude groups:" : "Uteslut grupper:",
-    "Ignore members of these groups from retention" : "Ignorera medlemmar i dessa grupper från radering",
-    "Could not fetch groups" : "Det gick inte att hämta grupper",
-    "Setting saved" : "Inställningen sparad",
-    "Could not save the setting" : "Det gick inte att spara inställningen"
+    "Ignore members of these groups from retention" : "Ignorera medlemmar i dessa grupper från radering"
 },
 "nplurals=2; plural=(n != 1);");

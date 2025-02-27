@@ -11,6 +11,9 @@ OC.L10N.register(
     "Account retention (formerly User retention)" : "Retención de cuentas (antes Retención de usuarios)",
     "Deletes accounts that did not login in the last days." : "Elimina cuentas que no hayan iniciado sesión en los últimos días.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Las cuentas se eliminan cuando no han iniciado sesión en el número de días indicado. Esto también eliminará todos los archivos y otros datos asociados con la cuenta.\n      \n      * 🛂 Posible retención diferente para cuentas normales y cuentas de la [aplicación de invitados](https://apps.nextcloud.com/apps/guests)\n      * ⛔ Excluir cuentas basadas en membresías de grupos (por defecto: grupo de administradores)\n      * 🔑 Excluir cuentas que nunca hayan iniciado sesión (por defecto: habilitado)",
+    "Could not fetch groups" : "No se pudieron obtener los grupos",
+    "Setting saved" : "Configuración guardada",
+    "Could not save the setting" : "No se pudo guardar la configuración",
     "Account retention" : "Retención de cuentas",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Las cuentas se eliminan cuando no han iniciado sesión en el número de días indicado. Esto también eliminará todos los archivos y otros datos asociados con la cuenta.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Las cuentas de LDAP se eliminan solo localmente, a menos que la aplicación de soporte de escritura LDAP esté habilitada. Si aún están disponibles en LDAP, las cuentas volverán a aparecer.",
@@ -22,9 +25,6 @@ OC.L10N.register(
     "Guest account disabling:" : "Deshabilitar cuenta de invitado:",
     "Guest account expiration:" : "Expiración de cuenta de invitado:",
     "Exclude groups:" : "Excluir grupos:",
-    "Ignore members of these groups from retention" : "Ignorar miembros de estos grupos en la retención",
-    "Could not fetch groups" : "No se pudieron obtener los grupos",
-    "Setting saved" : "Configuración guardada",
-    "Could not save the setting" : "No se pudo guardar la configuración"
+    "Ignore members of these groups from retention" : "Ignorar miembros de estos grupos en la retención"
 },
 "nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");

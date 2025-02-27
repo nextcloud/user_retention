@@ -8,6 +8,9 @@
     "Account retention (formerly User retention)" : "Przechowywanie konta (dawniej Przechowywanie użytkowników)",
     "Deletes accounts that did not login in the last days." : "Usuwa konta, które nie logowały się w ciągu ostatnich dni.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Konta są usuwane, gdy nie ma logowań w ciągu określonej liczby dni. Spowoduje to również usunięcie wszystkich plików i innych danych powiązanych z kontem.\n\n* 🛂 Różne możliwości przechowywania dla zwykłych kont i kont w [aplikacji dla gości](https://apps.nextcloud.com/apps/guests)\n* ⛔ Wykluczenie kont na podstawie członkostwa w grupach (domyślnie: grupa admin)\n* 🔑 Wykluczenie kont, na które nigdy się nie logowali (domyślnie: włączone)",
+    "Could not fetch groups" : "Nie udało się pobrać grup",
+    "Setting saved" : "Ustawienie zapisane",
+    "Could not save the setting" : "Nie udało się zapisać ustawienia",
     "Account retention" : "Przechowywanie konta",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konta są usuwane, gdy nie logują się w ciągu podanej liczby dni. Spowoduje to również usunięcie wszystkich plików i innych danych powiązanych z kontem.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Konta z LDAP są usuwane tylko lokalnie, chyba że jest włączona aplikacja obsługi zapisu LDAP. Konta pojawią się ponownie, gdy będą nadal dostępne w LDAP.",
@@ -17,9 +20,6 @@
     "Account expiration:" : "Wygaśnięcie konta:",
     "Guest account expiration:" : "Wygaśnięcie konta gościa:",
     "Exclude groups:" : "Wyłącz grupy:",
-    "Ignore members of these groups from retention" : "Ignoruj członków tych grup z przechowywania",
-    "Could not fetch groups" : "Nie udało się pobrać grup",
-    "Setting saved" : "Ustawienie zapisane",
-    "Could not save the setting" : "Nie udało się zapisać ustawienia"
+    "Ignore members of these groups from retention" : "Ignoruj członków tych grup z przechowywania"
 },"pluralForm" :"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);"
 }

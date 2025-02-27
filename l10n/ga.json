@@ -9,6 +9,9 @@
     "Account retention (formerly User retention)" : "Coinneáil cuntais (coinneáil úsáideora roimhe seo)",
     "Deletes accounts that did not login in the last days." : "Scrios cuntais nár logáil isteach sna laethanta deiridh.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Scriostar cuntais nuair nár logáil siad isteach laistigh den líon áirithe laethanta. Scriosfaidh sé seo freisin gach comhad agus sonraí eile a bhaineann leis an gcuntas.\n\n* 🛂 Coinneáil éagsúil féideartha do ghnáthchuntais agus cuntais an [aip aíonna] (https://apps.nextcloud.com/apps/guests)\n* ⛔ Fág cuntais atá bunaithe ar bhallraíocht an ghrúpa as an áireamh (réamhshocrú: grúpa admin)\n* 🔑 Fág cuntais nár logáil isteach riamh (réamhshocraithe: cumasaithe)",
+    "Could not fetch groups" : "Níorbh fhéidir grúpaí a fháil",
+    "Setting saved" : "Sábháladh an socrú",
+    "Could not save the setting" : "Níorbh fhéidir an socrú a shábháil",
     "Account retention" : "Coinneáil cuntais",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Scriostar cuntais nuair nár logáil siad isteach laistigh den líon áirithe laethanta. Scriosfaidh sé seo freisin gach comhad agus sonraí eile a bhaineann leis an gcuntas.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Scriostar cuntais ó LDAP go háitiúil amháin, ach amháin má tá an aip tacaíochta scríobh LDAP cumasaithe. Nuair a bheidh siad fós ar fáil ar LDAP, tiocfaidh chuntais arís.",
@@ -20,9 +23,6 @@
     "Guest account disabling:" : "Cuntas aoi díchumasaithe:",
     "Guest account expiration:" : "Dul in éag an chuntais aoi:",
     "Exclude groups:" : "Fág grúpaí:",
-    "Ignore members of these groups from retention" : "Déan neamhaird de bhaill na ngrúpaí seo ó choinneáil",
-    "Could not fetch groups" : "Níorbh fhéidir grúpaí a fháil",
-    "Setting saved" : "Sábháladh an socrú",
-    "Could not save the setting" : "Níorbh fhéidir an socrú a shábháil"
+    "Ignore members of these groups from retention" : "Déan neamhaird de bhaill na ngrúpaí seo ó choinneáil"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
 }

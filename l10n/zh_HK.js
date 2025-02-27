@@ -11,6 +11,9 @@ OC.L10N.register(
     "Account retention (formerly User retention)" : "帳戶保留（以前的用戶保留）",
     "Deletes accounts that did not login in the last days." : "刪除過去幾天沒登入的帳戶。",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "如果帳戶在指定的天數內無登入就會被刪除。並將刪除該帳戶所有的檔案與其他資料。\n\n* 🛂 可以針對一般使帳戶與 [guests 應用程式](https://apps.nextcloud.com/apps/guests) 的帳戶設定不同的保留時間\n* ⛔ 可以根據群組成員身份排除帳戶（預設：admin 群組）\n* 🔑 排除從未登入的帳號（預設：啟用）",
+    "Could not fetch groups" : "無法擷取群組",
+    "Setting saved" : "設定已保存",
+    "Could not save the setting" : "無法保存設定",
     "Account retention" : "帳戶保留",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "如果帳戶在指定的天數內無登入就會被刪除。並將刪除該帳戶所有的檔案與其他資料。",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "除非啟用了 LDAP 寫入支援應用程式，否則從 LDAP 而來的帳戶僅會在近端刪除。若在 LDAP 上仍然可用，帳戶將會重新出現。",
@@ -22,9 +25,6 @@ OC.L10N.register(
     "Guest account disabling:" : "訪客帳戶停用：",
     "Guest account expiration:" : "訪客帳戶有效期至：",
     "Exclude groups:" : "排除的群組：",
-    "Ignore members of these groups from retention" : "這些群組的成員不包括在保留中",
-    "Could not fetch groups" : "無法擷取群組",
-    "Setting saved" : "設定已保存",
-    "Could not save the setting" : "無法保存設定"
+    "Ignore members of these groups from retention" : "這些群組的成員不包括在保留中"
 },
 "nplurals=1; plural=0;");

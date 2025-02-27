@@ -9,6 +9,9 @@
     "Account retention (formerly User retention)" : "Account retention (formerly User retention)",
     "Deletes accounts that did not login in the last days." : "Deletes accounts that did not login in the last days.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)",
+    "Could not fetch groups" : "Could not fetch groups",
+    "Setting saved" : "Setting saved",
+    "Could not save the setting" : "Could not save the setting",
     "Account retention" : "Account retention",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear.",
@@ -20,9 +23,6 @@
     "Guest account disabling:" : "Guest account disabling:",
     "Guest account expiration:" : "Guest account expiration:",
     "Exclude groups:" : "Exclude groups:",
-    "Ignore members of these groups from retention" : "Ignore members of these groups from retention",
-    "Could not fetch groups" : "Could not fetch groups",
-    "Setting saved" : "Setting saved",
-    "Could not save the setting" : "Could not save the setting"
+    "Ignore members of these groups from retention" : "Ignore members of these groups from retention"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }

@@ -7,6 +7,9 @@
     "Account retention (formerly User retention)" : "Удержание аккаунта (ранее Удержание пользователя)",
     "Deletes accounts that did not login in the last days." : "Удаляет учетные записи, в которые не входили за последние дни.",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Аккаунты удаляются, если они не входили в систему в течение указанного количества дней. Это также удалит все файлы и другие данные, связанные с аккаунтом.\n\n* 🛂 Для обычных аккаунтов и аккаунтов [гостевого приложения](https://apps.nextcloud.com/apps/guests) возможно разное хранение\n* ⛔ Исключить аккаунты на основе членства в группах (по умолчанию: группа администраторов)\n* 🔑 Исключить аккаунты, которые никогда не входили в систему (по умолчанию: включено)",
+    "Could not fetch groups" : "Не удалось найти метаданные",
+    "Setting saved" : "Настройки сохранены",
+    "Could not save the setting" : "Не удалось сохранить настройки",
     "Account retention" : "Удержание аккаунта",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Аккаунты удаляются, если в них не входили в течение указанного количества дней. Это также удалит все файлы и другие данные, связанные с аккаунтом.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Учетные записи из LDAP удаляются только локально, если приложение поддержки записи LDAP не включено. Если они все еще доступны в LDAP, учетные записи появятся снова.",
@@ -18,9 +21,6 @@
     "Guest account disabling:" : "Отключение гостевой учетной записи:",
     "Guest account expiration:" : "Срок действия гостевой учетной записи:",
     "Exclude groups:" : "Запретить удалять пользователей групп:",
-    "Ignore members of these groups from retention" : "Игнорировать членов этих групп при сохранении",
-    "Could not fetch groups" : "Не удалось найти метаданные",
-    "Setting saved" : "Настройки сохранены",
-    "Could not save the setting" : "Не удалось сохранить настройки"
+    "Ignore members of these groups from retention" : "Игнорировать членов этих групп при сохранении"
 },"pluralForm" :"nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);"
 }

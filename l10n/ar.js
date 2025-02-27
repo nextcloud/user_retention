@@ -11,6 +11,9 @@ OC.L10N.register(
     "Account retention (formerly User retention)" : "الاحتفاظ بالحساب ( الاحتفاظ بالمستخدم سابقاً)",
     "Deletes accounts that did not login in the last days." : "يحذف الحسابات التي لم يتم الدخول إليها خلال المدة الماضية",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "يتم حذف الحسابات التي لم يتم الدخول إليها لفترة معيّنة. هذا يؤدي أيضاً لحذف كل البيانات المتعلقة بتلك الحسابات. \n* 🛂  يمكن تعيين سياسة احتفاظ مختلفة لك نوع من أنوع الحسابات المختلفة سواءً كانت حسابات عادية أو حسابات ضيوف [guests app] (https://apps.nextcloud.com/apps/guests). \n* ⛔  يمكن استثناء حسابات بناءً على عضويتها في مجموعات معينة (مجموعة المشرفين مستثناة تلقائيّاً ما لم يُعيّن غير ذلك). \n* 🔑 يتم استثناء الحسابات التي لم يسبق الدخول إليها مطلقاً (مستثناة تلقائيّاً). ",
+    "Could not fetch groups" : "لم يمكن جلب المجموعات.",
+    "Setting saved" : "تمّ حفظ الإعدادات",
+    "Could not save the setting" : "لم يٌمكن حفظ الإعدادات",
     "Account retention" : "الاحتفاظ بالحسابات",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "يتم حذف الحسابات التي لم يتم الدخول إليها لفترة زمنية معينة. هذا سيؤدي أيضاً إلى حذف جميع البيانات المتعلقة بتلك الحسابات.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "الحسابات المستجلبة من خادوم LDAP ستحذف محليّاً فقط إلاّ إذا كانت تطبيق دعم الكتابة في LDAP مُفعّلاً. و طالما هي مازالت على LDAP فإنها ستظهر مجدّداً. ",
@@ -22,9 +25,6 @@ OC.L10N.register(
     "Guest account disabling:" : "إيقاف حساب ضيف:",
     "Guest account expiration:" : "إنتهاء صلاحية حساب ضيف:",
     "Exclude groups:" : "استثناء المجموعات:",
-    "Ignore members of these groups from retention" : "تجاهل أعضاءً من تلك المجموعات عند الاحتفاظ",
-    "Could not fetch groups" : "لم يمكن جلب المجموعات.",
-    "Setting saved" : "تمّ حفظ الإعدادات",
-    "Could not save the setting" : "لم يٌمكن حفظ الإعدادات"
+    "Ignore members of these groups from retention" : "تجاهل أعضاءً من تلك المجموعات عند الاحتفاظ"
 },
 "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;");

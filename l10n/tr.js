@@ -11,6 +11,9 @@ OC.L10N.register(
     "Account retention (formerly User retention)" : "Hesap saklama (eski kullanıcı saklama)",
     "Deletes accounts that did not login in the last days." : "Belirtilen gün süreyle oturum açmayan hesapları siler",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Hesaplar belirtilen gün sayısı içinde oturum açmadığında silinir. Bu işlem, etkilenen hesapların tüm dosyalarını ve diğer verilerini de siler.\n\n* 🛂 Normal hesaplar ve [konuk uygulama](https://apps.nextcloud.com/apps/guests) hesapları için farklı saklama seçenekleri vardır\n* ⛔ Hesaplar grup üyeliklerine göre katılmayabilir (Varsayılan değer: Yönetici grubu)\n* 🔑 Hiç oturum açmamış hesaplar katılmayabilir (Varsayılan değer: Kullanıma alınmış)",
+    "Could not fetch groups" : "Gruplar alınamadı",
+    "Setting saved" : "Ayarlar kaydedildi",
+    "Could not save the setting" : "Ayar kaydedilemedi",
     "Account retention" : "Hesap saklama",
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Belirtilen gün süreyle oturum açmayan hesaplar silinir. Ayrıca hesapla ilgili tüm dosyalar ve diğer bilgiler de silinir.",
     "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "LDAP yazma desteği uygulaması kullanıma alınmamış ise LDAP üzerinden alınan hesaplar yalnızca yerel olarak silinir. Bu hesaplar LDAP üzerinde bulunmayı sürdürdüğünden yeniden belirebilirler.",
@@ -22,9 +25,6 @@ OC.L10N.register(
     "Guest account disabling:" : "Konuk hesabı kullanımdan kaldırılıyor:",
     "Guest account expiration:" : "Konuk hesapların silinme süresi:",
     "Exclude groups:" : "Katılmayacak gruplar:",
-    "Ignore members of these groups from retention" : "Şu grupların üyeleri korunmasın",
-    "Could not fetch groups" : "Gruplar alınamadı",
-    "Setting saved" : "Ayarlar kaydedildi",
-    "Could not save the setting" : "Ayar kaydedilemedi"
+    "Ignore members of these groups from retention" : "Şu grupların üyeleri korunmasın"
 },
 "nplurals=2; plural=(n > 1);");
