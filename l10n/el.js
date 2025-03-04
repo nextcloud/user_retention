@@ -1,9 +1,30 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Σημαντικές πληροφορίες σχετικά με τον λογαριασμό σας",
     "Account deletion" : "Διαγραφή λογαριασμού",
+    "You have not used your account since {date}." : "Δεν έχετε χρησιμοποιήσει τον λογαριασμό σας από τις {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Λόγω της ρυθμισμένης πολιτικής για λογαριασμούς, οι ανενεργοί λογαριασμοί θα απενεργοποιηθούν μετά από %n ημέρα.","Λόγω της ρυθμισμένης πολιτικής για λογαριασμούς, οι ανενεργοί λογαριασμοί θα απενεργοποιηθούν μετά από %n ημέρες."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Λόγω της ρυθμισμένης πολιτικής για λογαριασμούς, οι ανενεργοί λογαριασμοί θα διαγραφούν μετά από %n ημέρα.","Λόγω της ρυθμισμένης πολιτικής για λογαριασμούς, οι ανενεργοί λογαριασμοί θα διαγραφούν μετά από %n ημέρες."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Για να διατηρήσετε τον λογαριασμό σας, χρειάζεται μόνο να συνδεθείτε με το πρόγραμμα περιήγησής σας ή να συνδεθείτε με μια εφαρμογή υπολογιστή ή κινητού. Διαφορετικά, ο λογαριασμός σας και όλα τα συνδεδεμένα δεδομένα θα διαγραφούν οριστικά.",
+    "If you have any questions, please contact your administration." : "Εάν έχετε οποιεσδήποτε ερωτήσεις, παρακαλώ επικοινωνήστε με τη διαχείριση.",
+    "Account retention (formerly User retention)" : "Διατήρηση λογαριασμού (προηγουμένως Διατήρηση χρήστη)",
+    "Deletes accounts that did not login in the last days." : "Διαγράφει λογαριασμούς που δεν έχουν συνδεθεί τις τελευταίες ημέρες.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Οι λογαριασμοί διαγράφονται όταν δεν έχουν συνδεθεί εντός του καθορισμένου αριθμού ημερών. Αυτό θα διαγράψει επίσης όλα τα αρχεία και άλλα δεδομένα που σχετίζονται με τον λογαριασμό.\n\n* 🛂 Δυνατή διαφορετική διατήρηση για κανονικούς λογαριασμούς και λογαριασμούς της [εφαρμογής επισκεπτών](https://apps.nextcloud.com/apps/guests)\n* ⛔ Εξαίρεση λογαριασμών με βάση την ιδιότητα μέλους σε ομάδες (προεπιλογή: ομάδα διαχειριστών)\n* 🔑 Εξαίρεση λογαριασμών που δεν συνδέθηκαν ποτέ (προεπιλογή: ενεργοποιημένο)",
+    "Could not fetch groups" : "Δεν ήταν δυνατή η ανάκτηση των ομάδων",
+    "Setting saved" : "Η ρύθμιση αποθηκεύτηκε",
+    "Could not save the setting" : "Δεν ήταν δυνατή η αποθήκευση της ρύθμισης",
+    "Account retention" : "Διατήρηση λογαριασμού",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Οι λογαριασμοί διαγράφονται όταν δεν έχουν συνδεθεί εντός του καθορισμένου αριθμού ημερών. Αυτό θα διαγράψει επίσης όλα τα αρχεία και άλλα δεδομένα που σχετίζονται με τον λογαριασμό.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Οι λογαριασμοί από LDAP διαγράφονται μόνο τοπικά, εκτός αν η εφαρμογή υποστήριξης εγγραφής LDAP είναι ενεργοποιημένη. Όταν εξακολουθούν να είναι διαθέσιμοι στο LDAP, οι λογαριασμοί θα εμφανιστούν ξανά.",
+    "Keep accounts that never logged in" : "Διατήρηση λογαριασμών που δεν συνδέθηκαν ποτέ",
+    "Account disabling:" : "Απενεργοποίηση λογαριασμού:",
     "days" : "ημέρες",
     "(0 to disable)" : "(0 για απενεργοποίηση)",
-    "Exclude groups:" : "Εξαίρεση ομάδων:"
+    "Account expiration:" : "Λήξη λογαριασμού:",
+    "Guest account disabling:" : "Απενεργοποίηση λογαριασμού επισκεπτών:",
+    "Guest account expiration:" : "Λήξη λογαριασμού επισκεπτών:",
+    "Exclude groups:" : "Εξαίρεση ομάδων:",
+    "Ignore members of these groups from retention" : "Αγνόηση μελών αυτών των ομάδων από τη διατήρηση"
 },
 "nplurals=2; plural=(n != 1);");
