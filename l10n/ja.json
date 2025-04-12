@@ -1,12 +1,28 @@
 { "translations": {
+    "Important information regarding your account" : "アカウントに関する重要な情報",
     "Account deletion" : "アカウント削除",
     "You have not used your account since {date}." : "{date}以降、アカウントを使用していません。",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["アカウントの設定ポリシーにより、アクティブでないアカウントは%n日後に無効になります。"],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["アカウントの設定ポリシーにより、アクティブでないアカウントは%n日後に削除されます。"],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "アカウントを維持するには、ブラウザーでログインするか、デスクトップまたはモバイルアプリで接続するだけです。そうでない場合は、アカウントとすべての接続データは永久に削除されます。",
     "If you have any questions, please contact your administration." : "ご質問がある場合は、管理者にお問い合わせください。",
+    "Account retention (formerly User retention)" : "アカウント保持（旧ユーザー保持）",
+    "Deletes accounts that did not login in the last days." : "過去数日間にログインしていないアカウントを削除します。",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "指定された日数内にログインしなかった場合、アカウントは削除されます。アカウントに関連するファイルやその他のデータもすべて削除されます。\n\n* 🛂 通常のアカウントと[guests app](https://apps.nextcloud.com/apps/guests)のアカウントで異なる保持が可能\n* ⛔ グループメンバーに基づいてアカウントを除外 (デフォルト: 管理者グループ)\n* 🔑 一度もログインしていないアカウントを除外 (デフォルト: 有効)",
     "Could not fetch groups" : "グループを取得できません",
     "Setting saved" : "設定を保存しました",
     "Could not save the setting" : "設定を保存できませんでした",
+    "Account retention" : "アカウント保持",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "指定された日数内にログインしなかった場合、アカウントは削除されます。また、そのアカウントに関連するファイルやその他のデータもすべて削除されます。",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "LDAP書き込みサポートアプリが有効になっていない限り、LDAPからのアカウントはローカルでのみ削除されます。LDAP上でまだ利用可能な場合は、アカウントが再表示されます。",
+    "Keep accounts that never logged in" : "ログインしていないアカウントを保持する",
+    "Account disabling:" : "アカウントの無効化:",
     "days" : "日",
     "(0 to disable)" : "（無効にするには0）",
-    "Exclude groups:" : "グループを除外:"
+    "Account expiration:" : "アカウントの有効期限:",
+    "Guest account disabling:" : "ゲストアカウントの無効化:",
+    "Guest account expiration:" : "ゲストアカウントの有効期限:",
+    "Exclude groups:" : "グループを除外:",
+    "Ignore members of these groups from retention" : "これらのグループのメンバーをリテンションから無視する"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
