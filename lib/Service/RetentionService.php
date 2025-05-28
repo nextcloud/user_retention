@@ -157,6 +157,7 @@ class RetentionService {
 				$this->logger->debug('Account already disabled, continuing with potential deletion: ' . $user->getUID());
 			} catch (SkipUserException $e) {
 				// Not disabling yet, continue with checking deletion
+				$this->logger->debug("Disable: {$e->getMessage()}", $e->getLogParameters());
 			}
 		} else {
 			$this->logger->debug('No account disabling policy enabled for account: ' . $user->getUID());
@@ -183,6 +184,7 @@ class RetentionService {
 				return true;
 			} catch (SkipUserException $e) {
 				// Not deleting yet, continue with checking reminders
+				$this->logger->debug("Delete: {$e->getMessage()}", $e->getLogParameters());
 			}
 		} else {
 			$this->logger->debug('No account retention policy enabled for account: ' . $user->getUID());
@@ -202,7 +204,7 @@ class RetentionService {
 
 				$this->sendReminder($user, $lastActivity, $policyDays, $policyDaysDisable);
 			} catch (SkipUserException $e) {
-				$this->logger->debug($e->getMessage(), $e->getLogParameters());
+				$this->logger->debug("Reminder: {$e->getMessage()}", $e->getLogParameters());
 				continue;
 			}
 		}
