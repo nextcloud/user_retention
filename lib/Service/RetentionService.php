@@ -223,11 +223,12 @@ class RetentionService {
 		$discoveryTimestamp = $this->skipUserBasedOnDiscovery($user);
 		$lastWebLogin = $user->getLastLogin();
 		$authTokensLastActivity = $this->getAuthTokensLastActivity($user);
+		$userReenabledTimestamp = (int)$this->config->getUserValue($user->getUID(), 'user_retention', 'user_reenabled_at', 0);
 
 		if ($authTokensLastActivity === null) {
-			$lastAction = max($discoveryTimestamp, $lastWebLogin);
+			$lastAction = max($discoveryTimestamp, $lastWebLogin, $userReenabledTimestamp);
 		} else {
-			$lastAction = max($discoveryTimestamp, $lastWebLogin, $authTokensLastActivity);
+			$lastAction = max($discoveryTimestamp, $lastWebLogin, $authTokensLastActivity, $userReenabledTimestamp);
 		}
 
 		if ($this->keepUsersWithoutLogin && $lastAction === 0) {
