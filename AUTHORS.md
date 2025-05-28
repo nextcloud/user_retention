@@ -15,5 +15,6 @@
 - Jonas <jonas@freesources.org>
 - Morris Jobke <hey@morrisjobke.de>
 - rakekniven <2069590+rakekniven@users.noreply.github.com>
+- Salvatore Martire <salvatore.martire@nextcloud.com>
 - Sascha Wiswedel <sascha.wiswedel@nextcloud.com>
 - Vincent Petry <vincent@nextcloud.com>
