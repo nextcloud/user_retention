@@ -30,7 +30,7 @@ class UserChangedListenerTest extends TestCase {
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
 	}
 
-	public function testUserEnabledShouldTriggerUserCreatedAtUpdate() {
+	public function testUserEnabledShouldTriggerUserReenabledAtUpdate() {
 		$time = time();
 		$uid = '100';
 		$user = $this->createMock(IUser::class);
@@ -65,7 +65,7 @@ class UserChangedListenerTest extends TestCase {
 		$listener->handle($event);
 	}
 
-	public function testDisabledUserShouldNotTriggerUserCreatedAtUpdate() {
+	public function testDisabledUserShouldNotTriggerUserReenabledAtUpdate() {
 		$this->config->expects($this->never())->method('setUserValue');
 
 		$event = $this->createMock(UserChangedEvent::class);
