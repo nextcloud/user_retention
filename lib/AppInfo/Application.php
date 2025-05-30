@@ -12,7 +12,6 @@ use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
-use OCP\EventDispatcher\IEventDispatcher;
 use OCP\User\Events\UserChangedEvent;
 use OCP\Util;
 
@@ -23,13 +22,11 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(UserChangedEvent::class, UserChangedListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
 		Util::connectHook('OC_User', 'post_createUser', self::class, 'userCreated');
-		/** @var IEventDispatcher $eventDispatcher */
-		$eventDispatcher = $this->getContainer()->get(IEventDispatcher::class);
-		$eventDispatcher->addServiceListener(UserChangedEvent::class, UserChangedListener::class);
 	}
 
 	public static function userCreated($parameters): void {

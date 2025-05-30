@@ -44,7 +44,7 @@ class UserChangedListener implements IEventListener {
 			$this->config->setUserValue(
 				$event->getUser()->getUID(),
 				'user_retention',
-				'user_created_at',
+				'user_reenabled_at',
 				(string)$this->timeFactory->getTime()
 			);
 		}

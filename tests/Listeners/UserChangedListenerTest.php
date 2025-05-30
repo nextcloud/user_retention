@@ -32,11 +32,11 @@ class UserChangedListenerTest extends TestCase {
 
 	public function testUserEnabledShouldTriggerUserCreatedAtUpdate() {
 		$time = time();
-		$uid = 100;
+		$uid = '100';
 		$user = $this->createMock(IUser::class);
 		$user->expects($this->once())->method('getUID')->willReturn($uid);
 		$this->timeFactory->expects($this->once())->method('getTime')->willReturn($time);
-		$this->config->expects($this->once())->method('setUserValue')->with($uid, 'user_retention', 'user_created_at', $time);
+		$this->config->expects($this->once())->method('setUserValue')->with($uid, 'user_retention', 'user_reenabled_at', $time);
 
 		$event = $this->createMock(UserChangedEvent::class);
 		$event->expects($this->once())->method('getUser')->willReturn($user);
