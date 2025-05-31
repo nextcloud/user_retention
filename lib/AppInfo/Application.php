@@ -7,10 +7,12 @@ declare(strict_types=1);
  */
 namespace OCA\UserRetention\AppInfo;
 
+use OCA\UserRetention\Listeners\UserChangedListener;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\User\Events\UserChangedEvent;
 use OCP\Util;
 
 class Application extends App implements IBootstrap {
@@ -20,6 +22,7 @@ class Application extends App implements IBootstrap {
 	}
 
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(UserChangedEvent::class, UserChangedListener::class);
 	}
 
 	public function boot(IBootContext $context): void {
