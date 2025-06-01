@@ -10,7 +10,7 @@ describe('Admin settings', function() {
 		cy.login(adminUser)
 	})
 
-	it('Toggle monthly_status_email settings', function() {
+	it('Change all settings', function() {
 		cy.visit('/settings/admin')
 		cy.get('#user_retention h2')
 			.should('contain', 'Account retention')
