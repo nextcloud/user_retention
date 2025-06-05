@@ -157,6 +157,7 @@ class RetentionService {
 				$this->logger->debug('Account already disabled, continuing with potential deletion: ' . $user->getUID());
 			} catch (SkipUserException $e) {
 				// Not disabling yet, continue with checking deletion
+				$this->logger->debug('Disable: ' . $e->getMessage(), $e->getLogParameters());
 			}
 		} else {
 			$this->logger->debug('No account disabling policy enabled for account: ' . $user->getUID());
@@ -183,6 +184,7 @@ class RetentionService {
 				return true;
 			} catch (SkipUserException $e) {
 				// Not deleting yet, continue with checking reminders
+				$this->logger->debug('Delete: ' . $e->getMessage(), $e->getLogParameters());
 			}
 		} else {
 			$this->logger->debug('No account retention policy enabled for account: ' . $user->getUID());
@@ -202,7 +204,7 @@ class RetentionService {
 
 				$this->sendReminder($user, $lastActivity, $policyDays, $policyDaysDisable);
 			} catch (SkipUserException $e) {
-				$this->logger->debug($e->getMessage(), $e->getLogParameters());
+				$this->logger->debug('Reminder: ' . $e->getMessage(), $e->getLogParameters());
 				continue;
 			}
 		}
@@ -221,11 +223,12 @@ class RetentionService {
 		$discoveryTimestamp = $this->skipUserBasedOnDiscovery($user);
 		$lastWebLogin = $user->getLastLogin();
 		$authTokensLastActivity = $this->getAuthTokensLastActivity($user);
+		$userReenabledTimestamp = (int)$this->config->getUserValue($user->getUID(), 'user_retention', 'user_reenabled_at', 0);
 
 		if ($authTokensLastActivity === null) {
-			$lastAction = max($discoveryTimestamp, $lastWebLogin);
+			$lastAction = max($discoveryTimestamp, $lastWebLogin, $userReenabledTimestamp);
 		} else {
-			$lastAction = max($discoveryTimestamp, $lastWebLogin, $authTokensLastActivity);
+			$lastAction = max($discoveryTimestamp, $lastWebLogin, $authTokensLastActivity, $userReenabledTimestamp);
 		}
 
 		if ($this->keepUsersWithoutLogin && $lastAction === 0) {
