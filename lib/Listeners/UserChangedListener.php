@@ -21,9 +21,9 @@ use Psr\Log\LoggerInterface;
 class UserChangedListener implements IEventListener {
 
 	public function __construct(
-		public LoggerInterface $logger,
-		public IConfig $config,
-		public ITimeFactory $timeFactory,
+		protected LoggerInterface $logger,
+		protected IConfig $config,
+		protected ITimeFactory $timeFactory,
 	) {
 	}
 

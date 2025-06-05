@@ -18,9 +18,9 @@ use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
 class UserChangedListenerTest extends TestCase {
-	private MockObject&LoggerInterface $logger;
-	private MockObject&IConfig $config;
-	private MockObject&ITimeFactory $timeFactory;
+	private LoggerInterface&MockObject $logger;
+	private IConfig&MockObject $config;
+	private ITimeFactory&MockObject $timeFactory;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -30,9 +30,9 @@ class UserChangedListenerTest extends TestCase {
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
 	}
 
-	public function testUserEnabledShouldTriggerUserReenabledAtUpdate() {
+	public function testUserEnabledShouldTriggerUserReenabledAtUpdate(): void {
 		$time = time();
-		$uid = '100';
+		$uid = 'user';
 		$user = $this->createMock(IUser::class);
 		$user->expects($this->once())->method('getUID')->willReturn($uid);
 		$this->timeFactory->expects($this->once())->method('getTime')->willReturn($time);
@@ -48,7 +48,7 @@ class UserChangedListenerTest extends TestCase {
 		$listener->handle($event);
 	}
 
-	public function testHandleShouldNotHandleOtherEvents() {
+	public function testHandleShouldNotHandleOtherEvents(): void {
 		$event = $this->createMock(UserCreatedEvent::class);
 		$this->config->expects($this->never())->method('setUserValue');
 
@@ -56,7 +56,7 @@ class UserChangedListenerTest extends TestCase {
 		$listener->handle($event);
 	}
 
-	public function testHandleShouldOnlyHandleEnabledFeature() {
+	public function testHandleShouldOnlyHandleEnabledFeature(): void {
 		$event = $this->createMock(UserChangedEvent::class);
 		$event->expects($this->once())->method('getFeature')->willReturn('otherFeature');
 		$this->config->expects($this->never())->method('setUserValue');
@@ -65,7 +65,7 @@ class UserChangedListenerTest extends TestCase {
 		$listener->handle($event);
 	}
 
-	public function testDisabledUserShouldNotTriggerUserReenabledAtUpdate() {
+	public function testDisabledUserShouldNotTriggerUserReenabledAtUpdate(): void {
 		$this->config->expects($this->never())->method('setUserValue');
 
 		$event = $this->createMock(UserChangedEvent::class);
