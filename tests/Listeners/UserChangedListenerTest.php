@@ -14,18 +14,15 @@ use OCP\IUser;
 use OCP\User\Events\UserChangedEvent;
 use OCP\User\Events\UserCreatedEvent;
 use PHPUnit\Framework\MockObject\MockObject;
-use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
 class UserChangedListenerTest extends TestCase {
-	private LoggerInterface&MockObject $logger;
 	private IConfig&MockObject $config;
 	private ITimeFactory&MockObject $timeFactory;
 
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->logger = $this->createMock(LoggerInterface::class);
 		$this->config = $this->createMock(IConfig::class);
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
 	}
@@ -44,7 +41,7 @@ class UserChangedListenerTest extends TestCase {
 		$event->expects($this->once())->method('getOldValue')->willReturn(false);
 		$event->expects($this->once())->method('getValue')->willReturn(true);
 
-		$listener = new UserChangedListener($this->logger, $this->config, $this->timeFactory);
+		$listener = new UserChangedListener($this->config, $this->timeFactory);
 		$listener->handle($event);
 	}
 
@@ -52,7 +49,7 @@ class UserChangedListenerTest extends TestCase {
 		$event = $this->createMock(UserCreatedEvent::class);
 		$this->config->expects($this->never())->method('setUserValue');
 
-		$listener = new UserChangedListener($this->logger, $this->config, $this->timeFactory);
+		$listener = new UserChangedListener($this->config, $this->timeFactory);
 		$listener->handle($event);
 	}
 
@@ -61,7 +58,7 @@ class UserChangedListenerTest extends TestCase {
 		$event->expects($this->once())->method('getFeature')->willReturn('otherFeature');
 		$this->config->expects($this->never())->method('setUserValue');
 
-		$listener = new UserChangedListener($this->logger, $this->config, $this->timeFactory);
+		$listener = new UserChangedListener($this->config, $this->timeFactory);
 		$listener->handle($event);
 	}
 
@@ -73,7 +70,7 @@ class UserChangedListenerTest extends TestCase {
 		$event->expects($this->once())->method('getOldValue')->willReturn(true);
 		$event->expects($this->once())->method('getValue')->willReturn(false);
 
-		$listener = new UserChangedListener($this->logger, $this->config, $this->timeFactory);
+		$listener = new UserChangedListener($this->config, $this->timeFactory);
 		$listener->handle($event);
 	}
 

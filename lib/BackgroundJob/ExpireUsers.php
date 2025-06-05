@@ -23,6 +23,7 @@ class ExpireUsers extends TimedJob {
 		$this->setInterval(60 * 60 * 24);
 	}
 
+	#[\Override]
 	protected function run($argument): void {
 		$this->service->runCron();
 	}

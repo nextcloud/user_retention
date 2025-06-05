@@ -24,6 +24,7 @@ class Admin implements ISettings {
 	) {
 	}
 
+	#[\Override]
 	public function getForm(): TemplateResponse {
 		$keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
 		$this->initialStateService->provideInitialState('keep_users_without_login', $keepUsersWithoutLogin);
@@ -48,10 +49,12 @@ class Admin implements ISettings {
 		return new TemplateResponse('user_retention', 'settings/admin');
 	}
 
+	#[\Override]
 	public function getSection(): string {
 		return 'server';
 	}
 
+	#[\Override]
 	public function getPriority(): int {
 		return 50;
 	}
