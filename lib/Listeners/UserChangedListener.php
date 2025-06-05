@@ -13,7 +13,6 @@ use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
 use OCP\IConfig;
 use OCP\User\Events\UserChangedEvent;
-use Psr\Log\LoggerInterface;
 
 /**
  * @template-implements IEventListener<Event&UserChangedEvent>
@@ -21,12 +20,12 @@ use Psr\Log\LoggerInterface;
 class UserChangedListener implements IEventListener {
 
 	public function __construct(
-		protected LoggerInterface $logger,
 		protected IConfig $config,
 		protected ITimeFactory $timeFactory,
 	) {
 	}
 
+	#[\Override]
 	public function handle(Event $event): void {
 		if (!($event instanceof UserChangedEvent)) {
 			return;

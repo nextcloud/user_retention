@@ -21,10 +21,12 @@ class Application extends App implements IBootstrap {
 		parent::__construct('user_retention', $urlParams);
 	}
 
+	#[\Override]
 	public function register(IRegistrationContext $context): void {
 		$context->registerEventListener(UserChangedEvent::class, UserChangedListener::class);
 	}
 
+	#[\Override]
 	public function boot(IBootContext $context): void {
 		Util::connectHook('OC_User', 'post_createUser', self::class, 'userCreated');
 	}
