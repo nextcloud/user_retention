@@ -24,14 +24,14 @@ use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
 class RetentionServiceTest extends TestCase {
-	protected MockObject|IConfig $config;
-	protected MockObject|IUserManager $userManager;
-	protected MockObject|IGroupManager $groupManager;
-	protected MockObject|ITimeFactory $timeFactory;
-	protected MockObject|IServerContainer $container;
-	protected MockObject|IMailer $mailer;
-	protected MockObject|IFactory $l10nFactory;
-	protected MockObject|LoggerInterface $logger;
+	protected IConfig&MockObject $config;
+	protected IUserManager&MockObject $userManager;
+	protected IGroupManager&MockObject $groupManager;
+	protected ITimeFactory&MockObject $timeFactory;
+	protected IServerContainer&MockObject $container;
+	protected IMailer&MockObject $mailer;
+	protected IFactory&MockObject $l10nFactory;
+	protected LoggerInterface&MockObject $logger;
 
 	protected function setUp(): void {
 		parent::setUp();
@@ -79,7 +79,7 @@ class RetentionServiceTest extends TestCase {
 		return $mock->getMock();
 	}
 
-	public function dataShouldPerformActionOnUser(): array {
+	public static function dataShouldPerformActionOnUser(): array {
 		return [
 			// No action at all
 			[true, 0, 0, 0, null, true],
@@ -151,7 +151,7 @@ class RetentionServiceTest extends TestCase {
 		}
 	}
 
-	public function dataSkipUserBasedOnDiscovery(): array {
+	public static function dataSkipUserBasedOnDiscovery(): array {
 		return [
 			[0, 100_001, true],
 			[99_999, null, false],
@@ -190,7 +190,7 @@ class RetentionServiceTest extends TestCase {
 		self::invokePrivate($service, 'skipUserBasedOnDiscovery', [$user]);
 	}
 
-	public function dataSkipUserBasedOnProtectedGroupMembership(): array {
+	public static function dataSkipUserBasedOnProtectedGroupMembership(): array {
 		return [
 			[[], [], false],
 			[[], ['foobar'], false],
@@ -226,7 +226,7 @@ class RetentionServiceTest extends TestCase {
 		}
 	}
 
-	public function dataGetAuthTokensLastActivity(): array {
+	public static function dataGetAuthTokensLastActivity(): array {
 		return [
 			[[], null],
 			[[1], 1],
