@@ -18,9 +18,9 @@ use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
 class UserChangedListenerTest extends TestCase {
-	private LoggerInterface&MockObject $logger;
-	private IConfig&MockObject $config;
-	private ITimeFactory&MockObject $timeFactory;
+	private LoggerInterface|MockObject $logger;
+	private IConfig|MockObject $config;
+	private ITimeFactory|MockObject $timeFactory;
 
 	protected function setUp(): void {
 		parent::setUp();
