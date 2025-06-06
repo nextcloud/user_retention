@@ -5,6 +5,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.13.1 – 2025-06-06
+### Fixed
+- Fixed a bug that would disable accounts again during the next cron job run after an admin re-enabled them
+
 ## 1.13.0 – 2024-07-30
 ### Changed
 - ✨ Support Nextcloud 30 and require Nextcloud 28.
