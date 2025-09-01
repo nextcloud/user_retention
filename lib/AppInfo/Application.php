@@ -13,7 +13,7 @@ use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
 use OCP\User\Events\UserChangedEvent;
-use OCP\Util;
+use OCP\User\Events\UserCreatedEvent;
 
 class Application extends App implements IBootstrap {
 
@@ -23,24 +23,11 @@ class Application extends App implements IBootstrap {
 
 	#[\Override]
 	public function register(IRegistrationContext $context): void {
+		$context->registerEventListener(UserCreatedEvent::class, UserChangedListener::class);
 		$context->registerEventListener(UserChangedEvent::class, UserChangedListener::class);
 	}
 
 	#[\Override]
 	public function boot(IBootContext $context): void {
-		Util::connectHook('OC_User', 'post_createUser', self::class, 'userCreated');
-	}
-
-	public static function userCreated($parameters): void {
-		if (!isset($parameters['uid'])) {
-			return;
-		}
-
-		\OC::$server->getConfig()->setUserValue(
-			$parameters['uid'],
-			'user_retention',
-			'user_created_at',
-			(string)time()
-		);
 	}
 }

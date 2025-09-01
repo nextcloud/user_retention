@@ -11,6 +11,7 @@ use OCA\UserRetention\Listeners\UserChangedListener;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IUser;
+use OCP\User\Events\PostLoginEvent;
 use OCP\User\Events\UserChangedEvent;
 use OCP\User\Events\UserCreatedEvent;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -46,8 +47,24 @@ class UserChangedListenerTest extends TestCase {
 	}
 
 	public function testHandleShouldNotHandleOtherEvents(): void {
-		$event = $this->createMock(UserCreatedEvent::class);
+		$event = $this->createMock(PostLoginEvent::class);
 		$this->config->expects($this->never())->method('setUserValue');
+
+		$listener = new UserChangedListener($this->config, $this->timeFactory);
+		$listener->handle($event);
+	}
+
+	public function testHandleCreatedUserEvent(): void {
+		$time = time();
+		$uid = 'user';
+
+		$user = $this->createMock(IUser::class);
+		$user->expects($this->once())->method('getUID')->willReturn($uid);
+		$this->timeFactory->expects($this->once())->method('getTime')->willReturn($time);
+		$this->config->expects($this->once())->method('setUserValue')->with($uid, 'user_retention', 'user_created_at', $time);
+
+		$event = $this->createMock(UserCreatedEvent::class);
+		$event->expects($this->once())->method('getUser')->willReturn($user);
 
 		$listener = new UserChangedListener($this->config, $this->timeFactory);
 		$listener->handle($event);
