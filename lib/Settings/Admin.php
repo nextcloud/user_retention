@@ -9,15 +9,15 @@ namespace OCA\UserRetention\Settings;
 
 use OCP\App\IAppManager;
 use OCP\AppFramework\Http\TemplateResponse;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Services\IInitialState;
-use OCP\IConfig;
 use OCP\IGroup;
 use OCP\IGroupManager;
 use OCP\Settings\ISettings;
 
 class Admin implements ISettings {
 	public function __construct(
-		protected IConfig $config,
+		protected IAppConfig $appConfig,
 		protected IInitialState $initialStateService,
 		protected IGroupManager $groupManager,
 		protected IAppManager $appManager,
@@ -26,23 +26,21 @@ class Admin implements ISettings {
 
 	#[\Override]
 	public function getForm(): TemplateResponse {
-		$keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
+		$keepUsersWithoutLogin = $this->appConfig->getAppValueBool('keep_users_without_login', true);
 		$this->initialStateService->provideInitialState('keep_users_without_login', $keepUsersWithoutLogin);
-		$userDaysDisable = (int)$this->config->getAppValue('user_retention', 'user_days_disable', '0');
-		$this->initialStateService->provideInitialState('user_days_disable', $userDaysDisable);
-		$userDays = (int)$this->config->getAppValue('user_retention', 'user_days', '0');
-		$this->initialStateService->provideInitialState('user_days', $userDays);
-		$guestDaysDisable = (int)$this->config->getAppValue('user_retention', 'guest_days_disable', '0');
-		$this->initialStateService->provideInitialState('guest_days_disable', $guestDaysDisable);
-		$guestDays = (int)$this->config->getAppValue('user_retention', 'guest_days', '0');
-		$this->initialStateService->provideInitialState('guest_days', $guestDays);
+		$userDaysDisable = $this->appConfig->getAppValueInt('user_days_disable');
+		$this->initialStateService->provideInitialState('user_days_disable', max(0, $userDaysDisable));
+		$userDays = $this->appConfig->getAppValueInt('user_days');
+		$this->initialStateService->provideInitialState('user_days', max(0, $userDays));
+		$guestDaysDisable = $this->appConfig->getAppValueInt('guest_days_disable');
+		$this->initialStateService->provideInitialState('guest_days_disable', max(0, $guestDaysDisable));
+		$guestDays = $this->appConfig->getAppValueInt('guest_days');
+		$this->initialStateService->provideInitialState('guest_days', max(0, $guestDays));
 
 		$this->initialStateService->provideInitialState('guests_app_installed', $this->appManager->isInstalled('guests'));
 		$this->initialStateService->provideInitialState('ldap_backend_enabled', $this->appManager->isEnabledForUser('user_ldap'));
 
-		$excludedGroups = $this->config->getAppValue('user_retention', 'excluded_groups', '["admin"]');
-		$excludedGroups = json_decode($excludedGroups, true);
-		$excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
+		$excludedGroups = $this->appConfig->getAppValueArray('excluded_groups', ['admin']);
 		$groups = $this->getGroupDetailsArray($excludedGroups, 'excluded_groups');
 		$this->initialStateService->provideInitialState('excluded_groups', $groups);
 
@@ -75,7 +73,7 @@ class Admin implements ISettings {
 			$gids = array_map(static function (array $group) {
 				return $group['id'];
 			}, $groups);
-			$this->config->setAppValue('user_retention', $configKey, json_encode($gids));
+			$this->appConfig->setAppValueArray($configKey, $gids);
 		}
 
 		return $groups;

@@ -11,6 +11,7 @@ use OC\Authentication\Token\Manager;
 use OC\Authentication\Token\PublicKeyToken;
 use OCA\UserRetention\Service\RetentionService;
 use OCA\UserRetention\SkipUserException;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IGroupManager;
@@ -25,6 +26,7 @@ use Test\TestCase;
 
 class RetentionServiceTest extends TestCase {
 	protected IConfig&MockObject $config;
+	protected IAppConfig&MockObject $appConfig;
 	protected IUserManager&MockObject $userManager;
 	protected IGroupManager&MockObject $groupManager;
 	protected ITimeFactory&MockObject $timeFactory;
@@ -37,6 +39,7 @@ class RetentionServiceTest extends TestCase {
 		parent::setUp();
 
 		$this->config = $this->createMock(IConfig::class);
+		$this->appConfig = $this->createMock(IAppConfig::class);
 		$this->userManager = $this->createMock(IUserManager::class);
 		$this->groupManager = $this->createMock(IGroupManager::class);
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
@@ -54,6 +57,7 @@ class RetentionServiceTest extends TestCase {
 		if (empty($methods)) {
 			return new RetentionService(
 				$this->config,
+				$this->appConfig,
 				$this->userManager,
 				$this->groupManager,
 				$this->timeFactory,
@@ -67,6 +71,7 @@ class RetentionServiceTest extends TestCase {
 		$mock = $this->getMockBuilder(RetentionService::class);
 		$mock->setConstructorArgs([
 			$this->config,
+			$this->appConfig,
 			$this->userManager,
 			$this->groupManager,
 			$this->timeFactory,

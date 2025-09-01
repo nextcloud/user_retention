@@ -11,6 +11,7 @@ use OC\Authentication\Token\Manager;
 use OC\Authentication\Token\PublicKeyToken;
 use OCA\Guests\UserBackend as GuestUserBackend;
 use OCA\UserRetention\SkipUserException;
+use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IGroupManager;
@@ -39,6 +40,7 @@ class RetentionService {
 
 	public function __construct(
 		protected IConfig $config,
+		protected IAppConfig $appConfig,
 		protected IUserManager $userManager,
 		protected IGroupManager $groupManager,
 		protected ITimeFactory $time,
@@ -51,7 +53,7 @@ class RetentionService {
 
 	public function runCron(): void {
 		$now = new \DateTimeImmutable();
-		$this->userDaysDisable = (int)$this->config->getAppValue('user_retention', 'user_days_disable', '0');
+		$this->userDaysDisable = $this->appConfig->getAppValueInt('user_days_disable');
 		if ($this->userDaysDisable > 0) {
 			$userDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDaysDisable . 'D'));
 			$this->userDisableMaxLastLogin = $userDisableMaxLastLogin->getTimestamp();
@@ -60,7 +62,7 @@ class RetentionService {
 			$this->logger->debug('Account disabling is disabled');
 		}
 
-		$this->userDays = (int)$this->config->getAppValue('user_retention', 'user_days', '0');
+		$this->userDays = $this->appConfig->getAppValueInt('user_days');
 		if ($this->userDays > 0) {
 			$userMaxLastLogin = $now->sub(new \DateInterval('P' . $this->userDays . 'D'));
 			$this->userMaxLastLogin = $userMaxLastLogin->getTimestamp();
@@ -69,7 +71,7 @@ class RetentionService {
 			$this->logger->debug('Account retention is disabled');
 		}
 
-		$this->guestDaysDisable = (int)$this->config->getAppValue('user_retention', 'guest_days_disable', '0');
+		$this->guestDaysDisable = $this->appConfig->getAppValueInt('guest_days_disable');
 		if ($this->guestDaysDisable > 0) {
 			$guestDisableMaxLastLogin = $now->sub(new \DateInterval('P' . $this->guestDaysDisable . 'D'));
 			$this->guestDisableMaxLastLogin = $guestDisableMaxLastLogin->getTimestamp();
@@ -78,7 +80,7 @@ class RetentionService {
 			$this->logger->debug('Guest account disabling is disabled');
 		}
 
-		$this->guestDays = (int)$this->config->getAppValue('user_retention', 'guest_days', '0');
+		$this->guestDays = $this->appConfig->getAppValueInt('guest_days');
 		if ($this->guestDays > 0) {
 			$guestMaxLastLogin = $now->sub(new \DateInterval('P' . $this->guestDays . 'D'));
 			$this->guestMaxLastLogin = $guestMaxLastLogin->getTimestamp();
@@ -87,7 +89,7 @@ class RetentionService {
 			$this->logger->debug('Guest account retention is disabled');
 		}
 
-		$reminderDaysString = $this->config->getAppValue('user_retention', 'reminder_days', '');
+		$reminderDaysString = $this->appConfig->getAppValueString('reminder_days');
 		$reminderDayOptions = explode(',', $reminderDaysString);
 		foreach ($reminderDayOptions as $option) {
 			$option = (int)trim($option);
@@ -97,15 +99,8 @@ class RetentionService {
 			}
 		}
 
-		$this->keepUsersWithoutLogin = $this->config->getAppValue('user_retention', 'keep_users_without_login', 'yes') === 'yes';
-
-		try {
-			$excludedGroups = $this->config->getAppValue('user_retention', 'excluded_groups', '["admin"]');
-			$excludedGroups = json_decode($excludedGroups, true, 512, JSON_THROW_ON_ERROR);
-			$this->excludedGroups = \is_array($excludedGroups) ? $excludedGroups : [];
-		} catch (\JsonException $e) {
-			$this->logger->warning('User retention excluded groups is not a valid JSON array');
-		}
+		$this->keepUsersWithoutLogin = $this->appConfig->getAppValueBool('keep_users_without_login', true);
+		$this->excludedGroups = $this->appConfig->getAppValueArray('excluded_groups', ['admin']);
 
 		if ($this->keepUsersWithoutLogin) {
 			$this->userManager->callForSeenUsers(\Closure::fromCallable([$this, 'executeRetentionPolicy']));
