@@ -25,18 +25,18 @@ retrieved via the occ command.
 For example, to disable users after 10 days of inactivity:
  
 ```shell
-occ config:app:set user_retention user_days_disable --value='10'
+occ config:app:set user_retention user_days_disable --type=integer --value=10
 ```
 
-| Configuration key          | Default value      | Description                                                                                                 |
-|----------------------------|--------------------|-------------------------------------------------------------------------------------------------------------|
-| `user_days_disable`        | `0`                | If greater than `0`, disables users who have been inactive for the specified number of days.                |
-| `user_days`                | `0`                | If greater than `0`, deletes users who have been inactive for the specified number of days.                 |
-| `guest_days_disable`       | `0`                | If greater than `0`, disables guest users who have been inactive for the specified number of days.          |
-| `guest_days`               | `0`                | If greater than `0`, deletes guest users who have been inactive for the specified number of days.           |
-| `reminder_days`            | `''` (empty value) | Comma-separated list of days before which reminder emails are sent about upcoming deactivation or deletion. |
-| `keep_users_without_login` | `yes`              | When set to `yes`, preserves users who have never logged in.                                                |
-| `excluded_groups`          | `["admin"]`        | List of groups whose members are excluded from deactivation and deletion policies.                          |
+| Configuration key          | Type    | Default value      | Description                                                                                                 |
+|----------------------------|---------|--------------------|-------------------------------------------------------------------------------------------------------------|
+| `user_days_disable`        | integer | `0`                | If greater than `0`, disables users who have been inactive for the specified number of days.                |
+| `user_days`                | integer | `0`                | If greater than `0`, deletes users who have been inactive for the specified number of days.                 |
+| `guest_days_disable`       | integer | `0`                | If greater than `0`, disables guest users who have been inactive for the specified number of days.          |
+| `guest_days`               | integer | `0`                | If greater than `0`, deletes guest users who have been inactive for the specified number of days.           |
+| `reminder_days`            | string  | `''` (empty value) | Comma-separated list of days before which reminder emails are sent about upcoming deactivation or deletion. |
+| `keep_users_without_login` | boolean | `yes`              | When set to `yes`, preserves users who have never logged in.                                                |
+| `excluded_groups`          | array   | `["admin"]`        | List of groups whose members are excluded from deactivation and deletion policies.                          |
 
 ## Further examples
 
