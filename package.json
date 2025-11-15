@@ -43,7 +43,7 @@
     "@nextcloud/webpack-vue-config": "^7.0.1",
     "cypress": "^13.17.0",
     "eslint-plugin-cypress": "^3.5.0",
-    "vue-loader": "^15.11.1",
+    "vue-loader": "^17.4.2",
     "vue-template-compiler": "^2.7.16"
   }
 }
