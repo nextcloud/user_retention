@@ -2,6 +2,19 @@ OC.L10N.register(
     "user_retention",
     {
     "Account deletion" : "Kasutajakonto kustutamine",
-    "days" : "päeva"
+    "You have not used your account since {date}." : "Sa pole oma kontot kasutanud alates {date}.",
+    "Account retention (formerly User retention)" : "Kasutajakontode säilitamine (varasema nimega Kasutajate säilitamine)",
+    "Could not fetch groups" : "Gruppide laadimine ei õnnestunud",
+    "Setting saved" : "Seadistused on salvestatud",
+    "Could not save the setting" : "Seadistuse salvestamine ei õnnestunud",
+    "Keep accounts that never logged in" : "Säilitab kontod, mis pole kunagi sise loginud",
+    "Account disabling:" : "Kasutajakonto väljalülitamine:",
+    "days" : "päeva",
+    "(0 to disable)" : "(0 lülitab välja)",
+    "Account expiration:" : "Kasutajakonto aegumine:",
+    "Guest account disabling:" : "Külaliskonto väljalülitamine:",
+    "Guest account expiration:" : "Külaliskonto aegumine:",
+    "Exclude groups:" : "Välista grupid:",
+    "Ignore members of these groups from retention" : "Nende gruppide puhul eira säilitusreegleid"
 },
 "nplurals=2; plural=(n != 1);");
