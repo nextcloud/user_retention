@@ -17,8 +17,8 @@
 
 		<div>
 			<NcCheckboxRadioSwitch id="keep_users_without_login"
-				:checked.sync="keepUsersWithoutLogin"
-				@update:checked="saveKeepUsersWithoutLogin">
+				v-model="keepUsersWithoutLogin"
+				@update:modelValue="saveKeepUsersWithoutLogin">
 				{{ t('user_retention', 'Keep accounts that never logged in') }}
 			</NcCheckboxRadioSwitch>
 		</div>
@@ -81,10 +81,10 @@
 					:disabled="loading"
 					:multiple="true"
 					:loading="loadingGroups"
-					:close-on-select="false"
+					keep-open
 					label="displayname"
 					@search="searchGroup"
-					@input="saveExcludedGroups" />
+					@update:modelValue="saveExcludedGroups" />
 			</label>
 		</div>
 	</div>
@@ -93,8 +93,8 @@
 <script>
 import axios from '@nextcloud/axios'
 import debounce from 'debounce'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/dist/Components/NcCheckboxRadioSwitch.js'
-import NcSelect from '@nextcloud/vue/dist/Components/NcSelect.js'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcSelect from '@nextcloud/vue/components/NcSelect'
 import { generateOcsUrl } from '@nextcloud/router'
 import { loadState } from '@nextcloud/initial-state'
 import {
