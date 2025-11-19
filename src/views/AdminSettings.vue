@@ -101,6 +101,7 @@ import {
 	showError,
 	showSuccess,
 } from '@nextcloud/dialogs'
+import { t } from '@nextcloud/l10n'
 
 export default {
 	name: 'AdminSettings',
@@ -146,6 +147,8 @@ export default {
 	},
 
 	methods: {
+		t,
+
 		searchGroup: debounce(async function(query) {
 			this.loadingGroups = true
 			try {
