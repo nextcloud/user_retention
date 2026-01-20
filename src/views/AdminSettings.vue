@@ -37,7 +37,7 @@
 
 		<div>
 			<label>
-				<span>{{ t('user_retention', 'Account expiration:') }}</span>
+				<span>{{ t('user_retention', 'Account deletion:') }}</span>
 				<input id="user_days"
 					v-model="userDays"
 					type="number"
@@ -61,7 +61,7 @@
 
 		<div v-if="guestsAppInstalled">
 			<label>
-				<span>{{ t('user_retention', 'Guest account expiration:') }}</span>
+				<span>{{ t('user_retention', 'Guest account deletion:') }}</span>
 				<input id="guest_days"
 					v-model="guestDays"
 					type="number"
