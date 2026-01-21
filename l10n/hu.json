@@ -19,9 +19,7 @@
     "Account disabling:" : "Fiók letiltása:",
     "days" : "nap",
     "(0 to disable)" : "(0 a kikapcsoláshoz)",
-    "Account expiration:" : "Fiókok lejárata:",
     "Guest account disabling:" : "Vendégfiók letiltása:",
-    "Guest account expiration:" : "Vendégfiókok lejárata:",
     "Exclude groups:" : "Csoportok kizárása:",
     "Ignore members of these groups from retention" : "Ezen csoportok tagjainak figyelmen kívül hagyása a megtartás szempontjából"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

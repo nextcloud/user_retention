@@ -19,8 +19,6 @@ OC.L10N.register(
     "Keep accounts that never logged in" : "Zachowaj konta, na które nigdy się nie logowano",
     "days" : "dni",
     "(0 to disable)" : "(0 aby zablokować)",
-    "Account expiration:" : "Wygaśnięcie konta:",
-    "Guest account expiration:" : "Wygaśnięcie konta gościa:",
     "Exclude groups:" : "Wyłącz grupy:",
     "Ignore members of these groups from retention" : "Ignoruj członków tych grup z przechowywania"
 },

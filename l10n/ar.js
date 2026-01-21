@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "إيقاف الحساب:",
     "days" : "أيام",
     "(0 to disable)" : "(0 للإيقاف)",
-    "Account expiration:" : "صلاحية الحساب:",
     "Guest account disabling:" : "إيقاف حساب ضيف:",
-    "Guest account expiration:" : "إنتهاء صلاحية حساب ضيف:",
     "Exclude groups:" : "استثناء المجموعات:",
     "Ignore members of these groups from retention" : "تجاهل أعضاءً من تلك المجموعات عند الاحتفاظ"
 },

@@ -16,9 +16,7 @@ OC.L10N.register(
     "Account disabling:" : "계정 비활성화:",
     "days" : "일",
     "(0 to disable)" : "(사용하지 않으려면 0)",
-    "Account expiration:" : "계정 삭제:",
     "Guest account disabling:" : "손님 계정 비활성화:",
-    "Guest account expiration:" : "손님 계정 삭제:",
     "Exclude groups:" : "그룹 제외 :"
 },
 "nplurals=1; plural=0;");

@@ -12,9 +12,7 @@ OC.L10N.register(
     "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Les cuentes desaníciense cuando nun anicien la sesión dientro'l númberu de díes apurríu. Esta aición tamién desanicia tolos datos asociaos cola cuenta.",
     "days" : "díes",
     "(0 to disable)" : "(0 pa desactivar)",
-    "Account expiration:" : "Caducidá de les cuentes:",
     "Guest account disabling:" : "Desactivación de les cuentes de convidáu:",
-    "Guest account expiration:" : "Caducidá de les cuentes de convidáu:",
     "Exclude groups:" : "Escluyir los grupos:"
 },
 "nplurals=2; plural=(n != 1);");

@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "アカウントの無効化:",
     "days" : "日",
     "(0 to disable)" : "（無効にするには0）",
-    "Account expiration:" : "アカウントの有効期限:",
     "Guest account disabling:" : "ゲストアカウントの無効化:",
-    "Guest account expiration:" : "ゲストアカウントの有効期限:",
     "Exclude groups:" : "グループを除外:",
     "Ignore members of these groups from retention" : "これらのグループのメンバーをリテンションから無視する"
 },

@@ -19,9 +19,7 @@
     "Account disabling:" : "Деактивиране на профил:",
     "days" : "дни",
     "(0 to disable)" : "(0 за деактивиране)",
-    "Account expiration:" : "Изтичане на срока на профил:",
     "Guest account disabling:" : "Деактивиране на профил на гост:",
-    "Guest account expiration:" : "Изтичане на срока на профил на гост:",
     "Exclude groups:" : "Изключване на групи:",
     "Ignore members of these groups from retention" : "Игнорирайте от задържане членовете на тези групи"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"

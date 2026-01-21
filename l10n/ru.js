@@ -19,9 +19,7 @@ OC.L10N.register(
     "Account disabling:" : "Отключение учетной записи:",
     "days" : "дней",
     "(0 to disable)" : "(0 — никогда не удалять)",
-    "Account expiration:" : "Срок действия аккаунта:",
     "Guest account disabling:" : "Отключение гостевой учетной записи:",
-    "Guest account expiration:" : "Срок действия гостевой учетной записи:",
     "Exclude groups:" : "Запретить удалять пользователей групп:",
     "Ignore members of these groups from retention" : "Игнорировать членов этих групп при сохранении"
 },

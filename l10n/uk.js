@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Відключення облікового запису:",
     "days" : "днів",
     "(0 to disable)" : "(0 для вимкнення)",
-    "Account expiration:" : "Термін дії облікового запису закінчився:",
     "Guest account disabling:" : "Вимкнення гостьового облікового запису:",
-    "Guest account expiration:" : "Термін дії гостьового акаунта закінчився:",
     "Exclude groups:" : "Виключити групи:",
     "Ignore members of these groups from retention" : "Ігнорувати учасників цих груп від утримання"
 },

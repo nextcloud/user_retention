@@ -7,8 +7,6 @@ OC.L10N.register(
     "Could not save the setting" : "Asetusta ei voitu tallentaa",
     "days" : "päivää",
     "(0 to disable)" : "(0 poistaa käytöstä)",
-    "Account expiration:" : "Tilin vanhentuminen:",
-    "Guest account expiration:" : "Vierastilin vanhentuminen:",
     "Exclude groups:" : "Ohita ryhmät:"
 },
 "nplurals=2; plural=(n != 1);");

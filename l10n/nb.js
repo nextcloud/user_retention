@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Deaktivering av konto:",
     "days" : "dager",
     "(0 to disable)" : "(0 for å deaktivere)",
-    "Account expiration:" : "Kontoens utløp:",
     "Guest account disabling:" : "Deaktivering av gjestekonto:",
-    "Guest account expiration:" : "Gjestekontoens utløp:",
     "Exclude groups:" : "Utelukk grupper:",
     "Ignore members of these groups from retention" : "Ignorere medlemmer av disse gruppene fra oppbevaring"
 },

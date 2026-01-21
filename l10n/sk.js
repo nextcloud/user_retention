@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Deaktivácia účtu:",
     "days" : "dní",
     "(0 to disable)" : "(0 pre vypnutie)",
-    "Account expiration:" : "Platnosť účtu:",
     "Guest account disabling:" : "Deaktivácia účtu návštevníka:",
-    "Guest account expiration:" : "Vypršanie platnosti účtu návštevníka:",
     "Exclude groups:" : "Vynechať skupiny:",
     "Ignore members of these groups from retention" : "Ignorovať členov týchto skupín z uchovávania"
 },

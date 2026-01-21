@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Hesap kullanımdan kaldırılıyor:",
     "days" : "gün",
     "(0 to disable)" : "(kullanımdan kaldırmak için 0)",
-    "Account expiration:" : "Hesapların silinme süresi:",
     "Guest account disabling:" : "Konuk hesabı kullanımdan kaldırılıyor:",
-    "Guest account expiration:" : "Konuk hesapların silinme süresi:",
     "Exclude groups:" : "Katılmayacak gruplar:",
     "Ignore members of these groups from retention" : "Şu grupların üyeleri korunmasın"
 },

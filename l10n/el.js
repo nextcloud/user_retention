@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Απενεργοποίηση λογαριασμού:",
     "days" : "ημέρες",
     "(0 to disable)" : "(0 για απενεργοποίηση)",
-    "Account expiration:" : "Λήξη λογαριασμού:",
     "Guest account disabling:" : "Απενεργοποίηση λογαριασμού επισκεπτών:",
-    "Guest account expiration:" : "Λήξη λογαριασμού επισκεπτών:",
     "Exclude groups:" : "Εξαίρεση ομάδων:",
     "Ignore members of these groups from retention" : "Αγνόηση μελών αυτών των ομάδων από τη διατήρηση"
 },

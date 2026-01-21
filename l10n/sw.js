@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Akaunti inazimwa:",
     "days" : "siku",
     "(0 to disable)" : "(0 kuzima)",
-    "Account expiration:" : "Muda wa akaunti kuisha:",
     "Guest account disabling:" : "Akaunti ya mgeni inazimwa:",
-    "Guest account expiration:" : "Kuisha wakati kwa akaunti ya mgeni:",
     "Exclude groups:" : "Usijumuishe vikundi:",
     "Ignore members of these groups from retention" : "Puuza washiriki wa vikundi hivi kutokana na kubaki"
 },

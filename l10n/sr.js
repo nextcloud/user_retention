@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Искључивање налога:",
     "days" : "дана",
     "(0 to disable)" : "(0 да искључите)",
-    "Account expiration:" : "Истек налога:",
     "Guest account disabling:" : "Искључивање налога госта:",
-    "Guest account expiration:" : "Истек налога госта:",
     "Exclude groups:" : "Искључене групе:",
     "Ignore members of these groups from retention" : "Изузми чланове следећих група од задржавања"
 },

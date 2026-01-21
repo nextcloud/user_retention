@@ -17,8 +17,6 @@
     "Keep accounts that never logged in" : "Zachowaj konta, na które nigdy się nie logowano",
     "days" : "dni",
     "(0 to disable)" : "(0 aby zablokować)",
-    "Account expiration:" : "Wygaśnięcie konta:",
-    "Guest account expiration:" : "Wygaśnięcie konta gościa:",
     "Exclude groups:" : "Wyłącz grupy:",
     "Ignore members of these groups from retention" : "Ignoruj członków tych grup z przechowywania"
 },"pluralForm" :"nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);"

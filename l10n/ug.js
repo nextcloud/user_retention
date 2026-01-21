@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "ھېساباتنى چەكلەش:",
     "days" : "كۈنلەر",
     "(0 to disable)" : "(0 نى چەكلەش)",
-    "Account expiration:" : "ھېسابات مۇددىتى:",
     "Guest account disabling:" : "مېھمان ھېساباتىنى چەكلەش:",
-    "Guest account expiration:" : "مېھمان ھېساباتىنىڭ ۋاقتى:",
     "Exclude groups:" : "گۇرۇپپىلارنى ئۆز ئىچىگە ئالمايدۇ:",
     "Ignore members of these groups from retention" : "بۇ گۇرۇپپىلارنىڭ ئەزالىرىنى ساقلاپ قېلىشقا پەرۋا قىلماڭ"
 },

@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Desactivación da conta:",
     "days" : "días",
     "(0 to disable)" : "(0 para desactivar)",
-    "Account expiration:" : "Caducidade da conta:",
     "Guest account disabling:" : "Desactivación da conta de convidado:",
-    "Guest account expiration:" : "Caducidade da conta de convidado:",
     "Exclude groups:" : "Excluír grupos:",
     "Ignore members of these groups from retention" : "Ignorar aos membros destes grupos de retención"
 },

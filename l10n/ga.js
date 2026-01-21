@@ -21,9 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Cuntas á dhíchumasú:",
     "days" : "laethanta",
     "(0 to disable)" : "(0 le díchumasú)",
-    "Account expiration:" : "Dul in éag cuntais:",
     "Guest account disabling:" : "Cuntas aoi díchumasaithe:",
-    "Guest account expiration:" : "Dul in éag an chuntais aoi:",
     "Exclude groups:" : "Fág grúpaí:",
     "Ignore members of these groups from retention" : "Déan neamhaird de bhaill na ngrúpaí seo ó choinneáil"
 },
