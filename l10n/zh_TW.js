@@ -21,7 +21,9 @@ OC.L10N.register(
     "Account disabling:" : "帳號停用：",
     "days" : "日",
     "(0 to disable)" : "（設定為 0 以停用）",
+    "Account deletion:" : "帳號刪除：",
     "Guest account disabling:" : "訪客帳號停用：",
+    "Guest account deletion:" : "訪客帳號刪除：",
     "Exclude groups:" : "排除群組：",
     "Ignore members of these groups from retention" : "從保留中忽略這些群組的成員"
 },
