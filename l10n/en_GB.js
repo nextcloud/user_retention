@@ -21,7 +21,9 @@ OC.L10N.register(
     "Account disabling:" : "Account disabling:",
     "days" : "days",
     "(0 to disable)" : "(0 to disable)",
+    "Account deletion:" : "Account deletion:",
     "Guest account disabling:" : "Guest account disabling:",
+    "Guest account deletion:" : "Guest account deletion:",
     "Exclude groups:" : "Exclude groups:",
     "Ignore members of these groups from retention" : "Ignore members of these groups from retention"
 },

@@ -19,7 +19,9 @@
     "Account disabling:" : "Cuntas á dhíchumasú:",
     "days" : "laethanta",
     "(0 to disable)" : "(0 le díchumasú)",
+    "Account deletion:" : "Scriosadh cuntais:",
     "Guest account disabling:" : "Cuntas aoi díchumasaithe:",
+    "Guest account deletion:" : "Scriosadh cuntais aoi:",
     "Exclude groups:" : "Fág grúpaí:",
     "Ignore members of these groups from retention" : "Déan neamhaird de bhaill na ngrúpaí seo ó choinneáil"
 },"pluralForm" :"nplurals=5; plural=(n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : 4);"
