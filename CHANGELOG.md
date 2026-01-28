@@ -5,6 +5,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.16.0 – 2026-01-28
+### Changed
+- ✨ Support Nextcloud 33
+- Update translations
+- Upgrade dependencies
+
 ## 1.15.0 – 2025-09-01
 ### Changed
 - ✨ Support Nextcloud 32
