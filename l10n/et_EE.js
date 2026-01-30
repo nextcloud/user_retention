@@ -21,7 +21,9 @@ OC.L10N.register(
     "Account disabling:" : "Kasutajakonto väljalülitamine:",
     "days" : "päeva",
     "(0 to disable)" : "(0 lülitab selle seadistuse välja)",
+    "Account deletion:" : "Kasutajakonto kustutamine:",
     "Guest account disabling:" : "Külaliskonto väljalülitamine:",
+    "Guest account deletion:" : "Külaliskonto kustutamine:",
     "Exclude groups:" : "Välista grupid:",
     "Ignore members of these groups from retention" : "Nende gruppide puhul eira säilitusreegleid"
 },

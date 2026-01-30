@@ -21,6 +21,7 @@ OC.L10N.register(
     "Account disabling:" : "Znepřístupnění účtu:",
     "days" : "dnů",
     "(0 to disable)" : "(0 nula pro vypnutí)",
+    "Account deletion:" : "Smazání účtu:",
     "Guest account disabling:" : "Znepřístupnění účtu hosta:",
     "Exclude groups:" : "Vynechat skupiny:",
     "Ignore members of these groups from retention" : "Nikdy automaticky nemazat účty uživatelů z těchto skupin"
