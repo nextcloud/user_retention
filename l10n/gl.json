@@ -19,7 +19,9 @@
     "Account disabling:" : "Desactivación da conta:",
     "days" : "días",
     "(0 to disable)" : "(0 para desactivar)",
+    "Account deletion:" : "Eliminación de conta:",
     "Guest account disabling:" : "Desactivación da conta de convidado:",
+    "Guest account deletion:" : "Eliminación da conta de convidado:",
     "Exclude groups:" : "Excluír grupos:",
     "Ignore members of these groups from retention" : "Ignorar aos membros destes grupos de retención"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
