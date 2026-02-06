@@ -1,7 +1,28 @@
 { "translations": {
+    "Important information regarding your account" : "Važne informacije o vašem računu",
     "Account deletion" : "Brisanje računa",
+    "You have not used your account since {date}." : "Niste koristili svoj račun od {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Zbog konfigurirane politike računa, neaktivni računi bit će onemogućeni nakon 1 dan.","Zbog konfigurirane politike računa, neaktivni računi bit će onemogućeni nakon %n dana.","Zbog konfigurirane politike računa, neaktivni računi bit će onemogućeni nakon %n dana."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Zbog konfigurirane politike računa, neaktivni računi bit će izbrisani nakon %n dan.","Zbog konfigurirane politike računa, neaktivni računi bit će izbrisani nakon %n dana.","Zbog konfigurirane politike računa, neaktivni računi bit će izbrisani nakon %n dana."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Kako biste zadržali svoj račun, dovoljno je da se prijavite putem preglednika ili povežete pomoću desktop ili mobilne aplikacije. U suprotnom će vaš račun i svi povezani podaci biti trajno izbrisani.",
+    "If you have any questions, please contact your administration." : "Ako imate bilo kakva pitanja, obratite se svojoj administraciji.",
+    "Account retention (formerly User retention)" : "Zadržavanje računa (ranije zadržavanje korisnika)",
+    "Deletes accounts that did not login in the last days." : "Briše račune koji se nisu prijavili u posljednjih nekoliko dana.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Računi se brišu ako se nisu prijavili unutar zadanog broja dana. Time će se također izbrisati sve datoteke i ostali podaci povezani s računom.\n\n* 🛂 Moguće je različito zadržavanje za obične račune i račune aplikacije [Gosti](https://apps.nextcloud.com/apps/guests)\n* ⛔ Izuzmi račune na temelju članstva u grupama (zadano: administratorska grupa)\n* 🔑 Izuzmi račune koji se nikada nisu prijavili (zadano: omogućeno)",
+    "Could not fetch groups" : "Nije moguće dohvatiti grupe",
+    "Setting saved" : "Postavka je spremljena",
+    "Could not save the setting" : "Nije moguće spremiti postavku",
+    "Account retention" : "Zadržavanje računa",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Računi se brišu ako se nisu prijavili unutar zadanog broja dana. Time će se također izbrisati sve datoteke i ostali podaci povezani s računom.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Računi iz LDAP-a brišu se samo lokalno, osim ako je omogućena aplikacija za LDAP podršku pisanja. Ako su i dalje dostupni u LDAP-u, računi će se ponovno pojaviti.",
+    "Keep accounts that never logged in" : "Zadrži račune koji se nikada nisu prijavili",
+    "Account disabling:" : "Onemogućavanje računa:",
     "days" : "dana",
     "(0 to disable)" : "(0 za onemogućivanje)",
-    "Exclude groups:" : "Izuzmi grupe:"
+    "Account deletion:" : "Brisanje računa:",
+    "Guest account disabling:" : "Onemogućavanje gostujućih računa:",
+    "Guest account deletion:" : "Brisanje gostujućih računa:",
+    "Exclude groups:" : "Izuzmi grupe:",
+    "Ignore members of these groups from retention" : "Zanemari članove ovih grupa pri zadržavanju"
 },"pluralForm" :"nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;"
 }
