@@ -1,6 +1,22 @@
 { "translations": {
+    "Important information regarding your account" : "Таны бүртгэлтэй холбоотой чухал мэдээлэл",
     "Account deletion" : "Бүртгэл устгах",
+    "You have not used your account since {date}." : "Та {date}-аас хойш бүртгэлээ ашиглаагүй байна.",
+    "If you have any questions, please contact your administration." : "Хэрэв асуулт байвал администрацитайгаа холбогдоно уу.",
+    "Account retention (formerly User retention)" : "Бүртгэлийн хадгалалт (өмнө нь Хэрэглэгчийн хадгалалт)",
+    "Deletes accounts that did not login in the last days." : "Сүүлийн хэдэн хоногт нэвтрээгүй бүртгэлүүдийг устгана.",
+    "Could not fetch groups" : "Бүлгүүдийг авч чадсангүй",
     "Setting saved" : "Тохиргоо хадгалагдлаа",
-    "days" : "Ó©Ð´Ñ€Ò¯Ò¯Ð´"
+    "Could not save the setting" : "Тохиргоог хадгалж чадсангүй",
+    "Account retention" : "Бүртгэлийн хадгалалт",
+    "Keep accounts that never logged in" : "Хэзээ ч нэвтрээгүй бүртгэлүүдийг хадгалах",
+    "Account disabling:" : "Бүртгэл идэвхгүй болгох:",
+    "days" : "Ó©Ð´Ñ€Ò¯Ò¯Ð´",
+    "(0 to disable)" : "(0 гэж идэвхгүй болгох)",
+    "Account deletion:" : "Бүртгэл устгах:",
+    "Guest account disabling:" : "Зочны бүртгэл идэвхгүй болгох:",
+    "Guest account deletion:" : "Зочны бүртгэл устгах:",
+    "Exclude groups:" : "Бүлгүүдийг хасах:",
+    "Ignore members of these groups from retention" : "Эдгээр бүлгийн гишүүдийг хадгалалтаас хасах"
 },"pluralForm" :"nplurals=2; plural=(n != 1);"
 }
