@@ -19,7 +19,9 @@
     "Account disabling:" : "アカウントの無効化:",
     "days" : "日",
     "(0 to disable)" : "（無効にするには0）",
+    "Account deletion:" : "アカウント削除:",
     "Guest account disabling:" : "ゲストアカウントの無効化:",
+    "Guest account deletion:" : "ゲストアカウント削除:",
     "Exclude groups:" : "グループを除外:",
     "Ignore members of these groups from retention" : "これらのグループのメンバーをリテンションから無視する"
 },"pluralForm" :"nplurals=1; plural=0;"
