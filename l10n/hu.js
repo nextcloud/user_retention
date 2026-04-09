@@ -21,7 +21,9 @@ OC.L10N.register(
     "Account disabling:" : "Fiók letiltása:",
     "days" : "nap",
     "(0 to disable)" : "(0 a kikapcsoláshoz)",
+    "Account deletion:" : "Fiók törlése:",
     "Guest account disabling:" : "Vendégfiók letiltása:",
+    "Guest account deletion:" : "Vendégfiók törlése:",
     "Exclude groups:" : "Csoportok kizárása:",
     "Ignore members of these groups from retention" : "Ezen csoportok tagjainak figyelmen kívül hagyása a megtartás szempontjából"
 },
