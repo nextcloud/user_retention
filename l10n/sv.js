@@ -19,7 +19,9 @@ OC.L10N.register(
     "Account disabling:" : "Inaktivering av konto:",
     "days" : "dagar",
     "(0 to disable)" : "(0 för att inaktivera)",
+    "Account deletion:" : "Radering av konto:",
     "Guest account disabling:" : "Inaktivering av gästkonto:",
+    "Guest account deletion:" : "Radering av gästkonto:",
     "Exclude groups:" : "Uteslut grupper:",
     "Ignore members of these groups from retention" : "Ignorera medlemmar i dessa grupper från radering"
 },
