@@ -1,8 +1,30 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Svarbi informacija apie jūsų paskyrą",
     "Account deletion" : "Paskyros ištrynimas",
+    "You have not used your account since {date}." : "Nuo {date} nenaudojote savo paskyros.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus išjungtos po %n dienos.","Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus išjungtos po %n dienų.","Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus išjungtos po %n dienų.","Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus išjungtos po %n dienų."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus ištrintos po %n dienos.","Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus ištrintos po %n dienų.","Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus ištrintos po %n dienų.","Dėl sukonfigūruotos paskyrų politikos neaktyvios paskyros bus ištrintos po  %n dienų."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Norėdami išsaugoti paskyrą, jums tereikia prisijungti per naršyklę arba per darbalaukio ar mobiliąją programėlę. Priešingu atveju jūsų paskyra ir visi su ja susiję duomenys bus visam laikui ištrinti.",
+    "If you have any questions, please contact your administration." : "Jei turite klausimų, susisiekite su savo administracija.",
+    "Account retention (formerly User retention)" : "Paskyros išlaikymas (anksčiau – Vartotojo išlaikymas)",
+    "Deletes accounts that did not login in the last days." : "Ištrina paskyras, prie kurių nebuvo prisijungta pastarosiomis dienomis.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Paskyros ištrinamos, jei per nustatytą dienų skaičių į jas nebuvo prisijungta. Tuomet taip pat bus ištrinti visi su paskyra susiję failai ir kiti duomenys.\n\n* 🛂 Įprastoms paskyroms ir [svečių programėlės](https://apps.nextcloud.com/apps/guests) paskyroms gali būti taikomi skirtingi saugojimo terminai\n* ⛔ Išskirti paskyras pagal priklausymą grupėms (numatyta: administratorių grupė)\n* 🔑 Išskirti paskyras, kurios niekada neprisijungė (numatyta: įjungta)",
+    "Could not fetch groups" : "Nepavyko gauti grupių",
+    "Setting saved" : "Nustatymas įrašytas",
+    "Could not save the setting" : "Nepavyko įrašyti nustatymų",
+    "Account retention" : "Paskyros išlaikymas",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Paskyros ištrinamos, jei prie jų neprisijungiama per nurodytą dienų skaičių. Taip pat bus ištrinti visi su paskyra susiję failai ir kiti duomenys.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Paskyros iš LDAP ištrinamos tik lokaliai, nebent įjungta LDAP rašymo palaikymo programėlė. Kai paskyros vis dar pasiekiamos LDAP, jos vėl bus rodomos.",
+    "Keep accounts that never logged in" : "Išsaugoti paskyras, prie kurių niekada nebuvo prisijungta",
+    "Account disabling:" : "Paskyros išjungimas:",
     "days" : "dienų",
-    "(0 to disable)" : "(0, kad būtų išjungta)"
+    "(0 to disable)" : "(0, kad būtų išjungta)",
+    "Account deletion:" : "Paskyros ištrynimas:",
+    "Guest account disabling:" : "Svečio paskyros išjungimas:",
+    "Guest account deletion:" : "Svečio paskyros ištrynimas:",
+    "Exclude groups:" : "Išskirti grupes:",
+    "Ignore members of these groups from retention" : "Ignoruoti šių grupių narius išsaugant duomenis"
 },
 "nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);");
