@@ -1,0 +1,14 @@
+/*!
+ * SPDX-FileCopyrightText: 2026 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-License-Identifier: AGPL-3.0-or-later
+ */
+
+{
+	// Dummy tsconfig for Cypress
+	// Otherwise it tries to go up to the server root and uses server's tsconfig
+	"include": ["cypress/**/*.js"],
+	"compilerOptions": {
+		"allowJs": true,
+		"noEmit": true
+	},
+}
