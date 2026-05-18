@@ -180,7 +180,7 @@ export default {
 		},
 
 		saveUserDaysDisable() {
-			OCP.AppConfig.setValue('user_retention', 'user_days_disable', this.userDaysDisable, {
+			OCP.AppConfig.setValue('user_retention', 'user_days_disable', this.userDaysDisable.toString(), {
 				success: () => {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
@@ -191,7 +191,7 @@ export default {
 		},
 
 		saveUserDays() {
-			OCP.AppConfig.setValue('user_retention', 'user_days', this.userDays, {
+			OCP.AppConfig.setValue('user_retention', 'user_days', this.userDays.toString(), {
 				success: () => {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
@@ -202,7 +202,7 @@ export default {
 		},
 
 		saveGuestDaysDisable() {
-			OCP.AppConfig.setValue('user_retention', 'guest_days_disable', this.guestDaysDisable, {
+			OCP.AppConfig.setValue('user_retention', 'guest_days_disable', this.guestDaysDisable.toString(), {
 				success: () => {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
@@ -213,7 +213,7 @@ export default {
 		},
 
 		saveGuestDays() {
-			OCP.AppConfig.setValue('user_retention', 'guest_days', this.guestDays, {
+			OCP.AppConfig.setValue('user_retention', 'guest_days', this.guestDays.toString(), {
 				success: () => {
 					showSuccess(t('user_retention', 'Setting saved'))
 				},
