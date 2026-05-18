@@ -166,9 +166,8 @@ export default {
 				this.groups = response.data.ocs.data.groups.sort(function(a, b) {
 					return a.displayname.localeCompare(b.displayname)
 				})
-			} catch (err) {
+			} catch {
 				showError(t('user_retention', 'Could not fetch groups'))
-				console.error('Could not fetch groups', err)
 			} finally {
 				this.loadingGroups = false
 			}
