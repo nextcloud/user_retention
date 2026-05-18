@@ -16,7 +16,8 @@
 		</p>
 
 		<div>
-			<NcCheckboxRadioSwitch id="keep_users_without_login"
+			<NcCheckboxRadioSwitch
+				id="keep_users_without_login"
 				v-model="keepUsersWithoutLogin"
 				@update:modelValue="saveKeepUsersWithoutLogin">
 				{{ t('user_retention', 'Keep accounts that never logged in') }}
@@ -26,7 +27,8 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Account disabling:') }}</span>
-				<input id="user_days_disable"
+				<input
+					id="user_days_disable"
 					v-model="userDaysDisable"
 					type="number"
 					placeholder="180"
@@ -38,7 +40,8 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Account deletion:') }}</span>
-				<input id="user_days"
+				<input
+					id="user_days"
 					v-model="userDays"
 					type="number"
 					placeholder="180"
@@ -50,7 +53,8 @@
 		<div v-if="guestsAppInstalled">
 			<label>
 				<span>{{ t('user_retention', 'Guest account disabling:') }}</span>
-				<input id="guest_days_disable"
+				<input
+					id="guest_days_disable"
 					v-model="guestDaysDisable"
 					type="number"
 					placeholder="180"
@@ -62,7 +66,8 @@
 		<div v-if="guestsAppInstalled">
 			<label>
 				<span>{{ t('user_retention', 'Guest account deletion:') }}</span>
-				<input id="guest_days"
+				<input
+					id="guest_days"
 					v-model="guestDays"
 					type="number"
 					placeholder="180"
@@ -74,14 +79,15 @@
 		<div>
 			<label>
 				<span>{{ t('user_retention', 'Exclude groups:') }}</span>
-				<NcSelect v-model="excludedGroups"
+				<NcSelect
+					v-model="excludedGroups"
 					class="exclude-groups-select"
 					:options="groups"
 					:placeholder="t('user_retention', 'Ignore members of these groups from retention')"
 					:disabled="loading"
 					:multiple="true"
 					:loading="loadingGroups"
-					keep-open
+					keepOpen
 					label="displayname"
 					@search="searchGroup"
 					@update:modelValue="saveExcludedGroups" />
@@ -92,16 +98,16 @@
 
 <script>
 import axios from '@nextcloud/axios'
-import debounce from 'debounce'
-import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
-import NcSelect from '@nextcloud/vue/components/NcSelect'
-import { generateOcsUrl } from '@nextcloud/router'
-import { loadState } from '@nextcloud/initial-state'
 import {
 	showError,
 	showSuccess,
 } from '@nextcloud/dialogs'
+import { loadState } from '@nextcloud/initial-state'
 import { t } from '@nextcloud/l10n'
+import { generateOcsUrl } from '@nextcloud/router'
+import debounce from 'debounce'
+import NcCheckboxRadioSwitch from '@nextcloud/vue/components/NcCheckboxRadioSwitch'
+import NcSelect from '@nextcloud/vue/components/NcSelect'
 
 export default {
 	name: 'AdminSettings',
@@ -227,7 +233,7 @@ export default {
 			this.loading = true
 			this.loadingGroups = true
 
-			const groups = this.excludedGroups.map(group => {
+			const groups = this.excludedGroups.map((group) => {
 				return group.id
 			})
 
