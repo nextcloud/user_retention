@@ -24,6 +24,7 @@ describe('Admin settings', function() {
 			.should('have.value', '0')
 		cy.get('#user_retention input#user_days_disable')
 			.clear()
+		cy.get('#user_retention input#user_days_disable')
 			.type('180{enter}')
 		cy.get('.toast-success').should('contain', 'Setting saved')
 
@@ -31,6 +32,7 @@ describe('Admin settings', function() {
 			.should('have.value', '0')
 		cy.get('#user_retention input#user_days')
 			.clear()
+		cy.get('#user_retention input#user_days')
 			.type('365{enter}')
 		cy.get('.toast-success').should('contain', 'Setting saved')
 
