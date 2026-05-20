@@ -5,6 +5,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 1.17.0 – 2026-05-20
+### Changed
+- ✨ Support Nextcloud 34
+- Migrate frontend to Vue 3 and Vite
+- Update translations
+- Upgrade dependencies
+
 ## 1.16.0 – 2026-01-28
 ### Changed
 - ✨ Support Nextcloud 33
