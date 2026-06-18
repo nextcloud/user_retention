@@ -4,6 +4,8 @@ OC.L10N.register(
     "Important information regarding your account" : "Важная информация, касающаяся вашей учетной записи",
     "Account deletion" : "Удаление учётной записи",
     "You have not used your account since {date}." : "Вы не использовали свой аккаунт с {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут отключены через %n день.","В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут отключены через %n дня.","В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут отключены через %n дней.","В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут отключены через %n дней."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут удалены через %n день.","В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут удалены через %n дня.","В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут удалены через %n дней.","В соответствии с настроенной политикой для учетных записей неактивные учетные записи будут удалены через %n дней."],
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Чтобы сохранить свою учетную запись, вам нужно только войти в систему с помощью браузера или подключиться с помощью настольного или мобильного приложения. В противном случае ваша учетная запись и все связанные данные будут удалены навсегда.",
     "If you have any questions, please contact your administration." : "Если у вас возникнут какие-либо вопросы, пожалуйста, свяжитесь с вашей администрацией.",
     "Account retention (formerly User retention)" : "Удержание аккаунта (ранее Удержание пользователя)",
@@ -19,7 +21,9 @@ OC.L10N.register(
     "Account disabling:" : "Отключение учетной записи:",
     "days" : "дней",
     "(0 to disable)" : "(0 — никогда не удалять)",
+    "Account deletion:" : "Удаление аккаунта:",
     "Guest account disabling:" : "Отключение гостевой учетной записи:",
+    "Guest account deletion:" : "Удаление гостевого аккаунта:",
     "Exclude groups:" : "Запретить удалять пользователей групп:",
     "Ignore members of these groups from retention" : "Игнорировать членов этих групп при сохранении"
 },
