@@ -8,6 +8,7 @@ OC.L10N.register(
     "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["På grund av den konfigurerade policyn för konton kommer inaktiva konton att raderas efter %n dag.","På grund av den konfigurerade policyn för konton kommer inaktiva konton att raderas efter %n dagar."],
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "För att behålla ditt konto behöver du bara logga in med din webbläsare eller ansluta med en klient eller mobilapp. Annars kommer ditt konto och all ansluten data att raderas permanent.",
     "If you have any questions, please contact your administration." : "Kontakta din administration om du har några frågor.",
+    "Account retention (formerly User retention)" : "Account retention (tidigare \"User retention\")",
     "Deletes accounts that did not login in the last days." : "Raderar konton som inte loggat in de senaste dagarna.",
     "Could not fetch groups" : "Det gick inte att hämta grupper",
     "Setting saved" : "Inställningen sparad",
