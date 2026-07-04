@@ -19,6 +19,7 @@ OC.L10N.register(
     "(0 to disable)" : "(0 para desativar)",
     "Account deletion:" : "Exclusão da conta:",
     "Guest account deletion:" : "Exclusão da conta do convidado:",
-    "Exclude groups:" : "Excluir grupos:"
+    "Exclude groups:" : "Excluir grupos:",
+    "Ignore members of these groups from retention" : "Ignorar membros destes grupos da retenção"
 },
 "nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;");
