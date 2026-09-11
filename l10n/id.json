@@ -1,5 +1,28 @@
 { "translations": {
+    "Important information regarding your account" : "Informasi penting mengenai akun Anda",
     "Account deletion" : "Penghapusan akun",
-    "days" : "hari"
+    "You have not used your account since {date}." : "Anda belum menggunakan akun sejak {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Sesuai kebijakan akun yang dikonfigurasi, akun tidak aktif akan dinonaktifkan setelah %n hari."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Sesuai kebijakan akun yang dikonfigurasi, akun tidak aktif akan dihapus setelah %n hari."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Untuk mempertahankan akun, Anda hanya perlu masuk melalui browser atau terhubung menggunakan aplikasi desktop maupun seluler. Jika tidak, akun Anda beserta seluruh data yang terhubung akan dihapus secara permanen.",
+    "If you have any questions, please contact your administration." : "Jika Anda memiliki pertanyaan, silakan hubungi administrator Anda.",
+    "Account retention (formerly User retention)" : "Retensi akun (sebelumnya Retensi pengguna)",
+    "Deletes accounts that did not login in the last days." : "Menghapus akun yang tidak masuk dalam beberapa hari terakhir.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Akun akan dihapus jika tidak masuk dalam jumlah hari yang ditentukan. Tindakan ini juga akan menghapus semua file dan data lain yang terkait dengan akun.\n\n* 🛂 Retensi yang berbeda dapat diterapkan untuk akun biasa dan akun dari [aplikasi Tamu](https://apps.nextcloud.com/apps/guests)\n* ⛔ Kecualikan akun berdasarkan keanggotaan grup (default: grup admin)\n* 🔑 Kecualikan akun yang belum pernah masuk (default: diaktifkan)",
+    "Could not fetch groups" : "Tidak dapat mengambil grup",
+    "Setting saved" : "Pengaturan disimpan",
+    "Could not save the setting" : "Tidak dapat menyimpan pengaturan",
+    "Account retention" : "Retensi akun",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Akun akan dihapus jika tidak masuk dalam jumlah hari yang ditentukan. Tindakan ini juga akan menghapus semua file dan data lain yang terkait dengan akun.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Akun dari LDAP hanya dihapus secara lokal, kecuali aplikasi dukungan penulisan LDAP diaktifkan. Jika masih tersedia di LDAP, akun akan muncul kembali.",
+    "Keep accounts that never logged in" : "Pertahankan akun yang belum pernah masuk",
+    "Account disabling:" : "Penonaktifan akun:",
+    "days" : "hari",
+    "(0 to disable)" : "(0 untuk menonaktifkan)",
+    "Account deletion:" : "Penghapusan akun:",
+    "Guest account disabling:" : "Penonaktifan akun tamu:",
+    "Guest account deletion:" : "Penghapusan akun tamu:",
+    "Exclude groups:" : "Kecualikan grup:",
+    "Ignore members of these groups from retention" : "Abaikan anggota grup ini dari retensi"
 },"pluralForm" :"nplurals=1; plural=0;"
 }
