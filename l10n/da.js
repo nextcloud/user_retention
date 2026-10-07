@@ -1,12 +1,30 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Important information regarding your account" : "Vigtige oplysninger om din konto",
     "Account deletion" : "Sletning af konto",
+    "You have not used your account since {date}." : "Du har ikke brugt din konto siden {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["På grund af den konfigurerede politik for konti bliver inaktive konti deaktiveret efter %n dag.","På grund af den konfigurerede politik for konti bliver inaktive konti deaktiveret efter %n dage."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["På grund af den konfigurerede politik for konti bliver inaktive konti slettet efter %n dag.","På grund af den konfigurerede politik for konti bliver inaktive konti slettet efter %n dage."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "For at beholde din konto skal du blot logge ind i din browser eller forbinde med en skrivebords- eller mobil-app. Ellers bliver din konto og alle tilknyttede data slettet permanent.",
+    "If you have any questions, please contact your administration." : "Kontakt din administration, hvis du har spørgsmål.",
+    "Account retention (formerly User retention)" : "Opbevaring af konti (tidligere User retention)",
+    "Deletes accounts that did not login in the last days." : "Sletter konti, der ikke har logget ind i de seneste dage.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Konti slettes, når de ikke har logget ind inden for det angivne antal dage. Det sletter også alle filer og andre data, der hører til kontoen.\n\n* 🛂 Forskellig opbevaring mulig for almindelige konti og konti fra [appen Gæster](https://apps.nextcloud.com/apps/guests)\n* ⛔ Udeluk konti ud fra gruppemedlemskab (standard: administratorgruppen)\n* 🔑 Udeluk konti, der aldrig har logget ind (standard: slået til)",
     "Could not fetch groups" : "Kunne ikke hente grupper",
     "Setting saved" : "Indstilinger gemt",
     "Could not save the setting" : "Kunne ikke gemme indstillinger",
+    "Account retention" : "Opbevaring af konti",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Konti slettes, når de ikke har logget ind inden for det angivne antal dage. Det sletter også alle filer og andre data, der hører til kontoen.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Konti fra LDAP slettes kun lokalt, medmindre appen LDAP write support er slået til. Hvis kontiene stadig findes i LDAP, dukker de op igen.",
+    "Keep accounts that never logged in" : "Behold konti, der aldrig har logget ind",
+    "Account disabling:" : "Deaktivering af konti:",
     "days" : "dage",
     "(0 to disable)" : "(0 for at deaktivere)",
-    "Exclude groups:" : "Ekskluder grupper:"
+    "Account deletion:" : "Sletning af konti:",
+    "Guest account disabling:" : "Deaktivering af gæstekonti:",
+    "Guest account deletion:" : "Sletning af gæstekonti:",
+    "Exclude groups:" : "Ekskluder grupper:",
+    "Ignore members of these groups from retention" : "Undtag medlemmer af disse grupper fra opbevaringsreglerne"
 },
 "nplurals=2; plural=(n != 1);");
