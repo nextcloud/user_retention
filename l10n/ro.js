@@ -1,6 +1,7 @@
 OC.L10N.register(
     "user_retention",
     {
+    "Account deletion" : "Ștergerea contului",
     "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Ca să păstrați contul este necesar doar să vă conectați din browser sau cu o aplicație desktop sau mobilă. Altfel contul va fi șters permanent împreună cu toate datele conexe.",
     "Deletes accounts that did not login in the last days." : "Șterge conturile care nu s-au autentificat în ultimul timp.",
     "days" : "zile",
