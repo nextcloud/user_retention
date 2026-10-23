@@ -1,10 +1,28 @@
 { "translations": {
+    "Important information regarding your account" : "Informații importante despre contul tău",
     "Account deletion" : "Ștergerea contului",
-    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Ca să păstrați contul este necesar doar să vă conectați din browser sau cu o aplicație desktop sau mobilă. Altfel contul va fi șters permanent împreună cu toate datele conexe.",
+    "You have not used your account since {date}." : "Nu ți-ai mai folosit contul din {date}.",
+    "_Due to the configured policy for accounts, inactive accounts will be disabled after %n day._::_Due to the configured policy for accounts, inactive accounts will be disabled after %n days._" : ["Conform politicii configurate pentru conturi, conturile inactive vor fi dezactivate după %n zi.","Conform politicii configurate pentru conturi, conturile inactive vor fi dezactivate după %n zile.","Conform politicii configurate pentru conturi, conturile inactive vor fi dezactivate după %n de zile."],
+    "_Due to the configured policy for accounts, inactive accounts will be deleted after %n day._::_Due to the configured policy for accounts, inactive accounts will be deleted after %n days._" : ["Conform politicii configurate pentru conturi, conturile inactive vor fi șterse după %n zi.","Conform politicii configurate pentru conturi, conturile inactive vor fi șterse după %n zile.","Conform politicii configurate pentru conturi, conturile inactive vor fi șterse după %n de zile."],
+    "To keep your account you only need to login with your browser or connect with a desktop or mobile app. Otherwise your account and all the connected data will be permanently deleted." : "Pentru a-ți păstra contul, trebuie doar să te autentifici din browser sau să te conectezi cu o aplicație desktop sau mobilă. Altfel, contul tău și toate datele asociate vor fi șterse definitiv.",
+    "If you have any questions, please contact your administration." : "Dacă ai întrebări, contactează administratorul.",
+    "Account retention (formerly User retention)" : "Retenția conturilor (fostă Retenția utilizatorilor)",
     "Deletes accounts that did not login in the last days." : "Șterge conturile care nu s-au autentificat în ultimul timp.",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account.\n\n* 🛂 Different retention possible for normal accounts and accounts of the [guests app](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude accounts based on group memberships (default: admin group)\n* 🔑 Exclude accounts that never logged in (default: enabled)" : "Conturile sunt șterse dacă nu s-au autentificat în numărul de zile specificat. Se vor șterge și toate fișierele și celelalte date asociate contului.\n\n* 🛂 Retenție diferită pentru conturile obișnuite și pentru conturile din [aplicația Invitați](https://apps.nextcloud.com/apps/guests)\n* ⛔ Exclude conturi pe baza apartenenței la grupuri (implicit: grupul de administratori)\n* 🔑 Exclude conturile care nu s-au autentificat niciodată (implicit: activat)",
+    "Could not fetch groups" : "Grupurile nu au putut fi preluate",
+    "Setting saved" : "Setarea a fost salvată",
     "Could not save the setting" : "Setarea nu a putut fi salvată",
+    "Account retention" : "Retenția conturilor",
+    "Accounts are deleted when they did not log in within the given number of days. This will also delete all files and other data associated with the account." : "Conturile sunt șterse dacă nu s-au autentificat în numărul de zile specificat. Se vor șterge și toate fișierele și celelalte date asociate contului.",
+    "Accounts from LDAP are deleted locally only, unless the LDAP write support app is enabled. When still available on LDAP, accounts will reappear." : "Conturile din LDAP sunt șterse doar local, cu excepția cazului în care aplicația LDAP write support este activată. Dacă sunt încă disponibile în LDAP, conturile vor reapărea.",
+    "Keep accounts that never logged in" : "Păstrează conturile care nu s-au autentificat niciodată",
+    "Account disabling:" : "Dezactivarea contului:",
     "days" : "zile",
     "(0 to disable)" : "(0 pentru dezactivare)",
-    "Exclude groups:" : "Exclude grupuri:"
+    "Account deletion:" : "Ștergerea contului:",
+    "Guest account disabling:" : "Dezactivarea contului de invitat:",
+    "Guest account deletion:" : "Ștergerea contului de invitat:",
+    "Exclude groups:" : "Exclude grupuri:",
+    "Ignore members of these groups from retention" : "Exclude membrii acestor grupuri de la retenție"
 },"pluralForm" :"nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));"
 }
