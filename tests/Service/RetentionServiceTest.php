@@ -15,12 +15,12 @@ use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IGroupManager;
-use OCP\IServerContainer;
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\L10N\IFactory;
 use OCP\Mail\IMailer;
 use PHPUnit\Framework\MockObject\MockObject;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Test\TestCase;
 
@@ -30,7 +30,7 @@ class RetentionServiceTest extends TestCase {
 	protected IUserManager&MockObject $userManager;
 	protected IGroupManager&MockObject $groupManager;
 	protected ITimeFactory&MockObject $timeFactory;
-	protected IServerContainer&MockObject $container;
+	protected ContainerInterface&MockObject $container;
 	protected IMailer&MockObject $mailer;
 	protected IFactory&MockObject $l10nFactory;
 	protected LoggerInterface&MockObject $logger;
@@ -43,7 +43,7 @@ class RetentionServiceTest extends TestCase {
 		$this->userManager = $this->createMock(IUserManager::class);
 		$this->groupManager = $this->createMock(IGroupManager::class);
 		$this->timeFactory = $this->createMock(ITimeFactory::class);
-		$this->container = $this->createMock(IServerContainer::class);
+		$this->container = $this->createMock(ContainerInterface::class);
 		$this->mailer = $this->createMock(IMailer::class);
 		$this->l10nFactory = $this->createMock(IFactory::class);
 		$this->logger = $this->createMock(LoggerInterface::class);
