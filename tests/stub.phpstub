@@ -4,15 +4,6 @@ declare(strict_types=1);
 // SPDX-FileCopyrightText: 2023 Jonas <jonas@freesources.org>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
-namespace {
-    use OCP\IServerContainer;
-
-    class OC {
-        /** @var IServerContainer */
-        static $server;
-    }
-}
-
 namespace OC\Authentication\Token {
     use OCP\AppFramework\Db\Entity;
 
