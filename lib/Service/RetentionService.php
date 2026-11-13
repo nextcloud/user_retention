@@ -15,13 +15,13 @@ use OCP\AppFramework\Services\IAppConfig;
 use OCP\AppFramework\Utility\ITimeFactory;
 use OCP\IConfig;
 use OCP\IGroupManager;
-use OCP\IServerContainer;
 use OCP\IUser;
 use OCP\IUserManager;
 use OCP\L10N\IFactory;
 use OCP\LDAP\IDeletionFlagSupport;
 use OCP\LDAP\ILDAPProvider;
 use OCP\Mail\IMailer;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
 class RetentionService {
@@ -44,7 +44,7 @@ class RetentionService {
 		protected IUserManager $userManager,
 		protected IGroupManager $groupManager,
 		protected ITimeFactory $time,
-		protected IServerContainer $server,
+		protected ContainerInterface $server,
 		protected IMailer $mailer,
 		protected IFactory $l10nFactory,
 		protected LoggerInterface $logger,
