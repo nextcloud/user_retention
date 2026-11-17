@@ -24,7 +24,7 @@ OC.L10N.register(
     "Account deletion:" : "Kontenlöschung:",
     "Guest account disabling:" : "Gast-Konto deaktivieren:",
     "Guest account deletion:" : "Gastkonto-Löschung:",
-    "Exclude groups:" : "Gruppen auschließen:",
+    "Exclude groups:" : "Gruppen ausschließen:",
     "Ignore members of these groups from retention" : "Mitglieder dieser Gruppen von der Aufbewahrung ausschließen"
 },
 "nplurals=2; plural=(n != 1);");
