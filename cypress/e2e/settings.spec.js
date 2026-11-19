@@ -11,7 +11,7 @@ describe('Admin settings', function() {
 	})
 
 	it('Change all settings', function() {
-		cy.visit('/settings/admin')
+		cy.visit('/settings/admin/server')
 		cy.get('#user_retention h2')
 			.should('contain', 'Account retention')
 		cy.get('#user_retention input#keep_users_without_login')
