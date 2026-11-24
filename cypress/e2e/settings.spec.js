@@ -18,7 +18,7 @@ describe('Admin settings', function() {
 			.should('be.checked')
 		cy.get('#user_retention span#keep_users_without_login-label')
 			.click()
-		cy.get('.toast-success').should('contain', 'Setting saved')
+		cy.get('[role="status"]').should('contain', 'Setting saved')
 
 		cy.get('#user_retention input#user_days_disable')
 			.should('have.value', '0')
@@ -26,7 +26,7 @@ describe('Admin settings', function() {
 			.clear()
 		cy.get('#user_retention input#user_days_disable')
 			.type('180{enter}')
-		cy.get('.toast-success').should('contain', 'Setting saved')
+		cy.get('[role="status"]').should('contain', 'Setting saved')
 
 		cy.get('#user_retention input#user_days')
 			.should('have.value', '0')
@@ -34,7 +34,7 @@ describe('Admin settings', function() {
 			.clear()
 		cy.get('#user_retention input#user_days')
 			.type('365{enter}')
-		cy.get('.toast-success').should('contain', 'Setting saved')
+		cy.get('[role="status"]').should('contain', 'Setting saved')
 
 		cy.reload()
 
