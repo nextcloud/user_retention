@@ -4,9 +4,6 @@
  */
 import { addCommands } from '@nextcloud/e2e-test-server/cypress'
 
-const url = Cypress.config('baseUrl').replace(/\/index.php\/?$/g, '')
-Cypress.env('baseUrl', url)
-
 addCommands()
 
 Cypress.on('uncaught:exception', (err) => {
