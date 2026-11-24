@@ -101,7 +101,7 @@ import axios from '@nextcloud/axios'
 import {
 	showError,
 	showSuccess,
-} from '@nextcloud/dialogs'
+} from '@nextcloud/dialogs/toast'
 import { loadState } from '@nextcloud/initial-state'
 import { t } from '@nextcloud/l10n'
 import { generateOcsUrl } from '@nextcloud/router'
